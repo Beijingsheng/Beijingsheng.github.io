@@ -310,9 +310,11 @@ window.onload = function() {
           function playAudio(e) {
             if (isPlaying){
               au.pause();
+              player.playVideo();
               au.currentTime = 0;
             } else {
               au.play();
+              player.pauseVideo();
               console.log(e.target);
               // upload log
               var playAudioTimestamp = cursor.value.timestamp;
