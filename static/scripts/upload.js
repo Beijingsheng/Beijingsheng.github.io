@@ -8,7 +8,11 @@ var firebaseConfig = {
   apiKey: "AIzaSyAKuLIV3WXcOs2udh2mbodDEzv3-fVOvPA",
   authDomain: "note-taking-audio.firebaseapp.com",
   databaseURL: "https://note-taking-audio.firebaseio.com",
-  storageBucket: "note-taking-audio.appspot.com"
+  projectId: "note-taking-audio",
+  storageBucket: "note-taking-audio.appspot.com",
+  messagingSenderId: "816299169672",
+  appId: "1:816299169672:web:b21bbb75e1431b1d1bcc3d",
+  measurementId: "G-MECTHWQJ7F"
 };
 firebase.initializeApp(firebaseConfig);
 
