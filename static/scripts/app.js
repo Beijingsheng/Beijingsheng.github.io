@@ -433,6 +433,8 @@ window.onload = function() {
         gumStream = stream;
         input = audioContext.createMediaStreamSource(stream);
 
+        audioContext.close();
+
         rec = new Recorder(input,{numChannels:1});
         rec.record()
 
