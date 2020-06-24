@@ -310,7 +310,6 @@ window.onload = function() {
           function playAudio(e) {
             if (isPlaying){
               au.pause();
-              player.playVideo();
               au.currentTime = 0;
             } else {
               au.play();
