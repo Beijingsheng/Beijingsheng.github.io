@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="windows-1252">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+</style>
+<body>
+<div class="header">
+  <div class="col-md-10 text-center">
+    <h1>Audio Note-taking</h1>
+  </div>
+</div>
+<!-- <div class="col-sm-6 first-column">
+  <p>This Tool helps you take audio note when watching video.</p>
+</div> -->
+<!-- <p class="h1">Audio Note-taking Tool</p> -->
+<p></p>
+<!-- Video Selection View -->
+<div id="video-selection-area" class="col-sm-6 second-column">
+    <div>
+    <button id="testTask" type="submit" class="btn btn-secondary" onclick="testTask()"></button>
+    <p></p>
+    <button id="audioTask1" type="submit" class="btn btn-primary" onclick="audioTask1()"></button>
+    <button id="survey1" type="submit" class="btn btn-outline-primary" onclick="survey1()"></button>
+    <p></p>
+    <button id="audioTask2" type="submit" class="btn btn-primary" onclick="audioTask2()"></button>
+    <button id="survey2" type="submit" class="btn btn-outline-primary" onclick="survey2()"></button>
+    <p></p>
+    </div>
+  <div>
+    <p><strong>Step 1:</strong> Go to Youtube, copy link of a Video to watch.</p>
+
+    <!-- <button type="submit" class="btn btn-danger" onclick="window.location.href = 'https://www.youtube.com'"> Go to Youtube</button>   -->
+    <a class="btn btn-danger" href="https://www.youtube.com" target="_blank">Go to Youtube</a>
+  </div>
+  <p></p>
+  <div>
+    <p><strong>Step 2:</strong> Enter the Link below</p>
+    <form>
+      <div class="form-group">
+        <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
+        <input class="form-control" id="videoInput" required="required" placeholder="e.g. https://www.youtube.com/watch?v=videoidhere">
+      </div>
+    </form>
+  </div>
+  <div>
+    <p><strong>Step 3:</strong> Click the Button To Start</p>
+    <button type="submit" class="btn btn-primary" onclick="start()">Start Watch & Take Note</button>
+  </div>
+  <p></p>
+  <div style="text-align: start;">
+    <form>
+      <p>Hi <a id="UserID">{undefined name}</a>!
+      <button class="btn btn-link" onclick="basicLogout()">Log Out</button>
+    </form>
+  </div>
+</div>
+
+<!-- Login View -->
+<div id="login-area" class="col-sm-6 second-column">
+  <p>Please enter an <strong>UserID</strong> below</p>
+  <form>
+    <div class="form-group">
+      <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
+      <input class="form-control" id="IDInput" placeholder="e.g. <yourname>-<number>"><br>
+      <button class="btn btn-primary" onclick="basicLogin()">Confirm UserID</button>
+    </div>
+  </form>
+</div>
+<script type="text/javascript" src="scripts/index.js"></script>
+<script type="text/javascript" src="scripts/task.js"></script>
+
+
+<!-- <h1>Audio Note-taking</h1>
+<p>Tool for audio note-taking during watching video</p> -->
+<!-- <div class="sticky-top">
+<div class="video-responsive">
+  <div id="player"></div>
+</div>
+<div class="container">
+  <div class="row">
+      <button id="recordButton" class="btn btn-danger col-5">🔴Take Audio Note</button>
+      <button id="stopButton" class="btn btn-danger col-5" disabled>Finish Note</button>
+      <button id="unmuteButton" class="btn btn-light col-2">
+        <img id="unmuteButtonImg" src="images/icons8-audio-100.png" style="height: 20px;"/>
+      </button>
+  </div>
+</div>
+</div>
+
+<div id="result"></div>
+<div class="container">
+  <ol id="recordingsList"></ol>
+  <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Timestamp</th>
+      <th scope="col" style="width: 260px;">Audio</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody id="audioNoteList">
+  </tbody>
+</table>
+</div>
+<button id="downloadButton" class="btn btn-light">Download</button>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="timer.js"></script>
+<script type="text/javascript" src="muteDisplay.js"></script>
+<script type="text/javascript" src="jszip.min.js"></script>
+<script type="text/javascript" src="FileSaver.js"></script>
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script> -->
+
+</body>
+</html>

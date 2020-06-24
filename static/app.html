@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    cursor: pointer;
+}
+.fixedElement {
+    background-color: #c0c0c0;
+    position:fixed;
+    top:0;
+    width:auto;
+    z-index:100;
+}
+.video-responsive{
+    position:relative;
+    height:100%;
+}
+.button-container {
+    position:relative;
+    top:0;
+}
+iframe{
+    left:0;
+    top:0;
+    width:100%;
+    position:relative;
+}
+.ytp-pause-overlay
+ {
+    bottom:-200px; //give !important if not working
+ }
+ .fill
+ {
+   background-color: white;
+ }
+ table {
+   font-size: 13px;
+ }
+ .red {background-color:#FF3A30;}
+ .orange {background-color:#F79827;}
+ .yellow {background-color:#F2C520;}
+ .green {background-color:#48BF1D;}
+ .blue {background-color:#15A6F1;}
+ .purple {background-color:#C66EDA;}
+ .grey {background-color:#6D757D;}
+ .white {color:#ffffff;}
+</style>
+<body>
+
+
+<div id="playElements" class="sticky-top fill">
+  <div class="video-responsive">
+    <div id="player"></div>
+    <div class="container button-container">
+      <div class="row" style="height: 70px;">
+          <button id="recordButton" class="btn btn-danger col-7" draggable="false">Record Note</button>
+          <button id="stopButton" class="btn btn-danger col-7" style="display:none">Stop Recording</button>
+          <button id="timeLabel" class="btn btn-outline-link col-3" disabled>--:--</button>
+          <button id="unmuteButton" class="btn btn-light col-2">
+            <img id="unmuteButtonImg" src="images/icons8-audio-100.png" style="height: 20px;"/>
+          </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<!-- Color Selection -->
+<div class="modal fade" id="colorLabelBox" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Color Label Selection</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3" style="">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="red" name="color" value="red">
+            </div>
+          </div>
+          <span class="input-group-text red white" style="width: 80px;">Red</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="orange" name="color" value="orange">
+            </div>
+          </div>
+          <span class="input-group-text orange white" style="width: 80px;">Orange</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="yellow" name="color" value="yellow">
+            </div>
+          </div>
+          <span class="input-group-text yellow white" style="width: 80px;">Yellow</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="green" name="color" value="green">
+            </div>
+          </div>
+          <span class="input-group-text green white" style="width: 80px;">Green</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="blue" name="color" value="blue">
+            </div>
+          </div>
+          <span class="input-group-text blue white" style="width: 80px;">Blue</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="purple" name="color" value="purple">
+            </div>
+          </div>
+          <span class="input-group-text purple white" style="width: 80px;">Purple</span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" id="grey" name="color" value="grey">
+            </div>
+          </div>
+          <span class="input-group-text grey white" style="width: 80px;">Grey</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="colorLabelCancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="colorLabelDone" class="btn btn-primary" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result"></div>
+<!-- add new item to the list. -->
+<div class="container">
+  <div id="output" style="display: none;"></div>
+  <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Time</th>
+      <th scope="col">Audio</th>
+      <th scope="col">Label</th>
+      <th scope="col" style="width: 200px;">Info</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody id="audioNoteList">
+  </tbody>
+</table>
+</div>
+<div class="col-5">
+  Hello <a id="displayUserId"></a>, welcome!
+  The VideoID is: <a id="videoId"></a>
+</div>
+<!-- library used -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+<!-- <script type="text/javascript" src="scripts/lib/FileSaver.js"></script> -->
+<script src="scripts/watson-speech/dist/watson-speech.js"></script>
+<!-- window.fetch pollyfill for IE/Edge & Older Chrome/FireFox -->
+<script src="scripts/fetch/dist/fetch.umd.js"></script>
+<!-- code base -->
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/timer.js"></script>
+<script type="text/javascript" src="scripts/upload.js"></script>
+<script type="text/javascript" src="scripts/systemLog.js"></script>
+</body>
+</html>
