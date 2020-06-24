@@ -433,7 +433,7 @@ window.onload = function() {
         gumStream = stream;
         input = audioContext.createMediaStreamSource(stream);
 
-        audioContext.close();
+        
 
         rec = new Recorder(input,{numChannels:1});
         rec.record()
@@ -456,7 +456,8 @@ window.onload = function() {
     	console.log("stopButton clicked");
       timeLabelDisplay();
 
-    	rec.stop();
+      rec.stop();
+      audioContext.close();
     	gumStream.getAudioTracks()[0].stop();
 
       // After recording done, resume playing video
