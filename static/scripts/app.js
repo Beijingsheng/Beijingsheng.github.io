@@ -506,6 +506,8 @@ window.onload = function() {
       return response.json();
     }).then(function (token, event) {
 
+
+      alert('start to create stream');
       var stream = WatsonSpeech.SpeechToText.recognizeFile(Object.assign(token, {
         file: blob,
         extractResults: true,
@@ -514,7 +516,7 @@ window.onload = function() {
         continuous: false,
         timestamp: timeStampToSave
       }));
-      alert('stream created');
+      alert('stream created succesfully');
       console.log(stream);
       console.log(typeof(stream));
 
