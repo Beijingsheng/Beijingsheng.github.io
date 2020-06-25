@@ -504,6 +504,7 @@ window.onload = function() {
     fetch('/api/speech-to-text/token').then(function(response) {
       alert('token fetched');
       if (response.json() != null) {
+        alert('response.json() returns something');
         return response.json();
       } else {
         alert('response.json() returns null');
