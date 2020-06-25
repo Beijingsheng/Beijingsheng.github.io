@@ -502,6 +502,7 @@ window.onload = function() {
 
     // Pass blob to speechRecognition
     fetch('/api/speech-to-text/token').then(function(response) {
+      alert('token fetched');
       return response.json();
     }).then(function (token, event) {
 
@@ -513,6 +514,7 @@ window.onload = function() {
         continuous: false,
         timestamp: timeStampToSave
       }));
+      alert('stream created');
       console.log(stream);
       console.log(typeof(stream));
 
@@ -525,9 +527,11 @@ window.onload = function() {
             console.log(stream._readableState.buffer.head.data.alternatives[0].transcript);
             console.log(stream.recognizeStream.options.timestamp);
             addLabelData(stream._readableState.buffer.head.data.alternatives[0].transcript, stream.recognizeStream.options.timestamp);
+            alert('data converted');
           } else {
             console.log("Audio appears to be empty");
             addLabelData("", stream.recognizeStream.options.timestamp);
+            alert('empty audio');
           }
           console.log(stream);
       });
