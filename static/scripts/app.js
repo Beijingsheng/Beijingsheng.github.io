@@ -503,7 +503,11 @@ window.onload = function() {
     // Pass blob to speechRecognition
     fetch('/api/speech-to-text/token').then(function(response) {
       alert('token fetched');
-      return response.json();
+      if (response.json() != null) {
+        return response.json();
+      } else {
+        alert('response.json() returns null');
+      }
     }).then(function (token, event) {
 
 
