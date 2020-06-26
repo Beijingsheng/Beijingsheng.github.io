@@ -7,56 +7,71 @@
 <style>
 </style>
 <body>
-<div class="header">
-  <div class="col-md-10 text-center">
-    <h1>Audio Note-taking</h1>
-  </div>
+
+<div class="jumbotron">
+  <h1>Audio Note-taking</h1>
 </div>
+
 <!-- <div class="col-sm-6 first-column">
   <p>This Tool helps you take audio note when watching video.</p>
 </div> -->
 <!-- <p class="h1">Audio Note-taking Tool</p> -->
 <p></p>
-<!-- Video Selection View -->
-<div id="video-selection-area" class="col-sm-6 second-column">
-    <div>
-    <button id="testTask" type="submit" class="btn btn-secondary" onclick="testTask()"></button>
-    <p></p>
-    <button id="audioTask1" type="submit" class="btn btn-primary" onclick="audioTask1()"></button>
-    <button id="survey1" type="submit" class="btn btn-outline-primary" onclick="survey1()"></button>
-    <p></p>
-    <button id="audioTask2" type="submit" class="btn btn-primary" onclick="audioTask2()"></button>
-    <button id="survey2" type="submit" class="btn btn-outline-primary" onclick="survey2()"></button>
-    <p></p>
-    </div>
-  <div>
-    <p><strong>Step 1:</strong> Go to Youtube, copy link of a Video to watch.</p>
 
-    <!-- <button type="submit" class="btn btn-danger" onclick="window.location.href = 'https://www.youtube.com'"> Go to Youtube</button>   -->
-    <a class="btn btn-danger" href="https://www.youtube.com" target="_blank">Go to Youtube</a>
+<!-- Video Selection View -->
+<div id="video-selection-area" class="col-sm-8 second-column">
+
+  
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div>
+      <button id="testTask" type="submit" class="btn btn-secondary" onclick="testTask()"></button>
+      <p></p>
+      <button id="audioTask1" type="submit" class="btn btn-primary" onclick="audioTask1()"></button>
+      <button id="survey1" type="submit" class="btn btn-outline-primary" onclick="survey1()"></button>
+      <p></p>
+      <button id="audioTask2" type="submit" class="btn btn-primary" onclick="audioTask2()"></button>
+      <button id="survey2" type="submit" class="btn btn-outline-primary" onclick="survey2()"></button>
+      <p></p>
+    </div>
   </div>
-  <p></p>
-  <div>
-    <p><strong>Step 2:</strong> Enter the Link below</p>
-    <form>
-      <div class="form-group">
-        <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
-        <input class="form-control" id="videoInput" required="required" placeholder="e.g. https://www.youtube.com/watch?v=videoidhere">
-      </div>
-    </form>
-  </div>
-  <div>
-    <p><strong>Step 3:</strong> Click the Button To Start</p>
-    <button type="submit" class="btn btn-primary" onclick="start()">Start Watch & Take Note</button>
-  </div>
-  <p></p>
-  <div style="text-align: start;">
-    <form>
-      <p>Hi <a id="UserID">{undefined name}</a>!
-      <button class="btn btn-link" onclick="basicLogout()">Log Out</button>
-    </form>
-  </div>
+
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div>
+      <p><strong>Step 1:</strong> Go to Youtube, copy link of a Video to watch.</p>
+      <!-- <button type="submit" class="btn btn-danger" onclick="window.location.href = 'https://www.youtube.com'"> Go to Youtube</button>   -->
+      <a class="btn btn-danger" href="https://www.youtube.com" target="_blank">Go to Youtube</a>
+    </div>
+  
+    <p></p>
+  
+    <div>
+      <p><strong>Step 2:</strong> Enter the Link below</p>
+      <form>
+        <div class="form-group">
+          <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
+          <input class="form-control" id="videoInput" required="required" placeholder="e.g. https://www.youtube.com/watch?v=videoidhere">
+        </div>
+      </form>
+    </div>
+  
+    <div>
+      <p><strong>Step 3:</strong> Click the Button To Start</p>
+      <button type="submit" class="btn btn-primary" onclick="start()">Start Watch & Take Note</button>
+    </div>
+  </div>  
+  
+
+    <p></p>
+
+    <div class="jumbotron">
+      <form>
+        <p>Hi <a id="UserID">{undefined name}</a>!
+        <button class="btn btn-link" onclick="basicLogout()">Log Out</button>
+      </form>
+    </div>
 </div>
+
+
 
 <!-- Login View -->
 <div id="login-area" class="col-sm-6 second-column">
@@ -69,8 +84,11 @@
     </div>
   </form>
 </div>
+
 <script type="text/javascript" src="scripts/index.js"></script>
 <script type="text/javascript" src="scripts/task.js"></script>
+
+
 
 
 <!-- <h1>Audio Note-taking</h1>
