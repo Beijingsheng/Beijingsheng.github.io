@@ -70,6 +70,41 @@ iframe{
 </div>
 
 <!-- Modal -->
+<!-- Reflection -->
+<div class="modal fade" id="finalBox" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="endPage"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-7">
+          <div>
+            <h5>Why do you like this video?</h5>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="whyLike" rows="1"></textarea>
+          </div>
+          <div>
+            <h5>Keywords for this video?</h5>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="keyWords" rows="1"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="ReflectionCancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="RefelctionDone" class="btn btn-primary" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Color Selection -->
 <div class="modal fade" id="colorLabelBox" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -165,7 +200,10 @@ iframe{
   </tbody>
 </table>
 </div>
-<div class="col-5">
+<div>
+  <button type="button" class="btn btn-success" style="margin:5%" id = "finalDone">Done</button>
+</div>
+<div class="col-15">
   Hello <a id="displayUserId"></a>, welcome!
   The VideoID is: <a id="videoId"></a>
 </div>

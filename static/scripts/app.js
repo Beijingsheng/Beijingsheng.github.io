@@ -18,7 +18,7 @@ var unmuteButton = document.getElementById("unmuteButton");
 var unmuteButtonImg = document.getElementById('unmuteButtonImg');
 var downloadButton = document.getElementById("downloadButton");
 var colorLabelDoneButton = document.getElementById("colorLabelDone");
-
+var doneButton = document.getElementById('finalDone');
 
 // IndexedDB Constants
 URL = window.URL || window.webkitURL; // webkitURL is deprecated but nevertheless
@@ -62,6 +62,8 @@ window.onload = function() {
   stopButton.addEventListener("click", stopRecording);
   unmuteButton.addEventListener("click", unmute);
   colorLabelDoneButton.addEventListener("click", doneSelectColor);
+  doneButton.setAttribute("data-toggle", "modal");
+  doneButton.setAttribute("data-target", "#finalBox");
 
   // For Testing on Desktop devices:
   // Hold and release space key to trigger note recording.
