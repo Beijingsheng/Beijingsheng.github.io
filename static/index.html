@@ -4,6 +4,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
 </style>
 <body>
@@ -22,44 +26,82 @@
 <div id="video-selection-area" class="col-sm-8 second-column">
 
   
-  <div class="shadow p-3 mb-5 bg-white rounded">
-    <div>
-      <button id="testTask" type="submit" class="btn btn-secondary" onclick="testTask()"></button>
-      <p></p>
-      <button id="audioTask1" type="submit" class="btn btn-primary" onclick="audioTask1()"></button>
-      <button id="survey1" type="submit" class="btn btn-outline-primary" onclick="survey1()"></button>
-      <p></p>
-      <button id="audioTask2" type="submit" class="btn btn-primary" onclick="audioTask2()"></button>
-      <button id="survey2" type="submit" class="btn btn-outline-primary" onclick="survey2()"></button>
-      <p></p>
+  
+  
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          Test Task
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <div>
+            <button id="testTask" type="submit" class="btn btn-secondary" onclick="testTask()"></button>
+            <p></p>
+            <button id="audioTask1" type="submit" class="btn btn-primary" onclick="audioTask1()"></button>
+            <button id="survey1" type="submit" class="btn btn-outline-primary" onclick="survey1()"></button>
+            <p></p>
+            <button id="audioTask2" type="submit" class="btn btn-primary" onclick="audioTask2()"></button>
+            <button id="survey2" type="submit" class="btn btn-outline-primary" onclick="survey2()"></button>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        Note-Taking
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <div>
+            <p><strong>Step 1:</strong> Go to Youtube, copy link of a Video to watch.</p>
+            <!-- <button type="submit" class="btn btn-danger" onclick="window.location.href = 'https://www.youtube.com'"> Go to Youtube</button>   -->
+            <a class="btn btn-danger" href="https://www.youtube.com" target="_blank">Go to Youtube</a>
+          </div>
+        
+          <p></p>
+        
+          <div>
+            <p><strong>Step 2:</strong> Enter the Link below</p>
+            <form>
+              <div class="form-group">
+                <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
+                <input class="form-control" id="videoInput" required="required" placeholder="e.g. https://www.youtube.com/watch?v=videoidhere">
+              </div>
+            </form>
+          </div>
+        
+          <div>
+            <p><strong>Step 3:</strong> Click the Button To Start</p>
+            <button type="submit" class="btn btn-primary" onclick="start()">Start Watch & Take Note</button>
+          </div>
+        </div>  
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" onclick="loadHistory()">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          History
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <div>
+            <br/>
+            <p><strong>History</strong></p>
+            <p id = 'his'></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="shadow p-3 mb-5 bg-white rounded">
-    <div>
-      <p><strong>Step 1:</strong> Go to Youtube, copy link of a Video to watch.</p>
-      <!-- <button type="submit" class="btn btn-danger" onclick="window.location.href = 'https://www.youtube.com'"> Go to Youtube</button>   -->
-      <a class="btn btn-danger" href="https://www.youtube.com" target="_blank">Go to Youtube</a>
-    </div>
-  
-    <p></p>
-  
-    <div>
-      <p><strong>Step 2:</strong> Enter the Link below</p>
-      <form>
-        <div class="form-group">
-          <!-- <label for="exampleFormControlInput1">Please Enter the Link to the YouTube Video</label> -->
-          <input class="form-control" id="videoInput" required="required" placeholder="e.g. https://www.youtube.com/watch?v=videoidhere">
-        </div>
-      </form>
-    </div>
-  
-    <div>
-      <p><strong>Step 3:</strong> Click the Button To Start</p>
-      <button type="submit" class="btn btn-primary" onclick="start()">Start Watch & Take Note</button>
-    </div>
-  </div>  
-  
 
     <p></p>
 
@@ -87,6 +129,15 @@
 
 <script type="text/javascript" src="scripts/index.js"></script>
 <script type="text/javascript" src="scripts/task.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
 
 
 

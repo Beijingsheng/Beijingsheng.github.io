@@ -5,6 +5,7 @@
 function recordNoteLog(blob, userID, time, videoID, timestamp) {
     // console.log(userID+"-"+videoID+"-"+time+"-recordedNote-"+timestamp+"-"+dateFormatting());
     uploadFileToCloud(userID+"-"+videoID+"-"+time+"-recordedNote-"+timestamp+"-"+dateFormatting(), blob);
+    uploadMsgToCloud(userID+"-"+videoID + "-AddHistory-", videoID);
 }
 
 function labelUploaded(userID, time, videoID, timestamp, recognizedLabel) {

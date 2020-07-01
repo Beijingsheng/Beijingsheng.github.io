@@ -23,6 +23,7 @@ var storage = firebase.storage();
 var storageRef = storage.ref();
 
 
+
 // Upload files
 function uploadFileToCloud(fileName, file) {
   storageRef = storage.ref("log/"+fileName+".wav");

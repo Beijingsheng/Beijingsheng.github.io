@@ -7,7 +7,7 @@ declared-services:
     label: text_to_speech
     plan: standard
 applications:
-- name: watson-speech
+- name: clark-testing
   buildpack: sdk-for-nodejs
   path: .
   command: npm start
