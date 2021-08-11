@@ -83,7 +83,7 @@ p {
 button {
   display: inline-block;
   width: 80%;
-  margin-top: 1.2em;
+  margin-top: 0.6em;
   padding: 1em;
   max-width: 220px;
   font-size: .9em;
@@ -887,11 +887,12 @@ border-color: #7cc782;
 				
 				.dR4P {
 					padding: 0;
+					padding-bottom: 20px;
 					display: inline-flex;
 					flex-direction: column;
 					align-items: center;
 					border-right: 1px solid #ebebeb;
-					margin: 0 48px 0 0;
+					margin: 0 88px 0 0;
 					will-change: opacity
 				}
 				
@@ -921,13 +922,13 @@ border-color: #7cc782;
 					/*-webkit-line-clamp: 3;*/
 					-webkit-box-orient: vertical;
 					overflow: hidden;
-					line-height: 16px;
+					line-height: 21px;
 					color: #3c4043;
-					max-height: 144px;
+					max-height: 344px;
 					font-family: Roboto, arial, sans-serif-medium, sans-serif;
-					font-size: 14px;
+					font-size: 16px;
 					margin-top: 0;
-					word-break: break-word
+					word-wrap: break-word;
 				}
 				
 				.Lu0opc {
@@ -1413,6 +1414,72 @@ border-color: #7cc782;
   opacity: 1;
 }
 
+.tag {
+  border-radius: 5px;
+  color: white;
+  padding: 1px 5px;
+  margin: 1px;
+  float: right;
+  margin-bottom: 8px;
+  margin-top: 4px;
+  width: 100px;
+}
+
+.tag-1 { background-color:  #00000050; 
+		 display: none;
+}
+
+
+.container {
+	position: relative;;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%,-50%);	
+}
+
+.button{
+	display:block;
+	margin-bottom:0.2rem;
+}
+
+.switch[type="checkbox"] {
+	position: relative;;
+	width: 2rem;
+	height: 1rem;
+	-webkit-appearance:none;
+	background-color:rgba(255,255,255,.2);
+	outline:none;
+	border-radius:0.5rem;
+	box-shadow:inset 0 0 5px rgba(0,0,0,0.3);
+	transition:.5s;
+}
+.switch:checked[type="checkbox"] {
+	background-color:lime;
+}
+.switch[type="checkbox"]::before {
+	content:"";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	border-radius:0.5rem;
+	top: 0;
+	left: 0;
+	background:white;
+	transition:.5s;
+	box-shadow:0 2px 5px rgba(0,0,0,.2);
+}
+.switch:checked[type="checkbox"]::before {
+	left:1rem;
+}
+
+.ios[type="checkbox"]::before {
+	transform:scale(.9);
+}
+
+.emoji {
+	display: none;
+}
+
 </style>
 <body>
 
@@ -1452,52 +1519,86 @@ border-color: #7cc782;
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot6"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot66"></div>
       </div>
-    </div>
-    
-    
+	</div>
+	    
     <g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss="" id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow="" jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
       <div id = "scroller" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
         <div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf" style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
           <div jsname="U7CU8e" class="uOQ7Ue">
             <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(4, 40, 40,'a', 0)" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>01:51</span></span>
-              </div>
-              
-              <div class="B58ezc"> 😐 1, Hierarchy of Needs</div>
-              
+              <div class="vfxGNc"> <span>01:51 </span>
+			  </div>
+			  <span class="tag tag-1">Detail</span>
+              <span style="font-size: 24px;" class = "emoji">😐</span>
+			  <div class="B58ezc" style="display: none;"> Hierarchy of Needs</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
             <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(3, 40, 40,'a', 1)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>02:23</span></span>
-              </div>
-              <div class="B58ezc"> 😃 2, Instinct Unlearned Behavior Throughout Species</div>
+              <div class="vfxGNc"> <span>02:23 </span>
+			  </div>
+			  <span class="tag tag-1">Structural</span>
+			  <span style="font-size: 24px;" class = "emoji">😃</span>
+			  <div class="B58ezc" style="display: none;"> Instinct Unlearned Behavior Throughout Species</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(9, 40, 40,'a', 2)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>03:41</span></span>
-              </div>
-              <div class="B58ezc"> 😲 3, Optimal Arousal</div>
+            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(9, 40, 40,'a', 2)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
+              <div class="vfxGNc"> <span>03:41 </span>
+			  </div>
+			  <span class="tag tag-1">Detail</span>
+			  <span style="font-size: 24px;" class = "emoji">😲</span>
+			  <div class="B58ezc" style="display: none;"> Optimal Arousal</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
             <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(12, 40, 40,'a', 3)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>05:44</span></span>
-              </div>
-              <div class="B58ezc"> 😕 4, Needs Sex Hunger Needs to Belong</div>
+              <div class="vfxGNc"> <span>05:44 </span>
+			  </div>
+			  <span class="tag tag-1">Interpretation</span>
+			  <span style="font-size: 24px;" class = "emoji">😕</span>
+			  <div class="B58ezc" style="display: none;"> Needs Sex Hunger Needs to Belong</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
             <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(7, 40, 40,'a', 4)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>06:24</span></span>
-              </div>
-              <div class="B58ezc"> 😃 5, Understand the Hunger</div>
+              <div class="vfxGNc"> <span>06:24 </span>
+			  </div>
+			  <span class="tag tag-1">Interpretation</span>
+			  <span style="font-size: 24px;" class = "emoji">😃</span>
+			  <div class="B58ezc" style="display: none;"> Understand the Hunger</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
             <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(8, 40, 40,'a', 5)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
-              <div class="vfxGNc"><span>From <span>10:49</span></span>
-              </div>
-              <div class="B58ezc"> 😲 6, Maslow’s H of Needs</div>
+              <div class="vfxGNc"> <span>10:49 </span>
+			  </div>
+			  <span class="tag tag-1">Detail</span>
+			  <span style="font-size: 24px;" class = "emoji">😲</span>
+			  <div class="B58ezc" style="display: none;"> Maslow’s H of Needs</div>
+			  <button class="audioPlayButton">🔊</button>
             </a>
           </div>
         </div>
       </div>
-    </g-scrolling-carousel>
+	</g-scrolling-carousel>
+	
+	<div style="margin-top: 35px;">
+		<div class="container">
+			<label class="button">
+				<input type="checkbox" class="switch ios" id="s1" onclick="st1()"> Text</input>
+			</label>
+		</div>
+		<div class="container">
+			<label class="button">
+				<input type="checkbox" class="switch ios" id="s2" onclick="st2()"> Emoji</input>
+			</label>
+		</div>
+		<div class="container">
+			<label class="button">
+				<input type="checkbox" class="switch ios" id="s3" onclick="st3()"> Type</input>
+			</label>
+		</div>
+	</div>
+
   </div>
 
-  <div class="button-box" id="nextBtn">
+  <div class="button-box" id="nextBtn" style="display: none;">
 	<button class="button trigger1" onclick="next()">Next</button>
   </div>
 
@@ -1693,6 +1794,71 @@ border-color: #7cc782;
 </html>
 
 <script>
+
+	var switch1 = 0
+	var switch2 = 0
+	var switch3 = 0
+	var colors = ["#1967D225", "#cfd21925", "#19d21925", "#d219b925", "#cfd21925", "#19d21925"]
+
+	function st1() {
+		if (switch1 == 0) {
+			switch1 = 1
+			var all = document.getElementsByClassName('audioPlayButton');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "none";
+			}
+			var all = document.getElementsByClassName('B58ezc');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "block";
+			}
+		} else {
+			switch1 = 0
+			var all = document.getElementsByClassName('audioPlayButton');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "block";
+			}
+			var all = document.getElementsByClassName('B58ezc');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "none";
+			}
+		}
+	}
+
+	function st2() {
+		if (switch2 == 0) {
+			switch2 = 1
+			var all = document.getElementsByClassName('emoji');
+			var all2 = document.getElementsByClassName('dR4P');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "block";
+				all2[i].style.background = colors[i]
+			}
+		} else {
+			switch2 = 0
+			var all = document.getElementsByClassName('emoji');
+			var all2 = document.getElementsByClassName('dR4P');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "none";
+				all2[i].style.background = ""
+			}
+		}
+	}
+
+	function st3() {
+		if (switch3 == 0) {
+			switch3 = 1
+			var all = document.getElementsByClassName('tag-1');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "block";
+			}
+		} else {
+			switch3 = 0
+			var all = document.getElementsByClassName('tag-1');
+			for (var i = 0; i < all.length; i++) {
+				all[i].style.display = "none";
+			}
+		}
+	}
 
   function next() {
 	  document.getElementById("nextBtn").style.display = "none"
