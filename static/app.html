@@ -831,6 +831,7 @@ border-color: #7cc782;
 					display: flex;
 					margin-bottom: 4px;
 					box-shadow: none
+					
 				}
 				
 				.jpTzeb .Rip8ud,
@@ -860,6 +861,7 @@ border-color: #7cc782;
 				g-scrolling-carousel {
 					display: block;
 					position: relative;
+					background-color: rgba(223, 223, 223, 0.349);
 				}
 				
 				.mR2gOd {
@@ -893,7 +895,8 @@ border-color: #7cc782;
 					align-items: center;
 					border-right: 1px solid #ebebeb;
 					margin: 0 88px 0 0;
-					will-change: opacity
+					will-change: opacity;
+					border-top: rgb(200, 200, 200) solid;
 				}
 				
 				.dR4P:hover div {
@@ -1414,8 +1417,26 @@ border-color: #7cc782;
   opacity: 1;
 }
 
+.tg2 {
+  color: white;
+  border-radius: 5px;
+  padding: 2px 8px;
+  margin: 1px;
+  margin-bottom: 8px;
+  margin-top: 4px;
+  width: 100px;
+}
+
+.tg-12 { background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
+		 box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
+							0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
+							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
+}
+
 .tag {
   border-radius: 5px;
+  position: relative;
   color: white;
   padding: 1px 5px;
   margin: 1px;
@@ -1427,6 +1448,8 @@ border-color: #7cc782;
 
 .tag-1 { background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
 		 display: none;
+
+  position: relative;
 		 box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
 							0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
 							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
@@ -1568,80 +1591,94 @@ border-color: #7cc782;
 	  </div>
 	  
 	</div>
+
+	<div id="typeFilter" style="display:none; margin-top: 10px;">
+		<p style="text-align: center;">
+			<span id = "t1" class="tg2 tg-12" onclick="sS()">Structural</span>
+			<span id = "t2" class="tg2 tg-12" onclick="sD()">Detailed</span>
+			<span id = "t3" class="tg2 tg-12" onclick="sI()">Interpretation</span>
+		</p>
+	</div>
+
+	<div id="emojiFilter" style="display:none; margin-top: 10px;">
+		<p style="text-align: center;"><span id="e1" data-tooltip="Boredom" style="margin: 10px 10px 0px 10px; font-size: 24px; background:#1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;" onclick="showB()">😐</span><span id="e2" data-tooltip="Delight" style="margin: 10px 10px 0px 10px; font-size: 24px; background: #cfd2195b; border-radius: 20px; padding: 5px; border: solid white 1px;"onclick="showD()">😃</span><span id="e3" data-tooltip="Fresh Research" style="margin: 10px 10px 0px 10px; font-size: 24px; background: #19d21925; border-radius: 20px; padding: 5px; border: solid white 1px;"onclick="showF()">😲</span><span id="e4" data-tooltip="Confusion" style="margin: 10px 10px 0px 10px; font-size: 24px; background: #d219b925; border-radius: 20px; padding: 5px; border: solid white 1px;" onclick="showC()">😕</span></p>
+	</div>
+
+	
 	    
     <g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss="" id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow="" jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
       <div id = "scroller" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
         <div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf" style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
           <div jsname="U7CU8e" class="uOQ7Ue">
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
+			<a id="a1" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
               <div class="vfxGNc" onclick="goToTime(0, 40, 40,'a', 0)"> <span>01:29 </span>
 			  </div>
 			  <span class="tag tag-1">Structural</span>
-              <span style="font-size: 24px;" class = "emoji" data-tooltip="Boredom">😐</span>
+              <span style="font-size: 24px;" class = "emoji" >😐</span>
 			  <div class="B58ezc" style="display: none;"> There must be dark material contributing to the gravity.</div>
 			  <button class="audioPlayButton" onclick="playA(1)">🔊</button>
             </a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
+			<a id="a2" jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
               <div class="vfxGNc" onclick="goToTime(1, 40, 40,'a', 1)"> <span>02:23 </span>
 			  </div>
 			  <span class="tag tag-1">Detailed</span>
-			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Delight">😃</span>
+			  <span style="font-size: 24px;" class = "emoji" >😃</span>
 			  <div class="B58ezc" style="display: none;"> The visual spectrum is only a small fraction.</div>
 			  <button class="audioPlayButton" onclick="playA(2)">🔊</button>
             </a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
+			<a id="a3" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
               <div class="vfxGNc" onclick="goToTime(2, 40, 40,'a', 2)" > <span>03:52 </span>
 			  </div>
 			  <span class="tag tag-1">Structural</span>
-			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Fresh Research">😲</span>
+			  <span style="font-size: 24px;" class = "emoji" >😲</span>
 			  <div class="B58ezc" style="display: none;"> More existence supports the existence of dark matters.</div>
 			  <button class="audioPlayButton" onclick="playA(3)">🔊</button>
             </a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
+			<a id="a4" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
               <div class="vfxGNc" onclick="goToTime(3, 40, 40,'a', 3)" > <span>04:38 </span>
 			  </div>
 			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Confusion">😕</span>
+			  <span style="font-size: 24px;" class = "emoji" >😕</span>
 			  <div class="B58ezc" style="display: none;"> The bullet cluster.</div>
 			  <button class="audioPlayButton" onclick="playA(4)">🔊</button>
             </a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
+			<a id="a5" jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
               <div class="vfxGNc" onclick="goToTime(4, 40, 40,'a', 4)"> <span>06:09 </span>
 			  </div>
 			  <span class="tag tag-1">Interpretation</span>
-			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Delight">😃</span>
+			  <span style="font-size: 24px;" class = "emoji" >😃</span>
 			  <div class="B58ezc" style="display: none;"> So that's one of the proof that dark matter exists.</div>
 			  <button class="audioPlayButton" onclick="playA(5)">🔊</button>
             </a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+			<a id="a6" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
               <div class="vfxGNc"  onclick="goToTime(5, 40, 40,'a', 5)"> <span>08:11 </span>
 			  </div>
 			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Fresh Research">😲</span>
+			  <span style="font-size: 24px;" class = "emoji" >😲</span>
 			  <div class="B58ezc" style="display: none;"> 85 percent of the matter is dark matter, which we can not see.</div>
 			  <button class="audioPlayButton" onclick="playA(6)">🔊</button>
 			</a>
 			
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+			<a id="a7" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
 				<div class="vfxGNc" onclick="goToTime(6, 40, 40,'a', 6)"> <span>09:32 </span>
 				</div>
 				<span class="tag tag-1">Detail</span>
-				<span style="font-size: 24px;" class = "emoji" data-tooltip="Boredom">😐</span>
+				<span style="font-size: 24px;" class = "emoji" >😐</span>
 				<div class="B58ezc" style="display: none;"> The gravity of the matter in the bullet cluster distroyed those backgroun galaxy images subtly.</div>
 				<button class="audioPlayButton" onclick="playA(7)">🔊</button>
 			</a>
 
-			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+			<a id="a8" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
 				<div class="vfxGNc" onclick="goToTime(7, 40, 40,'a', 7)"> <span>10:05 </span>
 				</div>
 				<span class="tag tag-1">Structural</span>
-				<span style="font-size: 24px;" class = "emoji" data-tooltip="Confusion">😕</span>
+				<span style="font-size: 24px;" class = "emoji" >😕</span>
 				<div class="B58ezc" style="display: none;"> We still don't know what dark matter is. Axion might be one of the candidate but it's still debated.</div>
 				<button class="audioPlayButton"  onclick="playA(8)">🔊</button>
 			</a>
@@ -1879,6 +1916,148 @@ border-color: #7cc782;
 
 <script>
 
+	var tS = 1
+	var tD = 1
+	var tI = 1
+
+	var sb = 1
+	var sd = 1
+	var sf = 1
+	var sc = 1
+
+	function showB() {
+		if (sb) {
+			document.getElementById("e1").style.background = "white"
+			sb = 0
+		} else {
+			document.getElementById("e1").style.background = "#1967D225"
+			sb = 1
+		}
+		console.log("boredom change")
+	}
+
+	function showC() {
+		if (sc) {
+			sc = 0
+			document.getElementById("e4").style.background = "white"
+		} else {
+			sc = 1
+			document.getElementById("e4").style.background = "#d219b925"
+		}
+		console.log("confusion change")
+	}
+
+	function showD() {
+		if (sd) {
+			document.getElementById("e2").style.background = "white"
+			sd = 0
+		} else {
+			document.getElementById("e2").style.background = "#cfd2195b"
+			sd = 1
+		}
+		console.log("delightt change")
+	}
+
+	function showF() {
+		if (sf) {
+			sf = 0
+			document.getElementById("e3").style.background = "white"
+		} else {
+			sf = 1
+			document.getElementById("e3").style.background = "#19d21925"
+		}
+		console.log("fresh research change")
+	}
+
+	//padding: 2px 8px;
+	function sS() {
+		if (tS) {
+			tS = 0
+			document.getElementById("t1").style.padding = "0.5px 2px"
+		} else {
+			tS = 1
+			document.getElementById("t1").style.padding = "2px 8px"
+		}
+		console.log("STRUCTURAL change")
+	}
+
+	function sD() {
+		if (tD) {
+			document.getElementById("t2").style.padding = "0.5px 2px"
+			tD = 0
+		} else {
+			tD = 1
+			document.getElementById("t2").style.padding = "2px 8px"
+		}
+		console.log("DETAIL change")
+	}
+
+	function sI() {
+		if (tI) {
+			document.getElementById("t3").style.padding = "0.5px 2px"
+			tI = 0
+		} else {
+			tI = 1
+			document.getElementById("t3").style.padding = "2px 8px"
+		}
+		console.log("INTERPRETATION change")
+	}
+
+	function filter() {
+		//console.log(tS, tD, tI, sb, sd, sc, sf)
+		if (1) {
+			if (tS && sb) {
+			document.getElementById("a1").style.visibility = 'visible'
+		} else {
+			document.getElementById("a1").style.visibility = 'hidden'
+		}
+
+		if (tD&&sd) {
+			document.getElementById("a2").style.visibility = 'visible'
+		} else {
+			document.getElementById("a2").style.visibility = 'hidden'
+		}
+
+		if (tS&&sf) {
+			document.getElementById("a3").style.visibility = 'visible'
+		} else {
+			document.getElementById("a3").style.visibility = 'hidden'
+		}
+
+		if (tD&&sc) {
+			document.getElementById("a4").style.visibility = 'visible'
+		} else {
+			document.getElementById("a4").style.visibility = 'hidden'
+		}
+
+		if (tI&&sd) {
+			document.getElementById("a5").style.visibility = 'visible'
+		} else {
+			document.getElementById("a5").style.visibility = 'hidden'
+		}
+
+		if (tD&&sf) {
+			document.getElementById("a6").style.visibility = 'visible'
+		} else {
+			document.getElementById("a6").style.visibility = 'hidden'
+		}
+
+		if (tD&&sb) {
+			document.getElementById("a7").style.visibility = 'visible'
+		} else {
+			document.getElementById("a7").style.visibility = 'hidden'
+		}
+
+		if (tS&&sc) {
+			document.getElementById("a8").style.visibility = 'visible'
+		} else {
+			document.getElementById("a8").style.visibility = 'hidden'
+		}
+		}
+	}
+
+	var myFilter = setInterval(filter, 30);
+
 	var acc = document.getElementsByClassName("accordion");
 	var iy;
 
@@ -1909,6 +2088,13 @@ border-color: #7cc782;
 	function st1() {
 		if (switch1 == 0) {
 			switch1 = 1
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
 			var all = document.getElementsByClassName('audioPlayButton');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "none";
@@ -1919,6 +2105,13 @@ border-color: #7cc782;
 			}
 		} else {
 			switch1 = 0
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
 			var all = document.getElementsByClassName('audioPlayButton');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "block";
@@ -1933,6 +2126,14 @@ border-color: #7cc782;
 	function st2() {
 		if (switch2 == 0) {
 			switch2 = 1
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
+			document.getElementById("emojiFilter").style.display = "block"
 			var all = document.getElementsByClassName('emoji');
 			var all2 = document.getElementsByClassName('dR4P');
 			for (var i = 0; i < all.length; i++) {
@@ -1941,6 +2142,14 @@ border-color: #7cc782;
 			}
 		} else {
 			switch2 = 0
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
+			document.getElementById("emojiFilter").style.display = "none"
 			var all = document.getElementsByClassName('emoji');
 			var all2 = document.getElementsByClassName('dR4P');
 			for (var i = 0; i < all.length; i++) {
@@ -1953,12 +2162,28 @@ border-color: #7cc782;
 	function st3() {
 		if (switch3 == 0) {
 			switch3 = 1
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
+			document.getElementById("typeFilter").style.display = "block"
 			var all = document.getElementsByClassName('tag-1');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "block";
 			}
 		} else {
 			switch3 = 0
+			sf = 1
+			sd = 1
+			sc = 1
+			sb = 1
+			tD = 1
+			tI = 1
+			tS = 1
+			document.getElementById("typeFilter").style.display = "none"
 			var all = document.getElementsByClassName('tag-1');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "none";
