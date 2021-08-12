@@ -1367,15 +1367,11 @@ border-color: #7cc782;
   opacity: 0;
   pointer-events: none;
 }
-	
-.audioPlayButton {
-	background: #0000002a;
-}
 
 /* Position tooltip above the element */
 [data-tooltip]:before {
   position: absolute;
-  bottom: 150%;
+  bottom: 80%;
   left: 50%;
   margin-bottom: 5px;
   margin-left: -80px;
@@ -1396,7 +1392,7 @@ border-color: #7cc782;
 /* Triangle hack to make tooltip look like a speech bubble */
 [data-tooltip]:after {
   position: absolute;
-  bottom: 150%;
+  bottom: 80%;
   left: 50%;
   margin-left: -5px;
   width: 0;
@@ -1429,8 +1425,12 @@ border-color: #7cc782;
   width: 100px;
 }
 
-.tag-1 { background-color:  #00000050; 
+.tag-1 { background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
 		 display: none;
+		 box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
+							0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
+							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
+							0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
 }
 
 
@@ -1458,7 +1458,7 @@ border-color: #7cc782;
 	transition:.5s;
 }
 .switch:checked[type="checkbox"] {
-	background-color:lime;
+	background-color:rgb(184, 240, 250);
 }
 .switch[type="checkbox"]::before {
 	content:"";
@@ -1484,6 +1484,33 @@ border-color: #7cc782;
 	display: none;
 }
 
+.audioPlayButton {
+	background: #0000002a;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
 </style>
 <body>
 
@@ -1498,85 +1525,126 @@ border-color: #7cc782;
     <div id="onTop"></div>
 
 
-    <div class="Rip8ud">
-      <div class="VFLqo" style="left:16%">
+    <div class="Rip8ud">‘
+
+      <div class="VFLqo" style="left:12%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot1"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot11"></div>
-      </div>
-      <div class="VFLqo" style="left:21%">
+	  </div>
+	  
+      <div class="VFLqo" style="left:20%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot2"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot22"></div>
-      </div>
-      <div class="VFLqo" style="left:33%">
+	  </div>
+	  
+      <div class="VFLqo" style="left:32%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot3"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot33"></div>
-      </div>
-      <div class="VFLqo" style="left:51%">
+	  </div>
+	  
+      <div class="VFLqo" style="left:39%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot4"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot44"></div>
-      </div>
-      <div class="VFLqo" style="left:74%">
+	  </div>
+	  
+      <div class="VFLqo" style="left:51%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot5"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot55"></div>
-      </div>
-      <div class="VFLqo" style="left:95%">
+	  </div>
+	  
+      <div class="VFLqo" style="left:68%">
         <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot6"></div>
         <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot66"></div>
-      </div>
+	  </div>
+	  
+	  <div class="VFLqo" style="left:80%">
+        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot7"></div>
+        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot77"></div>
+	  </div>
+	  
+	  <div class="VFLqo" style="left:84%">
+        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot8"></div>
+        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot88"></div>
+	  </div>
+	  
 	</div>
 	    
     <g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss="" id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow="" jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
       <div id = "scroller" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
         <div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf" style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
           <div jsname="U7CU8e" class="uOQ7Ue">
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(4, 40, 40,'a', 0)" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>01:51 </span>
-			  </div>
-			  <span class="tag tag-1">Detail</span>
-              <span style="font-size: 24px;" class = "emoji">😐</span>
-			  <div class="B58ezc" style="display: none;"> Hierarchy of Needs</div>
-			  <button class="audioPlayButton">🔊</button>
-            </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(3, 40, 40,'a', 1)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>02:23 </span>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
+              <div class="vfxGNc" onclick="goToTime(0, 40, 40,'a', 0)"> <span>01:29 </span>
 			  </div>
 			  <span class="tag tag-1">Structural</span>
-			  <span style="font-size: 24px;" class = "emoji">😃</span>
-			  <div class="B58ezc" style="display: none;"> Instinct Unlearned Behavior Throughout Species</div>
-			  <button class="audioPlayButton">🔊</button>
+              <span style="font-size: 24px;" class = "emoji" data-tooltip="Boredom">😐</span>
+			  <div class="B58ezc" style="display: none;"> There must be dark material contributing to the gravity.</div>
+			  <button class="audioPlayButton" onclick="playA(1)">🔊</button>
             </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(9, 40, 40,'a', 2)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>03:41 </span>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
+              <div class="vfxGNc" onclick="goToTime(1, 40, 40,'a', 1)"> <span>02:23 </span>
+			  </div>
+			  <span class="tag tag-1">Detailed</span>
+			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Delight">😃</span>
+			  <div class="B58ezc" style="display: none;"> The visual spectrum is only a small fraction.</div>
+			  <button class="audioPlayButton" onclick="playA(2)">🔊</button>
+            </a>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
+              <div class="vfxGNc" onclick="goToTime(2, 40, 40,'a', 2)" > <span>03:52 </span>
+			  </div>
+			  <span class="tag tag-1">Structural</span>
+			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Fresh Research">😲</span>
+			  <div class="B58ezc" style="display: none;"> More existence supports the existence of dark matters.</div>
+			  <button class="audioPlayButton" onclick="playA(3)">🔊</button>
+            </a>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
+              <div class="vfxGNc" onclick="goToTime(3, 40, 40,'a', 3)" > <span>04:38 </span>
 			  </div>
 			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji">😲</span>
-			  <div class="B58ezc" style="display: none;"> Optimal Arousal</div>
-			  <button class="audioPlayButton">🔊</button>
+			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Confusion">😕</span>
+			  <div class="B58ezc" style="display: none;"> The bullet cluster.</div>
+			  <button class="audioPlayButton" onclick="playA(4)">🔊</button>
             </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(12, 40, 40,'a', 3)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>05:44 </span>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
+              <div class="vfxGNc" onclick="goToTime(4, 40, 40,'a', 4)"> <span>06:09 </span>
 			  </div>
 			  <span class="tag tag-1">Interpretation</span>
-			  <span style="font-size: 24px;" class = "emoji">😕</span>
-			  <div class="B58ezc" style="display: none;"> Needs Sex Hunger Needs to Belong</div>
-			  <button class="audioPlayButton">🔊</button>
+			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Delight">😃</span>
+			  <div class="B58ezc" style="display: none;"> So that's one of the proof that dark matter exists.</div>
+			  <button class="audioPlayButton" onclick="playA(5)">🔊</button>
             </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(7, 40, 40,'a', 4)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>06:24 </span>
-			  </div>
-			  <span class="tag tag-1">Interpretation</span>
-			  <span style="font-size: 24px;" class = "emoji">😃</span>
-			  <div class="B58ezc" style="display: none;"> Understand the Hunger</div>
-			  <button class="audioPlayButton">🔊</button>
-            </a>
-            <a jsname="X2z4K" class="dR4P" data-visible="true" onclick="goToTime(8, 40, 40,'a', 5)" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
-              <div class="vfxGNc"> <span>10:49 </span>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+              <div class="vfxGNc"  onclick="goToTime(5, 40, 40,'a', 5)"> <span>08:11 </span>
 			  </div>
 			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji">😲</span>
-			  <div class="B58ezc" style="display: none;"> Maslow’s H of Needs</div>
-			  <button class="audioPlayButton">🔊</button>
-            </a>
+			  <span style="font-size: 24px;" class = "emoji" data-tooltip="Fresh Research">😲</span>
+			  <div class="B58ezc" style="display: none;"> 85 percent of the matter is dark matter, which we can not see.</div>
+			  <button class="audioPlayButton" onclick="playA(6)">🔊</button>
+			</a>
+			
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+				<div class="vfxGNc" onclick="goToTime(6, 40, 40,'a', 6)"> <span>09:32 </span>
+				</div>
+				<span class="tag tag-1">Detail</span>
+				<span style="font-size: 24px;" class = "emoji" data-tooltip="Boredom">😐</span>
+				<div class="B58ezc" style="display: none;"> The gravity of the matter in the bullet cluster distroyed those backgroun galaxy images subtly.</div>
+				<button class="audioPlayButton" onclick="playA(7)">🔊</button>
+			</a>
+
+			<a jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
+				<div class="vfxGNc" onclick="goToTime(7, 40, 40,'a', 7)"> <span>10:05 </span>
+				</div>
+				<span class="tag tag-1">Structural</span>
+				<span style="font-size: 24px;" class = "emoji" data-tooltip="Confusion">😕</span>
+				<div class="B58ezc" style="display: none;"> We still don't know what dark matter is. Axion might be one of the candidate but it's still debated.</div>
+				<button class="audioPlayButton"  onclick="playA(8)">🔊</button>
+			</a>
           </div>
         </div>
       </div>
@@ -1597,6 +1665,18 @@ border-color: #7cc782;
 			<label class="button">
 				<input type="checkbox" class="switch ios" id="s3" onclick="st3()"> Type</input>
 			</label>
+		</div>
+	</div>
+
+	
+	
+
+	<button class="accordion" style="height: 30px; font-size: medium; text-align: center; padding:0; margin-bottom: 20px; box-shadow: none;">Note Types</button>
+	<div class="panel">
+		<div style="margin-top: 0px; margin-left: 5%; margin-left: 5%;">
+			<p><span style="font-weight: bolder;">Structural</span>: Structural keywords and sentences that are directly mentioned in the video script</p>
+			<p><span style="font-weight: bolder;">Detail</span>: No-Structural keywords and sentences that are directly mentioned in the video script</p>
+			<p><span style="font-weight: bolder;">Interpretation</span>: Importance, questions, comprehensions (not directly mentioned in original content), personal language</p>
 		</div>
 	</div>
 
@@ -1799,10 +1879,32 @@ border-color: #7cc782;
 
 <script>
 
+	var acc = document.getElementsByClassName("accordion");
+	var iy;
+
+	for (iy = 0; iy < acc.length; iy++) {
+	acc[iy].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+		panel.style.display = "none";
+		} else {
+		panel.style.display = "block";
+		}
+	});
+	}
+
+	function playA(num) {
+		player.pauseVideo();
+		const sound = new Audio()
+		sound.src = './' + String(num) +'.wav'
+		sound.play()
+	}
+
 	var switch1 = 0
 	var switch2 = 0
 	var switch3 = 0
-	var colors = ["#1967D225", "#cfd21925", "#19d21925", "#d219b925", "#cfd21925", "#19d21925"]
+	var colors = ["#1967D225", "#cfd21925", "#19d21925", "#d219b925", "#cfd21925", "#19d21925", "#1967D225", "#d219b925"]
 
 	function st1() {
 		if (switch1 == 0) {
@@ -1870,39 +1972,40 @@ border-color: #7cc782;
   }
 
   //alert(elementInViewport(document.getElementById("testingtesting")))
-  var myVar = setInterval(elementInViewport, 50);
+  var myVar = setInterval(elementInViewport, 30);
 
   var totalTime = 679
   var time = [] 
   var body = [] 
   var type = []
 
+  time[0] = 89
   // Notes
-  time[1] = 421
+  time[1] = 143
   body[1] = "Instinct does not need to learn it."
   type[1] = 'b'
 
-  time[2] = 631
+  time[2] = 232
   body[2] = "Optimal Rossell."
   type[2] = 'b'
 
-  time[3] = 143
+  time[3] = 278
   body[3] = "Instinct unlearned behavior throughout species"
   type[3] = 'a'
 
-  time[4] = 111
+  time[4] = 369
   body[4] = "Hierarchy of needs."
   type[4] = 'a'
 
-  time[5] = 47
+  time[5] = 491
   body[5] = "Use some kind of psycho forces to rescue himself"
   type[5] = 'b'
 
-  time[6] = 108
+  time[6] = 572
   body[6] = "1. About instinct and innate"
   type[6] = 'a'
 
-  time[7] = 504
+  time[7] = 605
   body[7] = "Understand the hunger"
   type[7] = 'a'
 
@@ -1964,36 +2067,87 @@ function elementInViewport() {
   var el = document.getElementById("scroller")
 
   if (el.scrollLeft < 80) {
+	document.getElementById("dot4").style.opacity = "0.2";
+    document.getElementById("dot44").style.opacity = "0.2";
     document.getElementById("dot5").style.opacity = "0.2";
     document.getElementById("dot55").style.opacity = "0.2";
-    document.getElementById("dot6").style.transform = "scale(0.222)";
-    document.getElementById("dot66").style.transform = "scale(0.222)";
+    document.getElementById("dot6").style.opacity = "0.2";
+    document.getElementById("dot66").style.opacity = "0.2";
+    document.getElementById("dot7").style.opacity = "0.2";
+    document.getElementById("dot77").style.opacity = "0.2";
+    document.getElementById("dot8").style.opacity = "0.2";
+    document.getElementById("dot88").style.opacity = "0.2";
 
     document.getElementById("dot1").style.opacity = "1";
-    document.getElementById("dot11").style.opacity = "1";
-    document.getElementById("dot2").style.transform = "scale(1)";
-    document.getElementById("dot22").style.transform = "scale(1)";
+	document.getElementById("dot11").style.opacity = "1";
+	document.getElementById("dot2").style.opacity = "1";
+	document.getElementById("dot22").style.opacity = "1";
+	document.getElementById("dot3").style.opacity = "1";
+    document.getElementById("dot33").style.opacity = "1";
   } else if (el.scrollLeft > 80 && el.scrollLeft < 190) {
     document.getElementById("dot1").style.opacity = "0.2";
-    document.getElementById("dot11").style.opacity = "0.2";
-    document.getElementById("dot6").style.transform = "scale(0.222)";
-    document.getElementById("dot66").style.transform = "scale(0.222)";
+	document.getElementById("dot11").style.opacity = "0.2";
+	document.getElementById("dot5").style.opacity = "0.2";
+    document.getElementById("dot55").style.opacity = "0.2";
+    
 
+    document.getElementById("dot4").style.opacity = "1";
+	document.getElementById("dot44").style.opacity = "1";
+	document.getElementById("dot3").style.opacity = "1";
+	document.getElementById("dot33").style.opacity = "1";
+	document.getElementById("dot2").style.opacity = "1";
+    document.getElementById("dot22").style.opacity = "1";
+  } else if (el.scrollLeft > 190 && el.scrollLeft < 370) {
+    document.getElementById("dot2").style.opacity = "0.2";
+	document.getElementById("dot22").style.opacity = "0.2";
+	document.getElementById("dot6").style.opacity = "0.2";
+    document.getElementById("dot66").style.opacity = "0.2";
+
+
+	document.getElementById("dot3").style.opacity = "1";
+	document.getElementById("dot33").style.opacity = "1";
+	document.getElementById("dot4").style.opacity = "1";
+    document.getElementById("dot44").style.opacity = "1";
     document.getElementById("dot5").style.opacity = "1";
     document.getElementById("dot55").style.opacity = "1";
-    document.getElementById("dot2").style.transform = "scale(1)";
-    document.getElementById("dot22").style.transform = "scale(1)";
-  } else if (el.scrollLeft > 190) {
-    document.getElementById("dot1").style.opacity = "0.2";
-    document.getElementById("dot11").style.opacity = "0.2";
-    document.getElementById("dot2").style.transform = "scale(0.222)";
-    document.getElementById("dot22").style.transform = "scale(0.222)";
+  } else if (el.scrollLeft > 370 && el.scrollLeft < 520) {
+    document.getElementById("dot3").style.opacity = "0.2";
+	document.getElementById("dot33").style.opacity = "0.2";
+	document.getElementById("dot7").style.opacity = "0.2";
+    document.getElementById("dot77").style.opacity = "0.2";
 
+
+	document.getElementById("dot6").style.opacity = "1";
+	document.getElementById("dot66").style.opacity = "1";
+	document.getElementById("dot4").style.opacity = "1";
+    document.getElementById("dot44").style.opacity = "1";
     document.getElementById("dot5").style.opacity = "1";
     document.getElementById("dot55").style.opacity = "1";
-    document.getElementById("dot6").style.transform = "scale(1)";
-    document.getElementById("dot66").style.transform = "scale(1)";
-  }
+  } else if (el.scrollLeft > 520 && el.scrollLeft < 660) {
+    document.getElementById("dot4").style.opacity = "0.2";
+	document.getElementById("dot44").style.opacity = "0.2";
+	document.getElementById("dot8").style.opacity = "0.2";
+    document.getElementById("dot88").style.opacity = "0.2";
+
+
+	document.getElementById("dot6").style.opacity = "1";
+	document.getElementById("dot66").style.opacity = "1";
+	document.getElementById("dot7").style.opacity = "1";
+    document.getElementById("dot77").style.opacity = "1";
+    document.getElementById("dot5").style.opacity = "1";
+    document.getElementById("dot55").style.opacity = "1";
+  } else if (el.scrollLeft > 660 && el.scrollLeft < 780) {
+    document.getElementById("dot5").style.opacity = "0.2";
+	document.getElementById("dot55").style.opacity = "0.2";
+
+
+	document.getElementById("dot6").style.opacity = "1";
+	document.getElementById("dot66").style.opacity = "1";
+	document.getElementById("dot7").style.opacity = "1";
+    document.getElementById("dot77").style.opacity = "1";
+    document.getElementById("dot8").style.opacity = "1";
+    document.getElementById("dot88").style.opacity = "1";
+  } 
 }
 
 function editItem() {
