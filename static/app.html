@@ -1,1936 +1,2241 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-G9DpmGxRIF6tpgbrkZVcZDeIomEU22LgTguPAI739bbKytjPE/kHTK5YxjJAAEXC" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css"
+		integrity="sha384-G9DpmGxRIF6tpgbrkZVcZDeIomEU22LgTguPAI739bbKytjPE/kHTK5YxjJAAEXC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+	/* Containers */
+	html,
+	body {
+		min-height: 100%;
+	}
 
-/* Containers */
-html, body {
-  min-height: 100%;
-}
+	body {
+		font-family: sans-serif;
+		color: rgb(0, 0, 0);
+	}
 
-body {
-  font-family: sans-serif;
-  color: rgb(0, 0, 0);
-}
+	.rb-box {
+		width: 90%;
+		max-width: 420px;
+		margin: 20px auto;
+		padding: 1.3em;
+		background: #d5e4fdcc;
+		border-radius: .75em;
+		box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+	}
 
-.rb-box {
-  width: 90%;
-  max-width: 420px;
-  margin: 20px auto;
-  padding: 1.3em;
-  background: #d5e4fdcc;
-  border-radius: .75em;
-  box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
-}
+	/* Custom Radio Button */
+	p {
+		font-size: 1.0em;
+	}
 
-/* Custom Radio Button */
-p {
-  font-size: 1.0em;
-}
+	.rb {
+		padding: 3px 0px 3px 0px;
+		text-align: center;
+		background: rgba(255, 255, 255, .03);
+		border-radius: .3em;
+		margin-bottom: 30px;
+	}
 
-.rb {
-  padding: 3px 0px 3px 0px;
-  text-align: center;
-  background: rgba(255,255,255,.03);
-  border-radius: .3em;
-  margin-bottom: 30px;
-}
+	.rb-tab {
+		display: inline-block;
+		position: relative;
+		width: 20%;
+	}
 
-.rb-tab {
-  display: inline-block;
-  position: relative;
-  width: 20%;
-}
+	.rb-txt {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.0em;
+		color: #000000;
+	}
 
-.rb-txt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.0em;
-  color: #000000;
-}
+	.rb-spot {
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: transparent;
+		border: 2px solid #1967D230;
+		border-radius: 100%;
+		cursor: pointer;
+		transition: ease .2s;
+	}
 
-.rb-spot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  border: 2px solid #1967D230;
-  border-radius: 100%;
-  cursor: pointer;
-  transition: ease .2s;
-}
+	.rb-tab-active .rb-spot {
+		background: #1967D235;
+		border: 2px solid #1967D260;
+	}
 
-.rb-tab-active .rb-spot {
-  background: #1967D235;
-  border: 2px solid #1967D260;
-}
+	/* Submit Button */
+	.button-box {
+		padding: 10px 0;
+		text-align: center;
+	}
 
-/* Submit Button */
-.button-box {
-  padding: 10px 0;
-  text-align: center;
-}
+	button {
+		display: inline-block;
+		width: 80%;
+		margin-top: 0.6em;
+		padding: 1em;
+		max-width: 220px;
+		font-size: .9em;
+		color: #D42D78;
+		text-transform: uppercase;
+		text-decoration: none;
+		letter-spacing: .15em;
+		background: rgb(255, 255, 255);
+		border: none;
+		outline: none;
+		border-radius: 5em;
+		box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+		transition:
+			color 0.6s,
+			box-shadow 0.3s,
+			transform 0.3s;
+		cursor: pointer;
+	}
 
-button {
-  display: inline-block;
-  width: 80%;
-  margin-top: 0.6em;
-  padding: 1em;
-  max-width: 220px;
-  font-size: .9em;
-  color: #D42D78;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: .15em;
-  background: rgb(255, 255, 255);
-  border: none;
-  outline: none;
-  border-radius: 5em;
-  box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
-  transition: 
-    color 0.6s, 
-    box-shadow 0.3s, 
-    transform 0.3s;
-  cursor: pointer;
-}
+	button:hover {
+		box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
+		color: #6f6f6f;
+	}
 
-button:hover {
-  box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
-  color: #6f6f6f;
-}
-
-* {
-    cursor: pointer;
-}
-
-
-
-#onTop {
-    background: rgba(255,255,255,.5);
-    width: 350px;
-    height: 20px;
-    position: absolute;
-    z-index: 1;
-    display: none;
-}
-
-.fixedElement {
-    background-color: #c0c0c0;
-    position:fixed;
-    top:0;
-    width:auto;
-    z-index:100;
-}
-.video-responsive{
-    position:relative;
-    height:100%;
-}
-.button-container {
-    position:relative;
-    top:0;
-}
-iframe{
-    left:0;
-    top:0;
-    /* height:32vh; */
-    width:100%;
-    position:relative;
-}
-.ytp-pause-overlay
- {
-    bottom:-200px; //give !important if not working
- }
- .fill
- {
-   background-color: white;
- }
- table {
-   font-size: 13px;
- }
- .red {background-color:#FF3A30;}
- .orange {background-color:#F79827;}
- .yellow {background-color:#F2C520;}
- .green {background-color:#48BF1D;}
- .blue {background-color:#15A6F1;}
- .purple {background-color:#C66EDA;}
- .grey {background-color:#6D757D;}
- .white {color:#ffffff;}
-
- hr  
-{  
-width: 90%;  
-height: 12px;  
-background-color: #A0C8C0;  
-margin-bottom: 3px;  
-margin-right: auto;  
-margin-left: auto;  
-margin-top: 1px;  
-border-radius: 7.5px;
-border-width: 2px;  
-border-color: #7cc782;  
-}  
-
-.struct-node 
-{
-  position: absolute;
-  width: 5px;  
-  height: 13px; 
-  border-radius: 1.5px;   
-  margin-top: 1px;  
-  background-color: #F0BB4D;
-  border-style: solid;
-  border-width: 1px;
-  border-color: grey;  
-}
-
-.section
-{
-  position: absolute;
-  width: 15px;  
-  height: 15px;  
-  margin-top: 2px;
-}
-
-.ULSxyf {
-					margin-bottom: 40px
-				}
-				
-				.hlcw0c {
-					margin-bottom: 40px
-				}
-				
-				.Nxb87 {
-					position: relative;
-					display: flex;
-					flex-direction: row;
-					justify-content: space-between;
-					align-items: baseline;
-					padding: 0 0 0;
-				}
-				
-				.LMMXP {
-					color: #202124;
-					font-family: arial, sans-serif;
-					display: inline-block;
-					letter-spacing: 0.3px;
-					font-size: 20px;
-					height: 26px;
-					padding: 0 0 8px;
-					line-height: 1.3;
-				}
-				
-				.Nxb87 {
-					position: relative
-				}
-				
-				.gWFovd {
-					flex: auto
-				}
-				
-				title-with-lhs-icon:hover .ekf0x h3 {
-					color: #1a0dab
-				}
-				
-				title-with-lhs-icon .ekf0x {
-					color: #202124;
-					display: block;
-					margin-left: -53px
-				}
-				
-				title-with-lhs-icon .hSQtef.ekf0x {
-					display: inline;
-					margin-left: 0
-				}
-				
-				title-with-lhs-icon:hover .hSQtef.ekf0x {
-					color: #1a0dab
-				}
-				
-				#rcnt .ekf0x:hover h3 {
-					text-decoration: none
-				}
-				
-				.iJ1Kvb {
-					display: inline-block;
-					line-height: 24px
-				}
-				
-				.GmE3X {
-					display: inline-block;
-					margin-right: 12px;
-					position: relative;
-					top: -3px
-				}
-				
-				.iv236 {
-					color: #70757a;
-					display: inline-block;
-					margin-right: 12px
-				}
-				
-				.dtIg1b {
-					display: none;
-					margin-right: 12px
-				}
-				
-				title-with-lhs-icon:hover .kNmTT {
-					display: none
-				}
-				
-				title-with-lhs-icon:hover .dtIg1b {
-					display: inline-block
-				}
-				
-				.EwsJzb {
-					display: block;
-					position: absolute
-				}
-				
-				.xTFaxe {
-					fill: #70757a;
-					top: 2px;
-					margin-left: 2px
-				}
-				
-				.D6lY4c {
-					height: 22px;
-					width: 22px;
-					position: absolute;
-					border-radius: 11px;
-					top: -1px
-				}
-				
-				.iTPLzd {
-					top: 0;
-					left: 0;
-					width: 28px;
-					z-index: 1;
-					padding-bottom: 20px;
-					line-height: 16px;
-				}
-				
-				.WE2xI {
-					position: relative
-				}
-				
-				.wf-b .WGYX8 {
-					font-family: Roboto, arial, sans-serif
-				}
-				
-				.HD8Pae {
-					border: none;
-					margin-bottom: 40px;
-					overflow: visible;
-					position: relative
-				}
-				
-				div.ULSxyf:first-of-type .HD8Pae {
-					margin-top: 11px
-				}
-				
-				.MGqjK {
-					position: relative;
-					background-color: #fff;
-					margin: 0;
-					box-shadow: none;
-				}
-				
-				.VibNM {
-					display: block;
-					position: relative;
-					border-top: 1px solid #ecedef
-				}
-				
-				.o3AwDf {
-					position: relative
-				}
-				
-				.o3AwDf .JaTJ7c {
-					background: transparent;
-					height: calc(100% - 2px);
-					pointer-events: none;
-					position: absolute;
-					transform-origin: top;
-					width: calc(100% - 2px);
-					z-index: 1;
-					border-radius: 0;
-					border-top: 1px solid #ecedef
-				}
-				
-				.WpKAof {
-					color: #1a0dab;
-					display: block;
-					height: 100%;
-					width: 100%
-				}
-				
-				.WpKAof:hover {
-					background-color: #f8f9fa
-				}
-				
-				#rcnt a.WpKAof:hover {
-					text-decoration: none
-				}
-				
-				.WpKAof:hover .CwxNSe {
-					text-decoration: underline
-				}
-				
-				.q2eaDe {
-					height: 100%;
-					width: 100%;
-					position: relative;
-					display: flex;
-					flex-direction: row;
-					box-sizing: border-box;
-					align-items: center
-				}
-				
-				.JWCxk {
-					display: inline-block;
-					width: 50%;
-					padding-top: none
-				}
-				
-				.QmUzgb {
-					width: 100%;
-					height: 100%
-				}
-				
-				.U5LfPc.QmUzgb {
-					display: flex;
-					flex-direction: column
-				}
-				
-				.Dvkbzb {
-					border-radius: 8px
-				}
-				
-				.SmeuHe img {
-					object-fit: cover;
-					height: 100%;
-					width: 100%
-				}
-				
-				.SmeuHe {
-					position: absolute;
-					top: 0;
-					left: 0;
-					bottom: 0;
-					right: 0;
-					background: #f8f9fa
-				}
-				
-				.J2i9Hd {
-					line-height: 14px;
-					font-size: 12px;
-					position: absolute;
-					font-family: arial, sans-serif-medium, sans-serif;
-					color: #fff;
-					background-color: rgba(0, 0, 0, .54);
-					padding: 1px 8px;
-					left: 8px;
-					bottom: 6px
-				}
-				
-				.orkam {
-					width: 100%;
-					position: relative;
-					width: 178px;
-					height: 100px;
-					overflow: hidden
-				}
-				
-				.orkam video {
-					border-radius: 5px
-				}
-				
-				.lxoWPd.orkam {}
-				
-				.o4QJDd {
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					background: rgba(0, 0, 0, .03);
-				}
-				
-				.orkam {
-					border-radius: 5px;
-					margin-left: 10px;
-					margin-left: 20px;
-					height: 70px;
-					width: 123.9px;
-					min-width: 123.9px
-				}
-				
-				.orkam.zLOdYe {
-					margin: 12px 0
-				}
-				
-				@media screen and (max-width:350px) {
-					.orkam {
-						height: 73px;
-						width: 130px;
-						min-width: 130px
-					}
-					.orkam {
-						border-radius: 5px;
-						margin-left: 10px;
-						height: 65.5px;
-						width: 115.935px;
-						min-width: 115.935px
-					}
-				}
-				
-				.Woharf {
-					position: absolute;
-					height: 16px;
-					bottom: 8px;
-					left: 16px;
-					transform: translateZ(0);
-					z-index: 2;
-				}
-				
-				.fnfjvf {
-					height: 100%;
-					left: 0;
-					position: absolute;
-					top: 0;
-					width: 100%
-				}
-				
-				span.OPkOif {
-					position: absolute;
-					fill: currentColor;
-					top: 0;
-					left: 0;
-					opacity: .8;
-					z-index: 1
-				}
-				
-				span.ojkYme {
-					border-radius: 50%;
-					display: block;
-					position: absolute;
-					top: 0;
-					left: 0;
-					box-shadow: 0 0 8px rgba(0, 0, 0, .05);
-					background-color: rgba(0, 0, 0, .05)
-				}
-				
-				.iduClc {
-					position: absolute;
-					top: 50%;
-					left: 50%
-				}
-				
-				.OPkOif {
-					background: no-repeat center/100% url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNHM4Ljk1IDIwIDIwIDIwIDIwLTguOTUgMjAtMjBTMzUuMDUgNCAyNCA0em0tNCAyOVYxNWwxMiA5LTEyIDl6Ii8+PC9zdmc+);
-				}
-				
-				.fJiQld {
-					line-height: 20px;
-					font-size: 16px;
-					text-overflow: ellipsis;
-					overflow: hidden;
-					display: -webkit-box;
-					-webkit-line-clamp: 3;
-					-webkit-box-orient: vertical;
-					margin-bottom: 4px;
-					flex-grow: 1;
-					-webkit-line-clamp: 2;
-					height: auto;
-					line-height: 18px
-				}
-				
-				.nNwWze {
-					box-sizing: border-box;
-					padding: 9px 15px 0 16px;
-					flex-grow: 1;
-					display: flex;
-					flex-direction: column;
-					width: calc(100% - 178px);
-					height: 100px;
-					padding: 8px 8px 8px 12px;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-					height: 90px;
-					padding: 10px 16px
-				}
-				
-				.nNwWze.eFlT4e {
-					padding: 12px 0 12px 20px;
-					height: 94px
-				}
-				
-				.nNwWze.Pweix {
-					height: 94px;
-					padding-bottom: 6px;
-					padding-bottom: 12px
-				}
-				
-				.ocUPSd {
-					max-width: 100%;
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					display: block
-				}
-				
-				.ocUPSd,
-				.ocUPSd cite {
-					font-size: 14px;
-					line-height: 22px
-				}
-				
-				.QmUzgb {
-					height: 100%
-				}
-				
-				.GlPvmc {
-					color: #70757a;
-				}
-				
-				.hDeAhf {
-					color: #202124;
-				}
-				
-				.MmhWIb {
-					margin-bottom: 12px;
-					margin-bottom: 2px;
-					margin-bottom: 0;
-					min-height: unset
-				}
-				
-				.CwxNSe {
-					display: flex;
-					align-items: center
-				}
-				
-				.ocUPSd .rjmdhd div {
-					display: inline-block
-				}
-				
-				@media screen and (max-width:350px) {
-					.nNwWze {
-						width: calc(100% - 165px);
-						height: 92px;
-						height: 85.5px;
-						padding: 12px
-					}
-					.nNwWze.H4fVmc {
-						height: 83px;
-						padding-top: 0
-					}
-					.nNwWze.Pweix {
-						padding-bottom: 6px;
-						padding-top: 2px;
-						height: 84px
-					}
-				}
-				
-				.rjmdhd {
-					font-size: 14px;
-					color: #70757a;
-				}
-				
-				.AvBz0e {
-					background-color: #f0f6fd;
-					border-radius: 8px;
-					padding: 4px 0;
-					margin: 4px 0px 10px;
-					position: relative;
-					padding-right: 0
-				}
-				
-				.U1hlv {
-					display: flex;
-					align-items: center;
-					color: #3c4043;
-					position: relative;
-					height: 31px;
-					font-family: Google Sans, arial, sans-serif-medium, sans-serif;
-					font-size: 14px;
-					cursor: pointer;
-					left: -8px;
-					padding-left: 16px
-				}
-				
-				.U1hlv::after {
-					content: '';
-					position: absolute;
-					left: -1px;
-					right: -1px;
-					top: -10px;
-					bottom: -10px
-				}
-				
-				html:not(.zAoYTe) .U1hlv {
-					outline: 0
-				}
-				
-				.MDlLaf {
-					flex-grow: 2;
-					text-align: right;
-					padding-right: 22px
-				}
-				
-				.TII3ge {
-					color: #1a73e8;
-					flex-grow: 2;
-					text-align: right;
-					margin-right: -12px;
-					transform: rotate(90deg);
-					transition: transform ease-out 200ms;
-					vertical-align: middle;
-					height: 18px;
-					width: 18px
-				}
-				
-				.v3KRMc {
-					visibility: inherit;
-					will-change: visibility;
-					display: flex;
-					align-items: center;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					margin-left: 8px
-				}
-				
-				.mQI5xc .TII3ge {
-					transform: rotate(270deg);
-				}
-				
-				.VW4Vy {
-					width: 100%;
-					position: absolute;
-					opacity: 0;
-					visibility: hidden
-				}
-				
-				.mQI5xc .VW4Vy {
-					opacity: 1;
-					position: relative;
-					visibility: inherit
-				}
-				
-				.mQI5xc .U1hlv {
-					height: 20px;
-					padding-top: 6px;
-					padding-bottom: 5px
-				}
-				
-				.mQI5xc .MDlLaf {
-					height: 20px
-				}
-				
-				.U5K4re {
-					width: 0;
-					height: 0;
-					border-left: 8px solid transparent;
-					border-right: 8px solid transparent;
-					border-bottom: 8px solid #f0f6fd;
-					position: absolute;
-					left: 60px;
-					top: -8px
-				}
-				
-				.YlDs7b {
-					position: relative
-				}
-				
-				.yYvGT {
-					position: absolute;
-					width: calc(100% - 0px);
-					height: 100%;
-					margin-left: 0px;
-					width: 100%
-				}
-				
-				.Q4CQTb {
-					height: 8px;
-					border-top-left-radius: 8px;
-					border-top-right-radius: 8px;
-					background-color: #f0f6fd
-				}
-				
-				.l3a1Nc {
-					position: absolute;
-					height: 9px;
-					width: 100%;
-					bottom: 0;
-					border-bottom-left-radius: 8px;
-					border-bottom-right-radius: 8px;
-					background-color: #f0f6fd
-				}
-				
-				.L8J1ce {
-					background-color: #f0f6fd
-				}
-				
-				.S1j8wb {
-					position: relative
-				}
-				
-				.bI5amf {
-					padding-top: 4px;
-					border-radius: 5px;
-					padding-bottom: 9px
-				}
-				
-				.bI5amf.p5fzKc {
-					padding: 0;
-					margin: 0;
-					overflow: visible
-				}
-				
-				.Rip8ud {
-					height: 6px;
-					border-radius: 4px;
-					position: relative;
-					outline: none;
-					align-items: center;
-					margin-top: 8px;
-					margin-left: 16px;
-					margin-right: 16px;
-					background-color: #d5e4fd
-				}
-				
-				.Nejh4b {
-					position: absolute;
-					border-radius: 50%;
-					will-change: opacity, transform;
-					display: inline-block;
-					transform: scale(.67);
-					opacity: .4;
-					width: 6px;
-					height: 6px;
-					z-index: 1;
-					background-color: #1967D2;
-					top: 4px;
-				}
-				
-				.YBNXGe.mOej9,
-				.Nejh4b.mOej9 {}
-				
-				.uOQ7Ue {
-					border-radius: 8px;
-					display: flex;
-					margin-bottom: 4px;
-					box-shadow: none
-					
-				}
-				
-				.jpTzeb .Rip8ud,
-				.jpTzeb .BYBi9e,
-				.jpTzeb .QZhkAc {
-					visibility: hidden
-				}
-				
-				.VFLqo {
-					position: absolute;
-					display: inline-block;
-					top: -4px
-				}
-				
-				.YBNXGe {
-					border-radius: 50%;
-					position: relative;
-					will-change: opacity, transform;
-					width: 14px;
-					height: 14px;
-					transform: scale(1);
-					opacity: .2;
-					left: -4px;
-					background-color: #dde9f6;
-				}
-				
-				g-scrolling-carousel {
-					display: block;
-					position: relative;
-					background-color: rgba(223, 223, 223, 0.349);
-				}
-				
-				.mR2gOd {
-					display: block;
-					overflow-x: auto;
-					overflow-y: hidden;
-					position: relative;
-					white-space: nowrap;
-					transform: translate3d(0, 0, 0);
-					transform: translate3d(0, 0, 0);
-				}
-				
-				.mR2gOd::-webkit-scrollbar {
-					display: none
-				}
-				
-				.DAVP1 {
-					display: inline-block
-				}
-				
-				.EDblX.zP8yCf {
-					padding-left: 16px;
-					padding-right: 16px;
-				}
-				
-				.dR4P {
-					padding: 0;
-					padding-bottom: 20px;
-					display: inline-flex;
-					flex-direction: column;
-					align-items: center;
-					border-right: 1px solid #ebebeb;
-					margin: 0 88px 0 0;
-					will-change: opacity;
-					border-top: rgb(200, 200, 200) solid;
-				}
-				
-				.dR4P:hover div {
-					text-decoration: underline;
-				}
-				
-				.dR4P:first-child {
-					margin: 0
-				}
-				
-				.vfxGNc {
-					width: 100%;
-					display: flex;
-					align-items: center;
-					justify-content: flex-start;
-					font-family: Roboto, arial, sans-serif-medium, sans-serif;
-					font-size: 14px;
-					color: #1a0dab;
-					line-height: 24px
-				}
-				
-				.B58ezc {
-					white-space: normal;
-					width: 100%;
-					display: -webkit-box;
-					/*-webkit-line-clamp: 3;*/
-					-webkit-box-orient: vertical;
-					overflow: hidden;
-					line-height: 21px;
-					color: #3c4043;
-					max-height: 344px;
-					font-family: Roboto, arial, sans-serif-medium, sans-serif;
-					font-size: 16px;
-					margin-top: 0;
-					word-wrap: break-word;
-				}
-				
-				.Lu0opc {
-					cursor: pointer;
-					height: 72px;
-					position: absolute;
-					display: block;
-					visibility: inherit;
-					width: 36px;
-					bottom: 0;
-					margin-bottom: auto;
-					margin-top: auto;
-					outline: none;
-					opacity: 0.8;
-					top: 0;
-					z-index: 101
-				}
-				
-				.Lu0opc.tHT0l {
-					-webkit-transition: opacity 0.5s, visibility 0.5s;
-					transition: opacity 0.5s, visibility 0.5s
-				}
-				
-				.Lu0opc:hover {
-					opacity: 0.9
-				}
-				
-				.Lu0opc:focus {
-					outline: none
-				}
-				
-				.Lu0opc.pQXcHc,
-				.Lu0opc.pQXcHc:hover {
-					cursor: default;
-					opacity: 0;
-					visibility: hidden
-				}
-				
-				.Lu0opc.ESkzqb {
-					height: 36px;
-					width: 36px;
-					opacity: 1.0
-				}
-				
-				.Lu0opc.ESkzqb.pQXcHc,
-				.Lu0opc.ESkzqb.pQXcHc:hover {
-					opacity: 0
-				}
-				
-				.Lu0opc.ESkzqb:hover g-fab {
-					color: #202124 !important;
-					box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.20)
-				}
-				
-				.BlOseb.ESkzqb g-fab,
-				.k2Oeod.ESkzqb g-fab {
-					cursor: pointer;
-					height: 36px;
-					width: 36px
-				}
-				
-				.BlOseb.ESkzqb {
-					left: -18px
-				}
-				
-				.k2Oeod.ESkzqb {
-					right: -18px
-				}
-				
-				.CNf3nf {
-					border-radius: 50%;
-					cursor: pointer;
-					display: block;
-					position: relative;
-					border: 1px solid #dfe1e5;
-					z-index: 0
-				}
-				
-				.CNf3nf:focus {
-					outline: none
-				}
-				
-				.CNf3nf .PUDfGe {
-					position: absolute;
-					left: 0;
-					right: 0;
-					top: 0;
-					bottom: 0;
-					margin: auto;
-					width: 24px;
-					height: 24px
-				}
-				
-				.LhCR5d {
-					width: 40px;
-					height: 40px
-				}
-				
-				.bTZTkf {
-					font-size: 11px;
-					height: 22px;
-					margin-right: 16px;
-					position: relative;
-					top: -2px;
-					font-size: 12px;
-					top: 6px
-				}
-				
-				.bTZTkf .oBa0Fe {
-					font-style: normal
-				}
-				
-				.bTZTkf.uXmgWc {
-					margin-top: -2px;
-					margin-right: 0;
-					top: 0;
-					height: 16px
-				}
-				
-				.feTRce {
-					padding-top: 8px;
-					padding: 0;
-					margin-top: -32px
-				}
-				
-				.feTRce.KKIDe {
-					margin-top: 0
-				}
-				
-				.mIKy0c {
-					cursor: pointer;
-					display: block;
-					font-weight: 400;
-					line-height: 18px;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap
-				}
-				
-				.mIKy0c.dGWpb {
-					overflow: visible
-				}
-				
-				.EZRelc {
-					color: rgba(0, 0, 0, .54);
-					float: left;
-					margin: -2px 24px -2px 0
-				}
-				
-				.wUrVib {
-					color: rgba(0, 0, 0, .87);
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-					width: auto
-				}
-				
-				.mIKy0c {
-					font-size: 16px;
-					line-height: 1.43
-				}
-				
-				.EZRelc {
-					color: #1a0dab;
-					flex: none;
-					margin-right: 8px
-				}
-				
-				.wUrVib {
-					color: #1a0dab;
-					white-space: initial
-				}
-				
-				g-more-link a.Q2MMlc {
-					align-items: center;
-					display: flex
-				}
-				
-				g-more-link.dGWpb {
-					cursor: initial;
-					text-align: center
-				}
-				
-				g-more-link.dGWpb a.Q2MMlc {
-					display: inline-block;
-					pointer-events: none
-				}
-				
-				.MXl0lf {
-					background: #fff;
-					border: 1px solid #dadce0;
-					box-sizing: border-box;
-					cursor: pointer;
-					display: inline-block;
-					font-size: 14px;
-					line-height: 20px;
-					pointer-events: auto;
-					position: relative;
-					width: 300px;
-					padding: 7px 11px;
-					height: 36px;
-					border-radius: 18px;
-				}
-				
-				.MXl0lf:hover {
-					background: #fafafa;
-				}
-				
-				.pb5vrc {
-					background-color: #dadce0;
-					border: 0;
-					height: 1px;
-					left: 0;
-					margin-top: 18px;
-					position: absolute;
-					width: 100%
-				}
-				
-				.MXl0lf .EZRelc {
-					left: 12px;
-					margin-top: 0;
-					position: absolute;
-					height: 20px;
-					width: 20px;
-				}
-				
-				.MXl0lf .wUrVib {
-					display: inline-block;
-					max-width: 220px;
-					white-space: nowrap;
-				}
-				
-				.EhIML {}
-				
-				g-section-with-header {
-					display: block;
-					margin: 0 0 0 0
-				}
-				
-				.e2BEnf {
-					font-size: 20px;
-					line-height: 1.3;
-				}
-				
-				.U7izfe {
-					padding: 0 0px 12px
-				}
-				
-				.aV7hh {
-					display: inline-block;
-					position: relative;
-					top: 1px
-				}
-				
-				.pz1MMb {
-					padding-right: 0
-				}
-				
-				.eA0Zlc {
-					vertical-align: top;
-					display: inline-block;
-					margin: 0;
-					position: relative
-				}
-				
-				.eA0Zlc:focus-within {
-					outline: -webkit-focus-ring-color auto 1px
-				}
-				
-				.eA0Zlc:not(.JX86yc) {
-					overflow: hidden
-				}
-				
-				.eA0Zlc.qN5nNb {
-					margin-right: 2px;
-					margin-bottom: 2px
-				}
-				
-				.c2xzTb .ifM9O .GMCzAd,
-				.fm06If .ifM9O .GMCzAd {
-					margin: 0
-				}
-				
-				.M4dUYb {
-					position: relative
-				}
-				
-				.fWhgmd {
-					background-color: rgba(0, 0, 0, 0.03);
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0
-				}
-				
-				.wFKnCb {
-					padding-top: 6px;
-					position: relative
-				}
-				
-				.SjnGOc {
-					display: block;
-					text-align: right;
-					margin-right: -9px;
-					margin-bottom: 4px
-				}
-				
-				.kkg8oe:visited {
-					color: #666
-				}
-				
-				.kkg8oe a:link {
-					color: #1a0dab
-				}
-				
-				.TvcMHf .kkg8oe a:visited {
-					color: #1a0dab
-				}
-				
-				.nucC7d {
-					font-size: small
-				}
-				
-				.yoSdhc {
-					margin-top: 8px;
-					margin-right: 16px;
-					vertical-align: middle
-				}
-				
-				.TvcMHf a.JSTKkb {
-					color: #70757a
-				}
-				
-				.JSTKkb:hover {
-					color: #202124
-				}
-				
-				.B8tSoe,
-				.wh2ucd {
-					margin-top: 8px
-				}
-				
-				.TvcMHf span,
-				.TvcMHf span a {
-					font-size: 14;
-					line-height: 1.58;
-					position: relative
-				}
-				
-				.TvcMHf span a::before {
-					content: '';
-					height: 48px;
-					position: absolute;
-					top: -6px;
-					width: 100%
-				}
-				
-				.XAWeZb {
-					margin-right: 16px
-				}
-				
-				a:hover h3.LC20lb {
-					text-decoration: underline
-				}
-				
-				.LC20lb {
-					display: inline-block;
-					line-height: 1.3;
-					margin-bottom: 3px;
-				}
-				
-				.DKV0Md {
-					padding-top: 4px;
-					padding-top: 5px;
-				}
-				
-				.VjDLd .TieM1d .tjvcx,
-				.IVvPP .tjvcx,
-				.kno-kp .tjvcx,
-				.VjDLd .kp-wholepage-osrp .tjvcx,
-				#rhs .ss6qqb .tjvcx {
-					display: inline-block;
-					height: 19px;
-					overflow-y: hidden
-				}
-				
-				.qzEoUe {
-					color: #202124;
-					white-space: -webkit-nowrap
-				}
-				
-				.dyjrff {
-					color: #5f6368
-				}
-				
-				.B6fmyf {
-					position: absolute;
-					top: 0;
-					height: 0;
-					visibility: hidden;
-					white-space: nowrap
-				}
-				
-				.csDOgf {
-					display: inline;
-					visibility: visible;
-					position: absolute
-				}
-				
-				.eFM0qc {
-					display: inline-block;
-					padding-bottom: 2px;
-					padding-top: 1px;
-					padding-left: 2px;
-					visibility: visible
-				}
-				
-				.TqCBb {
-					padding-bottom: 0
-				}
-
-				/* Add this attribute to the element that needs a tooltip */
-[data-tooltip] {
-  position: relative;
-  z-index: 2;
-  cursor: pointer;
-}
-
-/* Hide the tooltip content by default */
-[data-tooltip]:before,
-[data-tooltip]:after {
-  visibility: hidden;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Position tooltip above the element */
-[data-tooltip]:before {
-  position: absolute;
-  bottom: 80%;
-  left: 50%;
-  margin-bottom: 5px;
-  margin-left: -80px;
-  padding: 7px;
-  width: 160px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  background-color: #000;
-  background-color: hsla(0, 0%, 20%, 0.9);
-  color: #fff;
-  content: attr(data-tooltip);
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2;
-}
-
-/* Triangle hack to make tooltip look like a speech bubble */
-[data-tooltip]:after {
-  position: absolute;
-  bottom: 80%;
-  left: 50%;
-  margin-left: -5px;
-  width: 0;
-  border-top: 5px solid #000;
-  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  content: " ";
-  font-size: 0;
-  line-height: 0;
-}
-
-/* Show tooltip content on hover */
-[data-tooltip]:hover:before,
-[data-tooltip]:hover:after {
-  visibility: visible;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
-
-.tg2 {
-  color: white;
-  border-radius: 5px;
-  padding: 2px 8px;
-  margin: 1px;
-  margin-bottom: 8px;
-  margin-top: 4px;
-  width: 100px;
-}
-
-.tg-12 { background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
-		 box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
-							0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
-							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
-							0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
-}
-
-.tag {
-  border-radius: 5px;
-  position: relative;
-  color: white;
-  padding: 1px 5px;
-  margin: 1px;
-  float: right;
-  margin-bottom: 8px;
-  margin-top: 4px;
-  width: 100px;
-}
-
-.tag-1 { background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
-		 display: none;
-
-  position: relative;
-		 box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
-							0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
-							0 0.75rem 0.5rem rgba(255,255,255, 0.4) inset,
-							0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
-}
+	* {
+		cursor: pointer;
+	}
 
 
-.container {
-	position: relative;;
-	left: 50%;
-	top: 50%;
-	transform:translate(-50%,-50%);	
-}
 
-.button{
-	display:block;
-	margin-bottom:0.2rem;
-}
+	#onTop {
+		background: rgba(255, 255, 255, .5);
+		width: 350px;
+		height: 20px;
+		position: absolute;
+		z-index: 1;
+		display: none;
+	}
 
-.switch[type="checkbox"] {
-	position: relative;;
-	width: 2rem;
-	height: 1rem;
-	-webkit-appearance:none;
-	background-color:rgba(255,255,255,.2);
-	outline:none;
-	border-radius:0.5rem;
-	box-shadow:inset 0 0 5px rgba(0,0,0,0.3);
-	transition:.5s;
-}
-.switch:checked[type="checkbox"] {
-	background-color:rgb(184, 240, 250);
-}
-.switch[type="checkbox"]::before {
-	content:"";
-	position: absolute;
-	width: 1rem;
-	height: 1rem;
-	border-radius:0.5rem;
-	top: 0;
-	left: 0;
-	background:white;
-	transition:.5s;
-	box-shadow:0 2px 5px rgba(0,0,0,.2);
-}
-.switch:checked[type="checkbox"]::before {
-	left:1rem;
-}
+	.fixedElement {
+		background-color: #c0c0c0;
+		position: fixed;
+		top: 0;
+		width: auto;
+		z-index: 100;
+	}
 
-.ios[type="checkbox"]::before {
-	transform:scale(.9);
-}
+	.video-responsive {
+		position: relative;
+		height: 100%;
+	}
 
-.emoji {
-	display: none;
-}
+	.button-container {
+		position: relative;
+		top: 0;
+	}
 
-.audioPlayButton {
-	background: #0000002a;
-}
+	iframe {
+		left: 0;
+		top: 0;
+		/* height:32vh; */
+		width: 100%;
+		position: relative;
+	}
 
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
+	.ytp-pause-overlay {
+		bottom: -200px; //give !important if not working
+	}
 
-.active, .accordion:hover {
-  background-color: #ccc; 
-}
+	.fill {
+		background-color: white;
+	}
 
-.panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
-}
+	table {
+		font-size: 13px;
+	}
+
+	.red {
+		background-color: #FF3A30;
+	}
+
+	.orange {
+		background-color: #F79827;
+	}
+
+	.yellow {
+		background-color: #F2C520;
+	}
+
+	.green {
+		background-color: #48BF1D;
+	}
+
+	.blue {
+		background-color: #15A6F1;
+	}
+
+	.purple {
+		background-color: #C66EDA;
+	}
+
+	.grey {
+		background-color: #6D757D;
+	}
+
+	.white {
+		color: #ffffff;
+	}
+
+	hr {
+		width: 90%;
+		height: 12px;
+		background-color: #A0C8C0;
+		margin-bottom: 3px;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 1px;
+		border-radius: 7.5px;
+		border-width: 2px;
+		border-color: #7cc782;
+	}
+
+	.struct-node {
+		position: absolute;
+		width: 5px;
+		height: 13px;
+		border-radius: 1.5px;
+		margin-top: 1px;
+		background-color: #F0BB4D;
+		border-style: solid;
+		border-width: 1px;
+		border-color: grey;
+	}
+
+	.section {
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		margin-top: 2px;
+	}
+
+	.ULSxyf {
+		margin-bottom: 40px
+	}
+
+	.hlcw0c {
+		margin-bottom: 40px
+	}
+
+	.Nxb87 {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 0 0 0;
+	}
+
+	.LMMXP {
+		color: #202124;
+		font-family: arial, sans-serif;
+		display: inline-block;
+		letter-spacing: 0.3px;
+		font-size: 20px;
+		height: 26px;
+		padding: 0 0 8px;
+		line-height: 1.3;
+	}
+
+	.Nxb87 {
+		position: relative
+	}
+
+	.gWFovd {
+		flex: auto
+	}
+
+	title-with-lhs-icon:hover .ekf0x h3 {
+		color: #1a0dab
+	}
+
+	title-with-lhs-icon .ekf0x {
+		color: #202124;
+		display: block;
+		margin-left: -53px
+	}
+
+	title-with-lhs-icon .hSQtef.ekf0x {
+		display: inline;
+		margin-left: 0
+	}
+
+	title-with-lhs-icon:hover .hSQtef.ekf0x {
+		color: #1a0dab
+	}
+
+	#rcnt .ekf0x:hover h3 {
+		text-decoration: none
+	}
+
+	.iJ1Kvb {
+		display: inline-block;
+		line-height: 24px
+	}
+
+	.GmE3X {
+		display: inline-block;
+		margin-right: 12px;
+		position: relative;
+		top: -3px
+	}
+
+	.iv236 {
+		color: #70757a;
+		display: inline-block;
+		margin-right: 12px
+	}
+
+	.dtIg1b {
+		display: none;
+		margin-right: 12px
+	}
+
+	title-with-lhs-icon:hover .kNmTT {
+		display: none
+	}
+
+	title-with-lhs-icon:hover .dtIg1b {
+		display: inline-block
+	}
+
+	.EwsJzb {
+		display: block;
+		position: absolute
+	}
+
+	.xTFaxe {
+		fill: #70757a;
+		top: 2px;
+		margin-left: 2px
+	}
+
+	.D6lY4c {
+		height: 22px;
+		width: 22px;
+		position: absolute;
+		border-radius: 11px;
+		top: -1px
+	}
+
+	.iTPLzd {
+		top: 0;
+		left: 0;
+		width: 28px;
+		z-index: 1;
+		padding-bottom: 20px;
+		line-height: 16px;
+	}
+
+	.WE2xI {
+		position: relative
+	}
+
+	.wf-b .WGYX8 {
+		font-family: Roboto, arial, sans-serif
+	}
+
+	.HD8Pae {
+		border: none;
+		margin-bottom: 40px;
+		overflow: visible;
+		position: relative
+	}
+
+	div.ULSxyf:first-of-type .HD8Pae {
+		margin-top: 11px
+	}
+
+	.MGqjK {
+		position: relative;
+		background-color: #fff;
+		margin: 0;
+		box-shadow: none;
+	}
+
+	.VibNM {
+		display: block;
+		position: relative;
+		border-top: 1px solid #ecedef
+	}
+
+	.o3AwDf {
+		position: relative
+	}
+
+	.o3AwDf .JaTJ7c {
+		background: transparent;
+		height: calc(100% - 2px);
+		pointer-events: none;
+		position: absolute;
+		transform-origin: top;
+		width: calc(100% - 2px);
+		z-index: 1;
+		border-radius: 0;
+		border-top: 1px solid #ecedef
+	}
+
+	.WpKAof {
+		color: #1a0dab;
+		display: block;
+		height: 100%;
+		width: 100%
+	}
+
+	.WpKAof:hover {
+		background-color: #f8f9fa
+	}
+
+	#rcnt a.WpKAof:hover {
+		text-decoration: none
+	}
+
+	.WpKAof:hover .CwxNSe {
+		text-decoration: underline
+	}
+
+	.q2eaDe {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		box-sizing: border-box;
+		align-items: center
+	}
+
+	.JWCxk {
+		display: inline-block;
+		width: 50%;
+		padding-top: none
+	}
+
+	.QmUzgb {
+		width: 100%;
+		height: 100%
+	}
+
+	.U5LfPc.QmUzgb {
+		display: flex;
+		flex-direction: column
+	}
+
+	.Dvkbzb {
+		border-radius: 8px
+	}
+
+	.SmeuHe img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%
+	}
+
+	.SmeuHe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: #f8f9fa
+	}
+
+	.J2i9Hd {
+		line-height: 14px;
+		font-size: 12px;
+		position: absolute;
+		font-family: arial, sans-serif-medium, sans-serif;
+		color: #fff;
+		background-color: rgba(0, 0, 0, .54);
+		padding: 1px 8px;
+		left: 8px;
+		bottom: 6px
+	}
+
+	.orkam {
+		width: 100%;
+		position: relative;
+		width: 178px;
+		height: 100px;
+		overflow: hidden
+	}
+
+	.orkam video {
+		border-radius: 5px
+	}
+
+	.lxoWPd.orkam {}
+
+	.o4QJDd {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, .03);
+	}
+
+	.orkam {
+		border-radius: 5px;
+		margin-left: 10px;
+		margin-left: 20px;
+		height: 70px;
+		width: 123.9px;
+		min-width: 123.9px
+	}
+
+	.orkam.zLOdYe {
+		margin: 12px 0
+	}
+
+	@media screen and (max-width:350px) {
+		.orkam {
+			height: 73px;
+			width: 130px;
+			min-width: 130px
+		}
+
+		.orkam {
+			border-radius: 5px;
+			margin-left: 10px;
+			height: 65.5px;
+			width: 115.935px;
+			min-width: 115.935px
+		}
+	}
+
+	.Woharf {
+		position: absolute;
+		height: 16px;
+		bottom: 8px;
+		left: 16px;
+		transform: translateZ(0);
+		z-index: 2;
+	}
+
+	.fnfjvf {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%
+	}
+
+	span.OPkOif {
+		position: absolute;
+		fill: currentColor;
+		top: 0;
+		left: 0;
+		opacity: .8;
+		z-index: 1
+	}
+
+	span.ojkYme {
+		border-radius: 50%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-shadow: 0 0 8px rgba(0, 0, 0, .05);
+		background-color: rgba(0, 0, 0, .05)
+	}
+
+	.iduClc {
+		position: absolute;
+		top: 50%;
+		left: 50%
+	}
+
+	.OPkOif {
+		background: no-repeat center/100% url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMjQgNEMxMi45NSA0IDQgMTIuOTUgNCAyNHM4Ljk1IDIwIDIwIDIwIDIwLTguOTUgMjAtMjBTMzUuMDUgNCAyNCA0em0tNCAyOVYxNWwxMiA5LTEyIDl6Ii8+PC9zdmc+);
+	}
+
+	.fJiQld {
+		line-height: 20px;
+		font-size: 16px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		margin-bottom: 4px;
+		flex-grow: 1;
+		-webkit-line-clamp: 2;
+		height: auto;
+		line-height: 18px
+	}
+
+	.nNwWze {
+		box-sizing: border-box;
+		padding: 9px 15px 0 16px;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		width: calc(100% - 178px);
+		height: 100px;
+		padding: 8px 8px 8px 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 90px;
+		padding: 10px 16px
+	}
+
+	.nNwWze.eFlT4e {
+		padding: 12px 0 12px 20px;
+		height: 94px
+	}
+
+	.nNwWze.Pweix {
+		height: 94px;
+		padding-bottom: 6px;
+		padding-bottom: 12px
+	}
+
+	.ocUPSd {
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block
+	}
+
+	.ocUPSd,
+	.ocUPSd cite {
+		font-size: 14px;
+		line-height: 22px
+	}
+
+	.QmUzgb {
+		height: 100%
+	}
+
+	.GlPvmc {
+		color: #70757a;
+	}
+
+	.hDeAhf {
+		color: #202124;
+	}
+
+	.MmhWIb {
+		margin-bottom: 12px;
+		margin-bottom: 2px;
+		margin-bottom: 0;
+		min-height: unset
+	}
+
+	.CwxNSe {
+		display: flex;
+		align-items: center
+	}
+
+	.ocUPSd .rjmdhd div {
+		display: inline-block
+	}
+
+	@media screen and (max-width:350px) {
+		.nNwWze {
+			width: calc(100% - 165px);
+			height: 92px;
+			height: 85.5px;
+			padding: 12px
+		}
+
+		.nNwWze.H4fVmc {
+			height: 83px;
+			padding-top: 0
+		}
+
+		.nNwWze.Pweix {
+			padding-bottom: 6px;
+			padding-top: 2px;
+			height: 84px
+		}
+	}
+
+	.rjmdhd {
+		font-size: 14px;
+		color: #70757a;
+	}
+
+	.AvBz0e {
+		background-color: #f0f6fd;
+		border-radius: 8px;
+		padding: 4px 0;
+		margin: 4px 0px 10px;
+		position: relative;
+		padding-right: 0
+	}
+
+	.U1hlv {
+		display: flex;
+		align-items: center;
+		color: #3c4043;
+		position: relative;
+		height: 31px;
+		font-family: Google Sans, arial, sans-serif-medium, sans-serif;
+		font-size: 14px;
+		cursor: pointer;
+		left: -8px;
+		padding-left: 16px
+	}
+
+	.U1hlv::after {
+		content: '';
+		position: absolute;
+		left: -1px;
+		right: -1px;
+		top: -10px;
+		bottom: -10px
+	}
+
+	html:not(.zAoYTe) .U1hlv {
+		outline: 0
+	}
+
+	.MDlLaf {
+		flex-grow: 2;
+		text-align: right;
+		padding-right: 22px
+	}
+
+	.TII3ge {
+		color: #1a73e8;
+		flex-grow: 2;
+		text-align: right;
+		margin-right: -12px;
+		transform: rotate(90deg);
+		transition: transform ease-out 200ms;
+		vertical-align: middle;
+		height: 18px;
+		width: 18px
+	}
+
+	.v3KRMc {
+		visibility: inherit;
+		will-change: visibility;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 8px
+	}
+
+	.mQI5xc .TII3ge {
+		transform: rotate(270deg);
+	}
+
+	.VW4Vy {
+		width: 100%;
+		position: absolute;
+		opacity: 0;
+		visibility: hidden
+	}
+
+	.mQI5xc .VW4Vy {
+		opacity: 1;
+		position: relative;
+		visibility: inherit
+	}
+
+	.mQI5xc .U1hlv {
+		height: 20px;
+		padding-top: 6px;
+		padding-bottom: 5px
+	}
+
+	.mQI5xc .MDlLaf {
+		height: 20px
+	}
+
+	.U5K4re {
+		width: 0;
+		height: 0;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 8px solid #f0f6fd;
+		position: absolute;
+		left: 60px;
+		top: -8px
+	}
+
+	.YlDs7b {
+		position: relative
+	}
+
+	.yYvGT {
+		position: absolute;
+		width: calc(100% - 0px);
+		height: 100%;
+		margin-left: 0px;
+		width: 100%
+	}
+
+	.Q4CQTb {
+		height: 8px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		background-color: #f0f6fd
+	}
+
+	.l3a1Nc {
+		position: absolute;
+		height: 9px;
+		width: 100%;
+		bottom: 0;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+		background-color: #f0f6fd
+	}
+
+	.L8J1ce {
+		background-color: #f0f6fd
+	}
+
+	.S1j8wb {
+		position: relative
+	}
+
+	.bI5amf {
+		padding-top: 4px;
+		border-radius: 5px;
+		padding-bottom: 9px
+	}
+
+	.bI5amf.p5fzKc {
+		padding: 0;
+		margin: 0;
+		overflow: visible
+	}
+
+	.Rip8ud {
+		height: 6px;
+		border-radius: 4px;
+		position: relative;
+		outline: none;
+		align-items: center;
+		margin-top: 8px;
+		margin-left: 16px;
+		margin-right: 16px;
+		background-color: #d5e4fd
+	}
+
+	.Nejh4b {
+		position: absolute;
+		border-radius: 50%;
+		will-change: opacity, transform;
+		display: inline-block;
+		transform: scale(.67);
+		opacity: .4;
+		width: 6px;
+		height: 6px;
+		z-index: 1;
+		background-color: #1967D2;
+		top: 4px;
+	}
+
+	.YBNXGe.mOej9,
+	.Nejh4b.mOej9 {}
+
+	.uOQ7Ue {
+		border-radius: 8px;
+		display: flex;
+		margin-bottom: 4px;
+		box-shadow: none
+	}
+
+	.jpTzeb .Rip8ud,
+	.jpTzeb .BYBi9e,
+	.jpTzeb .QZhkAc {
+		visibility: hidden
+	}
+
+	.VFLqo {
+		position: absolute;
+		display: inline-block;
+		top: -4px
+	}
+
+	.YBNXGe {
+		border-radius: 50%;
+		position: relative;
+		will-change: opacity, transform;
+		width: 14px;
+		height: 14px;
+		transform: scale(1);
+		opacity: .2;
+		left: -4px;
+		background-color: #dde9f6;
+	}
+
+	g-scrolling-carousel {
+		display: block;
+		position: relative;
+		background-color: rgba(223, 223, 223, 0.349);
+	}
+
+	.mR2gOd {
+		display: block;
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
+		white-space: nowrap;
+		transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	.mR2gOd::-webkit-scrollbar {
+		display: none
+	}
+
+	.DAVP1 {
+		display: inline-block
+	}
+
+	.EDblX.zP8yCf {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.dR4P {
+		padding: 0;
+		padding-bottom: 20px;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		border-right: 1px solid #ebebeb;
+		margin: 0 88px 0 0;
+		will-change: opacity;
+		border-top: rgb(200, 200, 200) solid;
+	}
+
+	.dR4P:hover div {
+		text-decoration: underline;
+	}
+
+	.dR4P:first-child {
+		margin: 0
+	}
+
+	.vfxGNc {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		font-family: Roboto, arial, sans-serif-medium, sans-serif;
+		font-size: 14px;
+		color: #1a0dab;
+		line-height: 24px
+	}
+
+	.B58ezc {
+		white-space: normal;
+		width: 100%;
+		display: -webkit-box;
+		/*-webkit-line-clamp: 3;*/
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		line-height: 21px;
+		color: #3c4043;
+		max-height: 344px;
+		font-family: Roboto, arial, sans-serif-medium, sans-serif;
+		font-size: 16px;
+		margin-top: 0;
+		word-wrap: break-word;
+	}
+
+	.B58ezcc {
+		white-space: normal;
+		width: 100%;
+		display: -webkit-box;
+		/*-webkit-line-clamp: 3;*/
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		line-height: 21px;
+		color: #3c4043;
+		max-height: 344px;
+		font-family: Roboto, arial, sans-serif-medium, sans-serif;
+		font-size: 16px;
+		margin-top: 0;
+		word-wrap: break-word;
+	}
+
+	.Lu0opc {
+		cursor: pointer;
+		height: 72px;
+		position: absolute;
+		display: block;
+		visibility: inherit;
+		width: 36px;
+		bottom: 0;
+		margin-bottom: auto;
+		margin-top: auto;
+		outline: none;
+		opacity: 0.8;
+		top: 0;
+		z-index: 101
+	}
+
+	.Lu0opc.tHT0l {
+		-webkit-transition: opacity 0.5s, visibility 0.5s;
+		transition: opacity 0.5s, visibility 0.5s
+	}
+
+	.Lu0opc:hover {
+		opacity: 0.9
+	}
+
+	.Lu0opc:focus {
+		outline: none
+	}
+
+	.Lu0opc.pQXcHc,
+	.Lu0opc.pQXcHc:hover {
+		cursor: default;
+		opacity: 0;
+		visibility: hidden
+	}
+
+	.Lu0opc.ESkzqb {
+		height: 36px;
+		width: 36px;
+		opacity: 1.0
+	}
+
+	.Lu0opc.ESkzqb.pQXcHc,
+	.Lu0opc.ESkzqb.pQXcHc:hover {
+		opacity: 0
+	}
+
+	.Lu0opc.ESkzqb:hover g-fab {
+		color: #202124 !important;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 4px 8px 0 rgba(0, 0, 0, 0.20)
+	}
+
+	.BlOseb.ESkzqb g-fab,
+	.k2Oeod.ESkzqb g-fab {
+		cursor: pointer;
+		height: 36px;
+		width: 36px
+	}
+
+	.BlOseb.ESkzqb {
+		left: -18px
+	}
+
+	.k2Oeod.ESkzqb {
+		right: -18px
+	}
+
+	.CNf3nf {
+		border-radius: 50%;
+		cursor: pointer;
+		display: block;
+		position: relative;
+		border: 1px solid #dfe1e5;
+		z-index: 0
+	}
+
+	.CNf3nf:focus {
+		outline: none
+	}
+
+	.CNf3nf .PUDfGe {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		width: 24px;
+		height: 24px
+	}
+
+	.LhCR5d {
+		width: 40px;
+		height: 40px
+	}
+
+	.bTZTkf {
+		font-size: 11px;
+		height: 22px;
+		margin-right: 16px;
+		position: relative;
+		top: -2px;
+		font-size: 12px;
+		top: 6px
+	}
+
+	.bTZTkf .oBa0Fe {
+		font-style: normal
+	}
+
+	.bTZTkf.uXmgWc {
+		margin-top: -2px;
+		margin-right: 0;
+		top: 0;
+		height: 16px
+	}
+
+	.feTRce {
+		padding-top: 8px;
+		padding: 0;
+		margin-top: -32px
+	}
+
+	.feTRce.KKIDe {
+		margin-top: 0
+	}
+
+	.mIKy0c {
+		cursor: pointer;
+		display: block;
+		font-weight: 400;
+		line-height: 18px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap
+	}
+
+	.mIKy0c.dGWpb {
+		overflow: visible
+	}
+
+	.EZRelc {
+		color: rgba(0, 0, 0, .54);
+		float: left;
+		margin: -2px 24px -2px 0
+	}
+
+	.wUrVib {
+		color: rgba(0, 0, 0, .87);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: auto
+	}
+
+	.mIKy0c {
+		font-size: 16px;
+		line-height: 1.43
+	}
+
+	.EZRelc {
+		color: #1a0dab;
+		flex: none;
+		margin-right: 8px
+	}
+
+	.wUrVib {
+		color: #1a0dab;
+		white-space: initial
+	}
+
+	g-more-link a.Q2MMlc {
+		align-items: center;
+		display: flex
+	}
+
+	g-more-link.dGWpb {
+		cursor: initial;
+		text-align: center
+	}
+
+	g-more-link.dGWpb a.Q2MMlc {
+		display: inline-block;
+		pointer-events: none
+	}
+
+	.MXl0lf {
+		background: #fff;
+		border: 1px solid #dadce0;
+		box-sizing: border-box;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 14px;
+		line-height: 20px;
+		pointer-events: auto;
+		position: relative;
+		width: 300px;
+		padding: 7px 11px;
+		height: 36px;
+		border-radius: 18px;
+	}
+
+	.MXl0lf:hover {
+		background: #fafafa;
+	}
+
+	.pb5vrc {
+		background-color: #dadce0;
+		border: 0;
+		height: 1px;
+		left: 0;
+		margin-top: 18px;
+		position: absolute;
+		width: 100%
+	}
+
+	.MXl0lf .EZRelc {
+		left: 12px;
+		margin-top: 0;
+		position: absolute;
+		height: 20px;
+		width: 20px;
+	}
+
+	.MXl0lf .wUrVib {
+		display: inline-block;
+		max-width: 220px;
+		white-space: nowrap;
+	}
+
+	.EhIML {}
+
+	g-section-with-header {
+		display: block;
+		margin: 0 0 0 0
+	}
+
+	.e2BEnf {
+		font-size: 20px;
+		line-height: 1.3;
+	}
+
+	.U7izfe {
+		padding: 0 0px 12px
+	}
+
+	.aV7hh {
+		display: inline-block;
+		position: relative;
+		top: 1px
+	}
+
+	.pz1MMb {
+		padding-right: 0
+	}
+
+	.eA0Zlc {
+		vertical-align: top;
+		display: inline-block;
+		margin: 0;
+		position: relative
+	}
+
+	.eA0Zlc:focus-within {
+		outline: -webkit-focus-ring-color auto 1px
+	}
+
+	.eA0Zlc:not(.JX86yc) {
+		overflow: hidden
+	}
+
+	.eA0Zlc.qN5nNb {
+		margin-right: 2px;
+		margin-bottom: 2px
+	}
+
+	.c2xzTb .ifM9O .GMCzAd,
+	.fm06If .ifM9O .GMCzAd {
+		margin: 0
+	}
+
+	.M4dUYb {
+		position: relative
+	}
+
+	.fWhgmd {
+		background-color: rgba(0, 0, 0, 0.03);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0
+	}
+
+	.wFKnCb {
+		padding-top: 6px;
+		position: relative
+	}
+
+	.SjnGOc {
+		display: block;
+		text-align: right;
+		margin-right: -9px;
+		margin-bottom: 4px
+	}
+
+	.kkg8oe:visited {
+		color: #666
+	}
+
+	.kkg8oe a:link {
+		color: #1a0dab
+	}
+
+	.TvcMHf .kkg8oe a:visited {
+		color: #1a0dab
+	}
+
+	.nucC7d {
+		font-size: small
+	}
+
+	.yoSdhc {
+		margin-top: 8px;
+		margin-right: 16px;
+		vertical-align: middle
+	}
+
+	.TvcMHf a.JSTKkb {
+		color: #70757a
+	}
+
+	.JSTKkb:hover {
+		color: #202124
+	}
+
+	.B8tSoe,
+	.wh2ucd {
+		margin-top: 8px
+	}
+
+	.TvcMHf span,
+	.TvcMHf span a {
+		font-size: 14;
+		line-height: 1.58;
+		position: relative
+	}
+
+	.TvcMHf span a::before {
+		content: '';
+		height: 48px;
+		position: absolute;
+		top: -6px;
+		width: 100%
+	}
+
+	.XAWeZb {
+		margin-right: 16px
+	}
+
+	a:hover h3.LC20lb {
+		text-decoration: underline
+	}
+
+	.LC20lb {
+		display: inline-block;
+		line-height: 1.3;
+		margin-bottom: 3px;
+	}
+
+	.DKV0Md {
+		padding-top: 4px;
+		padding-top: 5px;
+	}
+
+	.VjDLd .TieM1d .tjvcx,
+	.IVvPP .tjvcx,
+	.kno-kp .tjvcx,
+	.VjDLd .kp-wholepage-osrp .tjvcx,
+	#rhs .ss6qqb .tjvcx {
+		display: inline-block;
+		height: 19px;
+		overflow-y: hidden
+	}
+
+	.qzEoUe {
+		color: #202124;
+		white-space: -webkit-nowrap
+	}
+
+	.dyjrff {
+		color: #5f6368
+	}
+
+	.B6fmyf {
+		position: absolute;
+		top: 0;
+		height: 0;
+		visibility: hidden;
+		white-space: nowrap
+	}
+
+	.csDOgf {
+		display: inline;
+		visibility: visible;
+		position: absolute
+	}
+
+	.eFM0qc {
+		display: inline-block;
+		padding-bottom: 2px;
+		padding-top: 1px;
+		padding-left: 2px;
+		visibility: visible
+	}
+
+	.TqCBb {
+		padding-bottom: 0
+	}
+
+	/* Add this attribute to the element that needs a tooltip */
+	[data-tooltip] {
+		position: relative;
+		z-index: 2;
+		cursor: pointer;
+	}
+
+	/* Hide the tooltip content by default */
+	[data-tooltip]:before,
+	[data-tooltip]:after {
+		visibility: hidden;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/* Position tooltip above the element */
+	[data-tooltip]:before {
+		position: absolute;
+		bottom: 80%;
+		left: 50%;
+		margin-bottom: 5px;
+		margin-left: -80px;
+		padding: 7px;
+		width: 160px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		background-color: #000;
+		background-color: hsla(0, 0%, 20%, 0.9);
+		color: #fff;
+		content: attr(data-tooltip);
+		text-align: center;
+		font-size: 14px;
+		line-height: 1.2;
+	}
+
+	/* Triangle hack to make tooltip look like a speech bubble */
+	[data-tooltip]:after {
+		position: absolute;
+		bottom: 80%;
+		left: 50%;
+		margin-left: -5px;
+		width: 0;
+		border-top: 5px solid #000;
+		border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+		content: " ";
+		font-size: 0;
+		line-height: 0;
+	}
+
+	/* Show tooltip content on hover */
+	[data-tooltip]:hover:before,
+	[data-tooltip]:hover:after {
+		visibility: visible;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+		opacity: 1;
+	}
+
+	.tg2 {
+		color: white;
+		border-radius: 5px;
+		padding: 2px 8px;
+		margin: 1px;
+		margin-bottom: 8px;
+		margin-top: 4px;
+		width: 100px;
+	}
+
+	.tg-12 {
+		background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
+		box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
+			0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
+			0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+			0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
+	}
+
+	.tag {
+		border-radius: 5px;
+		position: relative;
+		color: white;
+		padding: 1px 5px;
+		margin: 1px;
+		float: right;
+		margin-bottom: 8px;
+		margin-top: 4px;
+		width: 100px;
+	}
+
+	.tag-1 {
+		background-image: linear-gradient(-180deg, #6b6b6b 0%, #424242 100%);
+		display: none;
+
+		position: relative;
+		box-shadow: 0 1rem 1.25rem 0 rgba(118, 137, 182, 0.5),
+			0 -0.25rem 1.5rem rgb(140, 126, 146) inset,
+			0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+			0 0.25rem 0.5rem 0 rgb(192, 190, 192) inset;
+	}
+
+
+	.container {
+		position: relative;
+		;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.button {
+		display: block;
+		margin-bottom: 0.2rem;
+	}
+
+	.switch[type="checkbox"] {
+		position: relative;
+		;
+		width: 2rem;
+		height: 1rem;
+		-webkit-appearance: none;
+		background-color: rgba(255, 255, 255, .2);
+		outline: none;
+		border-radius: 0.5rem;
+		box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+		transition: 0s;
+	}
+
+	.switch:checked[type="checkbox"] {
+		background-color: rgb(184, 240, 250);
+	}
+
+	.switch[type="checkbox"]::before {
+		content: "";
+		position: absolute;
+		width: 1rem;
+		height: 1rem;
+		border-radius: 0.5rem;
+		top: 0;
+		left: 0;
+		background: white;
+		transition: 0s;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	}
+
+	.switch:checked[type="checkbox"]::before {
+		left: 1rem;
+	}
+
+	.ios[type="checkbox"]::before {
+		transform: scale(.9);
+	}
+
+	.emoji {
+		display: none;
+	}
+
+	.audioPlayButton {
+		background: #0000002a;
+	}
+
+	.accordion {
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		font-size: 15px;
+		transition: 0.4s;
+	}
+
+	.active,
+	.accordion:hover {
+		background-color: #ccc;
+	}
+
+	.panel {
+		padding: 0 18px;
+		display: none;
+		background-color: white;
+		overflow: hidden;
+	}
 </style>
+
 <body>
 
-<script src="./ttt_files/m=BX6Ykc,GGp2Cd,IkchZc,KVWnye,KvvIqb,MB3mMb,MkIO9c,NBZ7u,O8k1Cd,OG6ZHd,T7XTS,URQPYc,UTxq6e,XFHqe,XjCeUc,Ya0K2e,aCZVp,aa,abd,async,bgd,dvl,eN4qad,eT9j9d,fEVMic,fk3mof,foot,iD8Yk,kyn,lli,m6a0l,mUpTid,mu,o02Jie,pB6Zqd,pkeO3b,qIPxnd,qik19b,rHjpXd,runuse,sb_wi" nonce="BJtDbgrl06MnJ2b/cP+6wA==" async="" gapi_processed="true"></script>
+	<script
+		src="./ttt_files/m=BX6Ykc,GGp2Cd,IkchZc,KVWnye,KvvIqb,MB3mMb,MkIO9c,NBZ7u,O8k1Cd,OG6ZHd,T7XTS,URQPYc,UTxq6e,XFHqe,XjCeUc,Ya0K2e,aCZVp,aa,abd,async,bgd,dvl,eN4qad,eT9j9d,fEVMic,fk3mof,foot,iD8Yk,kyn,lli,m6a0l,mUpTid,mu,o02Jie,pB6Zqd,pkeO3b,qIPxnd,qik19b,rHjpXd,runuse,sb_wi"
+		nonce="BJtDbgrl06MnJ2b/cP+6wA==" async="" gapi_processed="true"></script>
 
-  
-<!-- <h1>Audio Note-taking</h1>
+
+	<!-- <h1>Audio Note-taking</h1>
 <p>Tool for audio note-taking during watching video</p> -->
-<div id="playElements" class="sticky-top fill">
-  <div class="video-responsive">
-    <div id="player"></div>
-    <div id="onTop"></div>
+	<div id="playElements" class="sticky-top fill">
+		<div class="video-responsive">
+			<div id="player"></div>
+			<div id="onTop"></div>
 
 
-    <div class="Rip8ud">
+			<div id="audioOnly">
+				<div class="Rip8ud">
 
-      <div class="VFLqo" style="left:12%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot1"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot11"></div>
-	  </div>
-	  
-      <div class="VFLqo" style="left:20%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot2"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot22"></div>
-	  </div>
-	  
-      <div class="VFLqo" style="left:32%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot3"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot33"></div>
-	  </div>
-	  
-      <div class="VFLqo" style="left:39%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot4"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot44"></div>
-	  </div>
-	  
-      <div class="VFLqo" style="left:51%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot5"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot55"></div>
-	  </div>
-	  
-      <div class="VFLqo" style="left:68%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot6"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot66"></div>
-	  </div>
-	  
-	  <div class="VFLqo" style="left:80%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot7"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot77"></div>
-	  </div>
-	  
-	  <div class="VFLqo" style="left:84%">
-        <div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot8"></div>
-        <div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot88"></div>
-	  </div>
-	  
+					<div class="VFLqo" style="left:12%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot1"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot11"></div>
+					</div>
+
+					<div class="VFLqo" style="left:20%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot2"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot22"></div>
+					</div>
+
+					<div class="VFLqo" style="left:32%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot3"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot33"></div>
+					</div>
+
+					<div class="VFLqo" style="left:39%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot4"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot44"></div>
+					</div>
+
+					<div class="VFLqo" style="left:51%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot5"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot55"></div>
+					</div>
+
+					<div class="VFLqo" style="left:68%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot6"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot66"></div>
+					</div>
+
+					<div class="VFLqo" style="left:80%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot7"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot77"></div>
+					</div>
+
+					<div class="VFLqo" style="left:84%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot8"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot88"></div>
+					</div>
+
+				</div>
+
+				<g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss=""
+					id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow=""
+					jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
+					<div id="scroller" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg"
+						data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
+						<div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf"
+							style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
+							<div jsname="U7CU8e" class="uOQ7Ue">
+
+								<a id="a1" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(0, 40, 40,'a', 0)"> <span>01:29 </span>
+									</div>
+									<span class="tag tag-1">Structural</span>
+									<span style="font-size: 24px;" class="emoji">😐</span>
+									<div class="B58ezc" style="display: none;"> There must be dark material contributing
+										to the gravity.</div>
+									<button class="audioPlayButton" onclick="playA(1)">🔊</button>
+								</a>
+
+								<a id="a2" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(1, 40, 40,'a', 1)"> <span>02:23 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<span style="font-size: 24px;" class="emoji">😃</span>
+									<div class="B58ezc" style="display: none;"> The visual spectrum is only a small
+										fraction.</div>
+									<button class="audioPlayButton" onclick="playA(2)">🔊</button>
+								</a>
+
+								<a id="a3" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden; "
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(2, 40, 40,'a', 2)"> <span>03:52 </span>
+									</div>
+									<span class="tag tag-1">Structural</span>
+									<span style="font-size: 24px;" class="emoji">😲</span>
+									<div class="B58ezc" style="display: none;"> More existence supports the existence of
+										dark matters.</div>
+									<button class="audioPlayButton" onclick="playA(3)">🔊</button>
+								</a>
+
+								<a id="a4" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(3, 40, 40,'a', 3)"> <span>04:38 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<span style="font-size: 24px;" class="emoji">😕</span>
+									<div class="B58ezc" style="display: none;"> The bullet cluster.</div>
+									<button class="audioPlayButton" onclick="playA(4)">🔊</button>
+								</a>
+
+								<a id="a5" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(4, 40, 40,'a', 4)"> <span>06:09 </span>
+									</div>
+									<span class="tag tag-1">Interpretation</span>
+									<span style="font-size: 24px;" class="emoji">😃</span>
+									<div class="B58ezc" style="display: none;"> So that's one of the proof that dark
+										matter exists.</div>
+									<button class="audioPlayButton" onclick="playA(5)">🔊</button>
+								</a>
+
+								<a id="a6" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(5, 40, 40,'a', 5)"> <span>08:11 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<span style="font-size: 24px;" class="emoji">😲</span>
+									<div class="B58ezc" style="display: none;"> 85 percent of the matter is dark matter,
+										which we can not see.</div>
+									<button class="audioPlayButton" onclick="playA(6)">🔊</button>
+								</a>
+
+								<a id="a7" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(6, 40, 40,'a', 6)"> <span>09:32 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<span style="font-size: 24px;" class="emoji">😐</span>
+									<div class="B58ezc" style="display: none;"> The gravity of the matter in the bullet
+										cluster distorted those backgroun galaxy images subtly.</div>
+									<button class="audioPlayButton" onclick="playA(7)">🔊</button>
+								</a>
+
+								<a id="a8" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(7, 40, 40,'a', 7)"> <span>10:05 </span>
+									</div>
+									<span class="tag tag-1">Structural</span>
+									<span style="font-size: 24px;" class="emoji">😕</span>
+									<div class="B58ezc" style="display: none;"> We still don't know what dark matter is.
+										Axion might be one of the candidate but it's still debated.</div>
+									<button class="audioPlayButton" onclick="playA(8)">🔊</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</g-scrolling-carousel>
+			</div>
+
+			<div id="textOnly" style="display: none;">
+				<div class="Rip8ud">
+
+					<div class="VFLqo" style="left:12%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot11"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot111"></div>
+					</div>
+
+					<div class="VFLqo" style="left:20%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot22"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot222"></div>
+					</div>
+
+					<div class="VFLqo" style="left:34%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot33"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot333"></div>
+					</div>
+
+					<div class="VFLqo" style="left:39%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot44"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot444"></div>
+					</div>
+
+					<div class="VFLqo" style="left:51%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot55"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot555"></div>
+					</div>
+
+					<div class="VFLqo" style="left:68%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot66"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot666"></div>
+					</div>
+
+					<div class="VFLqo" style="left:78%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot77"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot777"></div>
+					</div>
+
+					<div class="VFLqo" style="left:82%">
+						<div jsname="gxL5ec" class="YBNXGe" style="opacity: 1; transform: scale(1);" id="dot88"></div>
+						<div jsname="Kr6Wge" class="Nejh4b" style="opacity: 1; transform: scale(1);" id="dot888"></div>
+					</div>
+
+				</div>
+
+				<g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss=""
+					id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow=""
+					jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
+					<div id="scroller2" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg"
+						data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
+						<div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf"
+							style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
+							<div jsname="U7CU8e" class="uOQ7Ue">
+
+								<a id="a11" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(8, 40, 40,'a', 8)"> <span>01:27 </span>
+									</div>
+									<span class="tag tag-1">Interpretation</span>
+									<div  class="B58ezcc"  > How the galaxy rotate and calculate the
+										mass.</div>
+								</a>
+
+								<a id="a22" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(9, 40, 40,'a', 9)"> <span>02:26 </span>
+									</div>
+									<span class="tag tag-1">Structral</span>
+									<div  class="B58ezcc"  > Dark material.</div>
+								</a>
+
+								<a id="a33" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden; "
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(10, 40, 40,'a', 10)"> <span>04:05 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<div  class="B58ezcc"  > Composition.</div>
+								</a>
+
+								<a id="a44" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(11, 40, 40,'a', 11)"> <span>04:38 </span>
+									</div>
+									<span class="tag tag-1">Structural</span>
+									<div  class="B58ezcc"  > What is DM? Guess 1 axion.</div>
+								</a>
+
+								<a id="a55" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(12, 40, 40,'a', 12)"> <span>06:08 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<div  class="B58ezcc"  > Mass the object more grativity.</div>
+								</a>
+
+								<a id="a66" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(13, 40, 40,'a', 13)"> <span>08:11 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<div  class="B58ezcc"  > The gravity distorted the clusters.
+									</div>
+								</a>
+
+								<a id="a77" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(14, 40, 40,'a', 14)"> <span>09:20 </span>
+									</div>
+									<span class="tag tag-1">Interpretation</span>
+									<div  class="B58ezcc"  > Dark matter still ? Axion has high
+										probability.</div>
+								</a>
+
+								<a id="a88" jsname="X2z4K" class="dR4P" data-visible="true"
+									style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;"
+									data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA"
+									target="_blank" rel="noopener">
+									<div class="vfxGNc" onclick="goToTime(15, 40, 40,'a', 15)"> <span>09:52 </span>
+									</div>
+									<span class="tag tag-1">Detail</span>
+									<div  class="B58ezcc"  > Star cluster glaxecy.</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</g-scrolling-carousel>
+			</div>
+
+			<div style="margin-top: 35px;">
+				<div class="container">
+					<label class="button">
+						<input type="checkbox" class="switch ios" id="s0" onclick="st0()"> Text</input>
+					</label>
+				</div>
+
+				<div class="container" id="ss1">
+					<label class="button">
+						<input type="checkbox" class="switch ios" id="s1" onclick="st1()"> Converted Text</input>
+					</label>
+				</div>
+
+				<div class="container" id="ss2">
+					<label class="button">
+						<input type="checkbox" class="switch ios" id="s2" onclick="st2()"> Emoji</input>
+					</label>
+				</div>
+
+
+				<div id="emojiFilter" style="display:none; margin-top: 0px;">
+					<p style="text-align: center;"><span id="e1" data-tooltip="Boredom"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background:#1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							onclick="showB()">😐</span><span id="e2" data-tooltip="Delight"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							onclick="showD()">😃</span><span id="e3" data-tooltip="Fresh Research"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							onclick="showF()">😲</span><span id="e4" data-tooltip="Confusion"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							onclick="showC()">😕</span></p>
+				</div>
+
+				<div id="emojiTypes" style="display: none;">
+					<div>
+						<div style="margin-top: 0px; margin-left: 5%; margin-left: 5%;">
+							<p id="e1" data-tooltip="Boredom" style="margin: 0px 10px 0px 10px; font-size: 16px; "
+								onclick="showB()">😐 Boredom</p>
+							<p id="e2" data-tooltip="Delight" style="margin: 0px 10px 0px 10px; font-size: 16px; "
+								onclick="showD()">😃 Delight</p>
+							<p id="e3" data-tooltip="Fresh Research"
+								style="margin: 0px 10px 0px 10px; font-size: 16px; " onclick="showF()">😲 Fresh Research
+							</p>
+							<p id="e4" data-tooltip="Confusion" style="margin: 0px 10px 0px 10px; font-size: 16px; "
+								onclick="showC()">😕 Confusion</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="container" style="margin-top: 30px;">
+					<label class="button">
+						<input type="checkbox" class="switch ios" id="s3" onclick="st3()"> Type</input>
+					</label>
+				</div>
+				<div id="typeFilter" style="display:none; margin-top: 10px;">
+					<p style="text-align: center;">
+						<span id="t1" class="tg2 tg-12" onclick="sS()">Structural</span>
+						<span id="t2" class="tg2 tg-12" onclick="sD()">Detailed</span>
+						<span id="t3" class="tg2 tg-12" onclick="sI()">Interpretation</span>
+					</p>
+				</div>
+			</div>
+
+
+
+			<div id="noteTypes" style="display: none;">
+				<button
+					style="height: 30px; font-size: medium; text-align: center; padding:0; margin-bottom: 20px; box-shadow: none;">Note
+					Types</button>
+				<div>
+					<div style="margin-top: 0px; margin-left: 5%; margin-left: 5%;">
+						<p><span style="font-weight: bolder;">Structural</span>: Structural keywords and sentences that
+							are directly mentioned in the video script</p>
+						<p><span style="font-weight: bolder;">Detail</span>: No-Structural keywords and sentences that
+							are directly mentioned in the video script</p>
+						<p><span style="font-weight: bolder;">Interpretation</span>: Importance, questions,
+							comprehensions (not directly mentioned in original content), personal language</p>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="button-box" id="nextBtn" style="display: none;">
+			<button class="button trigger1" onclick="next()">Next</button>
+		</div>
+
 	</div>
 
-	
 
-	
+	<div class="rb-box" id="survey" style="display: none;">
 
-	
-	    
-    <g-scrolling-carousel jsname="eKKdse" class="QZhkAc" jscontroller="XjCeUc" data-restore="" data-ss="" id="_awZ7YK2KFceHr7wPgpeioAg45" jsdata="JcTXNb;_;AFHt2Q" jsshadow="" jsaction="OaAmdd:EDKYjb;JnGzAc:aJ8u7;qVN0Rc:nnsrCf;EormBc:HFYvKc;gEKQDb:yUtVib;keydown:uYT2Vb;rcuQ6b:npT2md">
-      <div id = "scroller" jsname="haAclf" class="mR2gOd" jsaction="t3L5Dd:OR1BUb" data-hveid="CA0QEg" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQp5cEMAB6BAgNEBI" style="overflow-x: auto;">
-        <div jsname="s2gQvd" class="EDblX DAVP1 zP8yCf" style="padding-top:15px;padding-right:16px;padding-left:16px;padding-bottom:2px" jsslot="">
-          <div jsname="U7CU8e" class="uOQ7Ue">
-			
-			<a id="a1" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D118&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAAwAHoECA0QEw" target="_blank" rel="noopener">
-              <div class="vfxGNc" onclick="goToTime(0, 40, 40,'a', 0)"> <span>01:29 </span>
-			  </div>
-			  <span class="tag tag-1">Structural</span>
-              <span style="font-size: 24px;" class = "emoji" >😐</span>
-			  <div class="B58ezc" style="display: none;"> There must be dark material contributing to the gravity.</div>
-			  <button class="audioPlayButton" onclick="playA(1)">🔊</button>
-            </a>
-			
-			<a id="a2" jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D214&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAEwAHoECA0QFA" target="_blank" rel="noopener">
-              <div class="vfxGNc" onclick="goToTime(1, 40, 40,'a', 1)"> <span>02:23 </span>
-			  </div>
-			  <span class="tag tag-1">Detailed</span>
-			  <span style="font-size: 24px;" class = "emoji" >😃</span>
-			  <div class="B58ezc" style="display: none;"> The visual spectrum is only a small fraction.</div>
-			  <button class="audioPlayButton" onclick="playA(2)">🔊</button>
-            </a>
-			
-			<a id="a3" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden; " data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D333&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAIwAHoECA0QFQ" target="_blank" rel="noopener">
-              <div class="vfxGNc" onclick="goToTime(2, 40, 40,'a', 2)" > <span>03:52 </span>
-			  </div>
-			  <span class="tag tag-1">Structural</span>
-			  <span style="font-size: 24px;" class = "emoji" >😲</span>
-			  <div class="B58ezc" style="display: none;"> More existence supports the existence of dark matters.</div>
-			  <button class="audioPlayButton" onclick="playA(3)">🔊</button>
-            </a>
-			
-			<a id="a4" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D377&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAMwAHoECA0QFg" target="_blank" rel="noopener">
-              <div class="vfxGNc" onclick="goToTime(3, 40, 40,'a', 3)" > <span>04:38 </span>
-			  </div>
-			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji" >😕</span>
-			  <div class="B58ezc" style="display: none;"> The bullet cluster.</div>
-			  <button class="audioPlayButton" onclick="playA(4)">🔊</button>
-            </a>
-			
-			<a id="a5" jsname="X2z4K" class="dR4P" data-visible="true"  style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D449&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAQwAHoECA0QFw" target="_blank" rel="noopener">
-              <div class="vfxGNc" onclick="goToTime(4, 40, 40,'a', 4)"> <span>06:09 </span>
-			  </div>
-			  <span class="tag tag-1">Interpretation</span>
-			  <span style="font-size: 24px;" class = "emoji" >😃</span>
-			  <div class="B58ezc" style="display: none;"> So that's one of the proof that dark matter exists.</div>
-			  <button class="audioPlayButton" onclick="playA(5)">🔊</button>
-            </a>
-			
-			<a id="a6" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
-              <div class="vfxGNc"  onclick="goToTime(5, 40, 40,'a', 5)"> <span>08:11 </span>
-			  </div>
-			  <span class="tag tag-1">Detail</span>
-			  <span style="font-size: 24px;" class = "emoji" >😲</span>
-			  <div class="B58ezc" style="display: none;"> 85 percent of the matter is dark matter, which we can not see.</div>
-			  <button class="audioPlayButton" onclick="playA(6)">🔊</button>
-			</a>
-			
-			<a id="a7" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
-				<div class="vfxGNc" onclick="goToTime(6, 40, 40,'a', 6)"> <span>09:32 </span>
+		<div style="margin-top: 10px; padding-bottom: 2px;">
+			<p style="font-weight: bold;">On a scale of 1 to 5, how benificial is each notes to you? </p>
+			<p style="text-align: center;"><span data-tooltip="Boredom"
+					style="margin: 10px; font-size: 24px;">😐</span><span data-tooltip="Delight"
+					style="margin: 10px; font-size: 24px;">😃</span><span data-tooltip="Fresh Research"
+					style="margin: 10px; font-size: 24px;">😲</span><span data-tooltip="Confusion"
+					style="margin: 10px; font-size: 24px;">😕</span></p>
+		</div>
+
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(4, 40, 40,'a', 0)"><span style="font-size: 20px;"> 😐 </span>1. Hierarchy of Needs</p>
+		<div id="rb-1" class="rb">
+			<div class="rb-tab rb-tab-active" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
 				</div>
-				<span class="tag tag-1">Detail</span>
-				<span style="font-size: 24px;" class = "emoji" >😐</span>
-				<div class="B58ezc" style="display: none;"> The gravity of the matter in the bullet cluster distroyed those backgroun galaxy images subtly.</div>
-				<button class="audioPlayButton" onclick="playA(7)">🔊</button>
-			</a>
-
-			<a id="a8" jsname="X2z4K" class="dR4P" data-visible="true" style="width: 132px; padding-right: 36px; padding-left: 12px; margin: 0px; opacity: 1; visibility: hidden;" data-ved="2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://www.youtube.com/watch%3Fv%3DamkW-GGpZdc%26t%3D735&amp;ved=2ahUKEwjt682104XwAhXHw4sBHYKLCIQQqJcEKAUwAHoECA0QGA" target="_blank" rel="noopener">
-				<div class="vfxGNc" onclick="goToTime(7, 40, 40,'a', 7)"> <span>10:05 </span>
+			</div>
+			<div class="rb-tab" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
 				</div>
-				<span class="tag tag-1">Structural</span>
-				<span style="font-size: 24px;" class = "emoji" >😕</span>
-				<div class="B58ezc" style="display: none;"> We still don't know what dark matter is. Axion might be one of the candidate but it's still debated.</div>
-				<button class="audioPlayButton"  onclick="playA(8)">🔊</button>
-			</a>
-          </div>
-        </div>
-      </div>
-	</g-scrolling-carousel>
-	
-	<div style="margin-top: 35px;">
-		<div class="container">
-			<label class="button">
-				<input type="checkbox" class="switch ios" id="s1" onclick="st1()"> Text</input>
-			</label>
-		</div>
-
-		<div class="container">
-			<label class="button">
-				<input type="checkbox" class="switch ios" id="s2" onclick="st2()"> Emoji</input>
-			</label>
-		</div>
-
-
-		<div id="emojiFilter" style="display:none; margin-top: 0px;">
-			<p style="text-align: center;"><span id="e1" data-tooltip="Boredom" style="margin: 0px 10px 0px 10px; font-size: 24px; background:#1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;" onclick="showB()">😐</span><span id="e2" data-tooltip="Delight" style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"onclick="showD()">😃</span><span id="e3" data-tooltip="Fresh Research" style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"onclick="showF()">😲</span><span id="e4" data-tooltip="Confusion" style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;" onclick="showC()">😕</span></p>
-		</div>
-
-		<div id="emojiTypes" style="display: none;">
-			<div >
-				<div style="margin-top: 0px; margin-left: 5%; margin-left: 5%;">
-					<p id="e1" data-tooltip="Boredom" style="margin: 0px 10px 0px 10px; font-size: 16px; " onclick="showB()">😐 Boredom</p>
-					<p id="e2" data-tooltip="Delight" style="margin: 0px 10px 0px 10px; font-size: 16px; "onclick="showD()">😃 Delight</p>
-					<p id="e3" data-tooltip="Fresh Research" style="margin: 0px 10px 0px 10px; font-size: 16px; "onclick="showF()">😲 Fresh Research</p>
-					<p id="e4" data-tooltip="Confusion" style="margin: 0px 10px 0px 10px; font-size: 16px; " onclick="showC()">😕 Confusion</p>
+			</div>
+			<div class="rb-tab" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
 				</div>
 			</div>
 		</div>
 
-		<div class="container" style="margin-top: 30px;">
-			<label class="button">
-				<input type="checkbox" class="switch ios" id="s3" onclick="st3()"> Type</input>
-			</label>
-		</div>
-		<div id="typeFilter" style="display:none; margin-top: 10px;">
-			<p style="text-align: center;">
-				<span id = "t1" class="tg2 tg-12" onclick="sS()">Structural</span>
-				<span id = "t2" class="tg2 tg-12" onclick="sD()">Detailed</span>
-				<span id = "t3" class="tg2 tg-12" onclick="sI()">Interpretation</span>
-			</p>
-		</div>
-	</div>
-
-	
-	
-	<div id="noteTypes" style="display: none;">
-		<button style="height: 30px; font-size: medium; text-align: center; padding:0; margin-bottom: 20px; box-shadow: none;">Note Types</button>
-		<div >
-			<div style="margin-top: 0px; margin-left: 5%; margin-left: 5%;">
-				<p><span style="font-weight: bolder;">Structural</span>: Structural keywords and sentences that are directly mentioned in the video script</p>
-				<p><span style="font-weight: bolder;">Detail</span>: No-Structural keywords and sentences that are directly mentioned in the video script</p>
-				<p><span style="font-weight: bolder;">Interpretation</span>: Importance, questions, comprehensions (not directly mentioned in original content), personal language</p>
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(3, 40, 40,'a', 1)"><span style="font-size: 20px;"> 😃 </span>2. Instinct Unlearned Behavior
+			Throughout Species</p>
+		<div id="rb-2" class="rb">
+			<div class="rb-tab" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
+				</div>
+			</div>
+			<div class="rb-tab rb-tab-active" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
+				</div>
 			</div>
 		</div>
-	</div>
-	
 
-  </div>
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(9, 40, 40,'a', 2)"><span style="font-size: 20px;"> 😲 </span>3. Optimal Arousal</p>
+		<div id="rb-3" class="rb">
+			<div class="rb-tab" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
+				</div>
+			</div>
+			<div class="rb-tab rb-tab-active" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
+				</div>
+			</div>
+		</div>
 
-  <div class="button-box" id="nextBtn" style="display: none;">
-	<button class="button trigger1" onclick="next()">Next</button>
-  </div>
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(12, 40, 40,'a', 3)"><span style="font-size: 20px;"> 😕 </span>4. Needs Sex Hunger Needs to
+			Belong</p>
+		<div id="rb-4" class="rb">
+			<div class="rb-tab" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab rb-tab-active" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
+				</div>
+			</div>
+		</div>
 
-</div>
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(7, 40, 40,'a', 4)"><span style="font-size: 20px;"> 😃 </span>5. Understand the Hunger</p>
+		<div id="rb-5" class="rb">
+			<div class="rb-tab" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab rb-tab-active" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
+				</div>
+			</div>
+		</div>
 
+		<!-- Radio Button Module -->
+		<p onclick="goToTime(8, 40, 40,'a', 5)"><span style="font-size: 20px;"> 😲 </span>6. Maslow’s H of Needs</p>
+		<div id="rb-6" class="rb">
+			<div class="rb-tab" data-value="1">
+				<div class="rb-spot">
+					<span class="rb-txt">1</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="2">
+				<div class="rb-spot">
+					<span class="rb-txt">2</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="3">
+				<div class="rb-spot">
+					<span class="rb-txt">3</span>
+				</div>
+			</div>
+			<div class="rb-tab rb-tab-active" data-value="4">
+				<div class="rb-spot">
+					<span class="rb-txt">4</span>
+				</div>
+			</div>
+			<div class="rb-tab" data-value="5">
+				<div class="rb-spot">
+					<span class="rb-txt">5</span>
+				</div>
+			</div>
+		</div>
 
-<div class="rb-box" id = "survey" style="display: none;">
+		<!-- Button -->
+		<div class="button-box">
+			<button class="button trigger">Submit!</button>
+		</div>
 
-	<div style="margin-top: 10px; padding-bottom: 2px;">
-		<p style="font-weight: bold;">On a scale of 1 to 5, how benificial is each notes to you? </p>
-		<p style="text-align: center;"><span data-tooltip="Boredom" style="margin: 10px; font-size: 24px;">😐</span><span data-tooltip="Delight" style="margin: 10px; font-size: 24px;">😃</span><span data-tooltip="Fresh Research" style="margin: 10px; font-size: 24px;">😲</span><span data-tooltip="Confusion" style="margin: 10px; font-size: 24px;">😕</span></p>
-	</div>
-
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(4, 40, 40,'a', 0)"><span style="font-size: 20px;"> 😐 </span>1. Hierarchy of Needs</p>
-	<div id="rb-1" class="rb">
-	  <div class="rb-tab rb-tab-active" data-value="1">
-		<div class="rb-spot">
-		  <span class="rb-txt">1</span>
-		</div>
-	  </div><div class="rb-tab" data-value="2">
-		<div class="rb-spot">
-		  <span class="rb-txt">2</span>
-		</div>
-	  </div><div class="rb-tab" data-value="3">
-		<div class="rb-spot">
-		  <span class="rb-txt">3</span>
-		</div>
-	  </div><div class="rb-tab" data-value="4">
-		<div class="rb-spot">
-		  <span class="rb-txt">4</span>
-		</div>
-	  </div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-		  <span class="rb-txt">5</span>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(3, 40, 40,'a', 1)"><span style="font-size: 20px;"> 😃 </span>2. Instinct Unlearned Behavior Throughout Species</p>
-	<div id="rb-2" class="rb">
-	  <div class="rb-tab" data-value="1">
-		<div class="rb-spot">
-		  <span class="rb-txt">1</span>
-		</div>
-	  </div><div class="rb-tab rb-tab-active" data-value="2">
-		<div class="rb-spot">
-		  <span class="rb-txt">2</span>
-		</div>
-	  </div><div class="rb-tab" data-value="3">
-		<div class="rb-spot">
-		  <span class="rb-txt">3</span>
-		</div>
-	  </div><div class="rb-tab" data-value="4">
-		<div class="rb-spot">
-		  <span class="rb-txt">4</span>
-		</div>
-	  </div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-		  <span class="rb-txt">5</span>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(9, 40, 40,'a', 2)"><span style="font-size: 20px;"> 😲 </span>3. Optimal Arousal</p>
-	<div id="rb-3" class="rb">
-	  <div class="rb-tab" data-value="1">
-		<div class="rb-spot">
-		  <span class="rb-txt">1</span>
-		</div>
-	  </div><div class="rb-tab" data-value="2">
-		<div class="rb-spot">
-		  <span class="rb-txt">2</span>
-		</div>
-	  </div><div class="rb-tab rb-tab-active" data-value="3">
-		<div class="rb-spot">
-		  <span class="rb-txt">3</span>
-		</div>
-	  </div><div class="rb-tab" data-value="4">
-		<div class="rb-spot">
-		  <span class="rb-txt">4</span>
-		</div>
-	  </div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-		  <span class="rb-txt">5</span>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(12, 40, 40,'a', 3)"><span style="font-size: 20px;"> 😕 </span>4. Needs Sex Hunger Needs to Belong</p>
-	<div id="rb-4" class="rb">
-	  <div class="rb-tab" data-value="1">
-		<div class="rb-spot">
-		  <span class="rb-txt">1</span>
-		</div>
-	  </div><div class="rb-tab" data-value="2">
-		<div class="rb-spot">
-		  <span class="rb-txt">2</span>
-		</div>
-	  </div><div class="rb-tab" data-value="3">
-		<div class="rb-spot">
-		  <span class="rb-txt">3</span>
-		</div>
-	  </div><div class="rb-tab rb-tab-active" data-value="4">
-		<div class="rb-spot">
-		  <span class="rb-txt">4</span>
-		</div>
-	  </div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-		  <span class="rb-txt">5</span>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(7, 40, 40,'a', 4)"><span style="font-size: 20px;"> 😃 </span>5. Understand the Hunger</p>
-	<div id="rb-5" class="rb">
-	  <div class="rb-tab" data-value="1">
-		<div class="rb-spot">
-		  <span class="rb-txt">1</span>
-		</div>
-	  </div><div class="rb-tab" data-value="2">
-		<div class="rb-spot">
-		  <span class="rb-txt">2</span>
-		</div>
-	  </div><div class="rb-tab" data-value="3">
-		<div class="rb-spot">
-		  <span class="rb-txt">3</span>
-		</div>
-	  </div><div class="rb-tab rb-tab-active" data-value="4">
-		<div class="rb-spot">
-		  <span class="rb-txt">4</span>
-		</div>
-	  </div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-		  <span class="rb-txt">5</span>
-		</div>
-	  </div>
 	</div>
 
-	<!-- Radio Button Module -->
-	<p onclick="goToTime(8, 40, 40,'a', 5)"><span style="font-size: 20px;"> 😲 </span>6. Maslow’s H of Needs</p>
-	<div id="rb-6" class="rb">
-	  <div class="rb-tab" data-value="1">
-		<div class="rb-spot">
-			<span class="rb-txt">1</span>
-		</div>
-		</div><div class="rb-tab" data-value="2">
-		<div class="rb-spot">
-			<span class="rb-txt">2</span>
-		</div>
-		</div><div class="rb-tab" data-value="3">
-		<div class="rb-spot">
-			<span class="rb-txt">3</span>
-		</div>
-		</div><div class="rb-tab rb-tab-active" data-value="4">
-		<div class="rb-spot">
-			<span class="rb-txt">4</span>
-		</div>
-		</div><div class="rb-tab" data-value="5">
-		<div class="rb-spot">
-			<span class="rb-txt">5</span>
-		</div>
-	  </div>
+
+
+	<div class="col-5">
+		Hello <a id="displayUserId"></a>, welcome!
+		The VideoID is: <a id="videoId"></a>
 	</div>
-  
-	<!-- Button -->
-	<div class="button-box">
-	  <button class="button trigger">Submit!</button>
-	</div>
-  
-</div>
 
-
-
-<div class="col-5">
-  Hello <a id="displayUserId"></a>, welcome!
-  The VideoID is: <a id="videoId"></a>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
-<script type="text/javascript" src="scripts/timer.js"></script>
-<script type="text/javascript" src="scripts/upload.js"></script>
-<script type="text/javascript" src="scripts/systemLog.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-storage.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script type="text/javascript" src="scripts/timer.js"></script>
+	<script type="text/javascript" src="scripts/upload.js"></script>
+	<script type="text/javascript" src="scripts/systemLog.js"></script>
 </body>
+
 </html>
 
 <script>
@@ -1988,7 +2293,7 @@ border-color: #7cc782;
 		console.log("fresh research change")
 	}
 
-	//padding: 2px 8px;
+
 	function sS() {
 		if (tS) {
 			tS = 0
@@ -2023,55 +2328,104 @@ border-color: #7cc782;
 	}
 
 	function filter() {
-		//console.log(tS, tD, tI, sb, sd, sc, sf)
-		if (1) {
+		if (switch0 == 0) {
+
 			if (tS && sb) {
-			document.getElementById("a1").style.visibility = 'visible'
-		} else {
-			document.getElementById("a1").style.visibility = 'hidden'
-		}
+				document.getElementById("a1").style.visibility = 'visible'
+			} else {
+				document.getElementById("a1").style.visibility = 'hidden'
+			}
 
-		if (tD&&sd) {
-			document.getElementById("a2").style.visibility = 'visible'
-		} else {
-			document.getElementById("a2").style.visibility = 'hidden'
-		}
+			if (tD && sd) {
+				document.getElementById("a2").style.visibility = 'visible'
+			} else {
+				document.getElementById("a2").style.visibility = 'hidden'
+			}
 
-		if (tS&&sf) {
-			document.getElementById("a3").style.visibility = 'visible'
-		} else {
-			document.getElementById("a3").style.visibility = 'hidden'
-		}
+			if (tS && sf) {
+				document.getElementById("a3").style.visibility = 'visible'
+			} else {
+				document.getElementById("a3").style.visibility = 'hidden'
+			}
 
-		if (tD&&sc) {
-			document.getElementById("a4").style.visibility = 'visible'
-		} else {
-			document.getElementById("a4").style.visibility = 'hidden'
-		}
+			if (tD && sc) {
+				document.getElementById("a4").style.visibility = 'visible'
+			} else {
+				document.getElementById("a4").style.visibility = 'hidden'
+			}
 
-		if (tI&&sd) {
-			document.getElementById("a5").style.visibility = 'visible'
-		} else {
-			document.getElementById("a5").style.visibility = 'hidden'
-		}
+			if (tI && sd) {
+				document.getElementById("a5").style.visibility = 'visible'
+			} else {
+				document.getElementById("a5").style.visibility = 'hidden'
+			}
 
-		if (tD&&sf) {
-			document.getElementById("a6").style.visibility = 'visible'
-		} else {
-			document.getElementById("a6").style.visibility = 'hidden'
-		}
+			if (tD && sf) {
+				document.getElementById("a6").style.visibility = 'visible'
+			} else {
+				document.getElementById("a6").style.visibility = 'hidden'
+			}
 
-		if (tD&&sb) {
-			document.getElementById("a7").style.visibility = 'visible'
-		} else {
-			document.getElementById("a7").style.visibility = 'hidden'
-		}
+			if (tD && sb) {
+				document.getElementById("a7").style.visibility = 'visible'
+			} else {
+				document.getElementById("a7").style.visibility = 'hidden'
+			}
 
-		if (tS&&sc) {
-			document.getElementById("a8").style.visibility = 'visible'
+			if (tS && sc) {
+				document.getElementById("a8").style.visibility = 'visible'
+			} else {
+				document.getElementById("a8").style.visibility = 'hidden'
+			}
 		} else {
-			document.getElementById("a8").style.visibility = 'hidden'
-		}
+
+			if (tI) {
+				document.getElementById("a11").style.visibility = 'visible'
+			} else {
+				document.getElementById("a11").style.visibility = 'hidden'
+			}
+
+			if (tS) {
+				document.getElementById("a22").style.visibility = 'visible'
+			} else {
+				document.getElementById("a22").style.visibility = 'hidden'
+			}
+
+			if (tD) {
+				document.getElementById("a33").style.visibility = 'visible'
+			} else {
+				document.getElementById("a33").style.visibility = 'hidden'
+			}
+
+			if (tS) {
+				document.getElementById("a44").style.visibility = 'visible'
+			} else {
+				document.getElementById("a44").style.visibility = 'hidden'
+			}
+
+			if (tD) {
+				document.getElementById("a55").style.visibility = 'visible'
+			} else {
+				document.getElementById("a55").style.visibility = 'hidden'
+			}
+
+			if (tD) {
+				document.getElementById("a66").style.visibility = 'visible'
+			} else {
+				document.getElementById("a66").style.visibility = 'hidden'
+			}
+
+			if (tI) {
+				document.getElementById("a77").style.visibility = 'visible'
+			} else {
+				document.getElementById("a77").style.visibility = 'hidden'
+			}
+
+			if (tD) {
+				document.getElementById("a88").style.visibility = 'visible'
+			} else {
+				document.getElementById("a88").style.visibility = 'hidden'
+			}
 		}
 	}
 
@@ -2081,28 +2435,64 @@ border-color: #7cc782;
 	var iy;
 
 	for (iy = 0; iy < acc.length; iy++) {
-	acc[iy].addEventListener("click", function() {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-		panel.style.display = "none";
-		} else {
-		panel.style.display = "block";
-		}
-	});
+		acc[iy].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+		});
 	}
 
 	function playA(num) {
 		player.pauseVideo();
 		const sound = new Audio()
-		sound.src = './' + String(num) +'.wav'
+		sound.src = './' + String(num) + '.wav'
 		sound.play()
 	}
 
+	var switch0 = 0
 	var switch1 = 0
 	var switch2 = 0
 	var switch3 = 0
 	var colors = ["#1967D22500", "#cfd2192500", "#19d2192500", "#d219b92500", "#cfd2192500", "#19d2192500", "#1967D22500", "#d219b92500"]
+
+	function st0() {
+		if (switch0 == 0) {
+			switch0 = 1
+			if (st3 == 0) {
+				tI = 1
+				tS = 1
+				tD = 1
+			}
+			document.getElementById("audioOnly").style.display = "none"
+			document.getElementById("textOnly").style.display = "block"
+			document.getElementById("ss1").style.visibility = "hidden"
+			document.getElementById("ss2").style.visibility = "hidden"
+			var all2 = document.getElementsByClassName('dR4P');
+			for (var i = 0; i < all.length; i++) {
+				all2[i].style.visibility = "hidden"
+			}
+		} else {
+			switch0 = 0
+			if (st3 == 0) {
+				tI = 1
+				tS = 1
+				tD = 1
+			}
+			document.getElementById("audioOnly").style.display = "block"
+			document.getElementById("textOnly").style.display = "none"
+
+			document.getElementById("ss1").style.visibility = "visible"
+			document.getElementById("ss2").style.visibility = "visible"
+			var all2 = document.getElementsByClassName('dR4P');
+			for (var i = 0; i < all.length; i++) {
+				all2[i].style.visibility = "hidden"
+			}
+		}
+	}
 
 	function st1() {
 		if (switch1 == 0) {
@@ -2158,10 +2548,7 @@ border-color: #7cc782;
 			showC()
 			showD()
 			showF()
-			//sD()
-			//sI()
-			//sS()
-			
+
 			document.getElementById("emojiFilter").style.display = "block"
 			var all = document.getElementsByClassName('emoji');
 			var all2 = document.getElementsByClassName('dR4P');
@@ -2179,14 +2566,11 @@ border-color: #7cc782;
 			tD = 1
 			tI = 1
 			tS = 1
-			
+
 			showB()
 			showC()
 			showD()
 			showF()
-			//sD()
-			//sI()
-			//sS()
 
 			document.getElementById("emojiFilter").style.display = "none"
 			var all = document.getElementsByClassName('emoji');
@@ -2195,314 +2579,351 @@ border-color: #7cc782;
 				all[i].style.display = "none";
 				all2[i].style.background = ""
 			}
+			st1()
+			st1()
 		}
 	}
 
 	function st3() {
-		if (switch3 == 0) {
-			document.getElementById('noteTypes').style.display = "block"
-			switch3 = 1
-			sf = 1
-			sd = 1
-			sc = 1
-			sb = 1
-			tD = 1
-			tI = 1
-			tS = 1
+		if (1) {
+			if (switch3 == 0) {
+				document.getElementById('noteTypes').style.display = "block"
+				switch3 = 1
+				sf = 1
+				sd = 1
+				sc = 1
+				sb = 1
+				tD = 1
+				tI = 1
+				tS = 1
 
-			//showB()
-			//showC()
-			//showD()
-			//showF()
-			sD()
-			sI()
-			sS()
-			
-			document.getElementById("typeFilter").style.display = "block"
-			var all = document.getElementsByClassName('tag-1');
-			var all2 = document.getElementsByClassName('dR4P');
-			for (var i = 0; i < all.length; i++) {
-				all[i].style.display = "block";
+				sD()
+				sI()
+				sS()
 
-				all2[i].style.visibility = "hidden"
+				document.getElementById("typeFilter").style.display = "block"
+				var all = document.getElementsByClassName('tag-1');
+				var all2 = document.getElementsByClassName('dR4P');
+				for (var i = 0; i < all.length; i++) {
+					all[i].style.display = "block";
+
+					all2[i].style.visibility = "hidden"
+				}
+			} else {
+
+				document.getElementById('noteTypes').style.display = "none"
+				switch3 = 0
+				sf = 1
+				sd = 1
+				sc = 1
+				sb = 1
+				tD = 1
+				tI = 1
+				tS = 1
+
+				sD()
+				sI()
+				sS()
+
+				document.getElementById("typeFilter").style.display = "none"
+				var all = document.getElementsByClassName('tag-1');
+				var all2 = document.getElementsByClassName('dR4P');
+				for (var i = 0; i < all.length; i++) {
+					all[i].style.display = "none";
+
+					all2[i].style.visibility = "hidden"
+				}
+
+				st1()
+				st1()
 			}
 		} else {
 
-			document.getElementById('noteTypes').style.display = "none"
-			switch3 = 0
-			sf = 1
-			sd = 1
-			sc = 1
-			sb = 1
-			tD = 1
-			tI = 1
-			tS = 1
-
-
-			//showB()
-			//showC()
-			//showD()
-			//showF()
-			sD()
-			sI()
-			sS()
-
-			document.getElementById("typeFilter").style.display = "none"
-			var all = document.getElementsByClassName('tag-1');
-			var all2 = document.getElementsByClassName('dR4P');
-			for (var i = 0; i < all.length; i++) {
-				all[i].style.display = "none";
-
-				all2[i].style.visibility = "hidden"
-			}
 		}
-		
 	}
 
-  function next() {
-	  document.getElementById("nextBtn").style.display = "none"
-	  document.getElementById("survey").style.display = "block"
-  }
+	function next() {
+		document.getElementById("nextBtn").style.display = "none"
+		document.getElementById("survey").style.display = "block"
+	}
 
-  //alert(elementInViewport(document.getElementById("testingtesting")))
-  var myVar = setInterval(elementInViewport, 30);
+	var myVar = setInterval(elementInViewport, 30);
 
-  var totalTime = 679
-  var time = [] 
-  var body = [] 
-  var type = []
+	var time = []
 
-  time[0] = 89
-  // Notes
-  time[1] = 143
-  body[1] = "Instinct does not need to learn it."
-  type[1] = 'b'
+	time[0] = 89
+	time[1] = 143
+	time[2] = 232
+	time[3] = 278
+	time[4] = 369
+	time[5] = 491
+	time[6] = 572
+	time[7] = 605
 
-  time[2] = 232
-  body[2] = "Optimal Rossell."
-  type[2] = 'b'
+	time[8] = 87
+	time[9] = 146
+	time[10] = 245
+	time[11] = 278
+	time[12] = 368
+	time[13] = 491
+	time[14] = 560
+	time[15] = 592
 
-  time[3] = 278
-  body[3] = "Instinct unlearned behavior throughout species"
-  type[3] = 'a'
+	// onClick of Emoji
+	function goToTime(index, left, top, type, num) {
+		//alert(index + ' hi')
+		navigateVideoAtTime(time[index])
 
-  time[4] = 369
-  body[4] = "Hierarchy of needs."
-  type[4] = 'a'
+		document.getElementById("editButton").style.display = "inline-block";
+		document.getElementById("doneButton").textContent = time[index];
 
-  time[5] = 491
-  body[5] = "Use some kind of psycho forces to rescue himself"
-  type[5] = 'b'
+		document.getElementById("noteBody").value = body[index];
 
-  time[6] = 572
-  body[6] = "1. About instinct and innate"
-  type[6] = 'a'
+		player.pauseVideo();
+	}
 
-  time[7] = 605
-  body[7] = "Understand the hunger"
-  type[7] = 'a'
+	function navigateVideoAtTime(timestamp) {
+		player.seekTo(timestamp, true);
+		player.playVideo();
 
-  time[8] = 649
-  body[8] = "Maslow’s H of needs"
-  type[8] = 'a'
+		// upload log
+		clickedTimestampLog(realAppUserID, videoID, timestamp);
+	}
 
-  time[9] = 221
-  body[9] = "3. Optimal arousal"
-  type[9] = 'a'
+	function elementInViewport() {
+		if (switch0 == 0) {
+			var el = document.getElementById("scroller")
 
-  time[10] = 197
-  body[10] = "Incentives"
-  type[10] = 'b'
+			if (el.scrollLeft < 80) {
+				document.getElementById("dot4").style.opacity = "0.2";
+				document.getElementById("dot44").style.opacity = "0.2";
+				document.getElementById("dot5").style.opacity = "0.2";
+				document.getElementById("dot55").style.opacity = "0.2";
+				document.getElementById("dot6").style.opacity = "0.2";
+				document.getElementById("dot66").style.opacity = "0.2";
+				document.getElementById("dot7").style.opacity = "0.2";
+				document.getElementById("dot77").style.opacity = "0.2";
+				document.getElementById("dot8").style.opacity = "0.2";
+				document.getElementById("dot88").style.opacity = "0.2";
 
-  time[11] = 116
-  body[11] = "175.58"
-  type[11] = 'b'
-  
-  time[12] = 344
-  body[12] = "Needs sex hunger needs to belong"
-  type[12] = 'a'
-
-  time[13] = 343
-  body[13] = "Needs sex hunger needs to belong"
-  type[13] = 'a'
-
-  time[14] = 403
-  body[14] = "Sex is not the motivation hunger is"
-  type[14] = 'b'
-
-  time[15] = 103
-  body[15] = "First theory evolutionary perspective"
-  type[15] = 'a'
-
-
-  // onClick of Emoji
-  function goToTime(index, left, top, type, num) {
-    //alert(index + ' hi')
-    navigateVideoAtTime(time[index])
-
-    document.getElementById("editButton").style.display = "inline-block";
-    document.getElementById("doneButton").textContent = time[index];
-
-    document.getElementById("noteBody").value = body[index];
-    
-    player.pauseVideo();
-  }
-
-function navigateVideoAtTime(timestamp) {
-  player.seekTo(timestamp, true);
-  player.playVideo();
-
-  // upload log
-  clickedTimestampLog(realAppUserID, videoID, timestamp);
-}
-
-function elementInViewport() {
-  var el = document.getElementById("scroller")
-
-  if (el.scrollLeft < 80) {
-	document.getElementById("dot4").style.opacity = "0.2";
-    document.getElementById("dot44").style.opacity = "0.2";
-    document.getElementById("dot5").style.opacity = "0.2";
-    document.getElementById("dot55").style.opacity = "0.2";
-    document.getElementById("dot6").style.opacity = "0.2";
-    document.getElementById("dot66").style.opacity = "0.2";
-    document.getElementById("dot7").style.opacity = "0.2";
-    document.getElementById("dot77").style.opacity = "0.2";
-    document.getElementById("dot8").style.opacity = "0.2";
-    document.getElementById("dot88").style.opacity = "0.2";
-
-    document.getElementById("dot1").style.opacity = "1";
-	document.getElementById("dot11").style.opacity = "1";
-	document.getElementById("dot2").style.opacity = "1";
-	document.getElementById("dot22").style.opacity = "1";
-	document.getElementById("dot3").style.opacity = "1";
-    document.getElementById("dot33").style.opacity = "1";
-  } else if (el.scrollLeft > 80 && el.scrollLeft < 190) {
-    document.getElementById("dot1").style.opacity = "0.2";
-	document.getElementById("dot11").style.opacity = "0.2";
-	document.getElementById("dot5").style.opacity = "0.2";
-    document.getElementById("dot55").style.opacity = "0.2";
-    
-
-    document.getElementById("dot4").style.opacity = "1";
-	document.getElementById("dot44").style.opacity = "1";
-	document.getElementById("dot3").style.opacity = "1";
-	document.getElementById("dot33").style.opacity = "1";
-	document.getElementById("dot2").style.opacity = "1";
-    document.getElementById("dot22").style.opacity = "1";
-  } else if (el.scrollLeft > 190 && el.scrollLeft < 370) {
-    document.getElementById("dot2").style.opacity = "0.2";
-	document.getElementById("dot22").style.opacity = "0.2";
-	document.getElementById("dot6").style.opacity = "0.2";
-    document.getElementById("dot66").style.opacity = "0.2";
+				document.getElementById("dot1").style.opacity = "1";
+				document.getElementById("dot11").style.opacity = "1";
+				document.getElementById("dot2").style.opacity = "1";
+				document.getElementById("dot22").style.opacity = "1";
+				document.getElementById("dot3").style.opacity = "1";
+				document.getElementById("dot33").style.opacity = "1";
+			} else if (el.scrollLeft > 80 && el.scrollLeft < 190) {
+				document.getElementById("dot1").style.opacity = "0.2";
+				document.getElementById("dot11").style.opacity = "0.2";
+				document.getElementById("dot5").style.opacity = "0.2";
+				document.getElementById("dot55").style.opacity = "0.2";
 
 
-	document.getElementById("dot3").style.opacity = "1";
-	document.getElementById("dot33").style.opacity = "1";
-	document.getElementById("dot4").style.opacity = "1";
-    document.getElementById("dot44").style.opacity = "1";
-    document.getElementById("dot5").style.opacity = "1";
-    document.getElementById("dot55").style.opacity = "1";
-  } else if (el.scrollLeft > 370 && el.scrollLeft < 520) {
-    document.getElementById("dot3").style.opacity = "0.2";
-	document.getElementById("dot33").style.opacity = "0.2";
-	document.getElementById("dot7").style.opacity = "0.2";
-    document.getElementById("dot77").style.opacity = "0.2";
+				document.getElementById("dot4").style.opacity = "1";
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot3").style.opacity = "1";
+				document.getElementById("dot33").style.opacity = "1";
+				document.getElementById("dot2").style.opacity = "1";
+				document.getElementById("dot22").style.opacity = "1";
+			} else if (el.scrollLeft > 190 && el.scrollLeft < 370) {
+				document.getElementById("dot2").style.opacity = "0.2";
+				document.getElementById("dot22").style.opacity = "0.2";
+				document.getElementById("dot6").style.opacity = "0.2";
+				document.getElementById("dot66").style.opacity = "0.2";
 
 
-	document.getElementById("dot6").style.opacity = "1";
-	document.getElementById("dot66").style.opacity = "1";
-	document.getElementById("dot4").style.opacity = "1";
-    document.getElementById("dot44").style.opacity = "1";
-    document.getElementById("dot5").style.opacity = "1";
-    document.getElementById("dot55").style.opacity = "1";
-  } else if (el.scrollLeft > 520 && el.scrollLeft < 660) {
-    document.getElementById("dot4").style.opacity = "0.2";
-	document.getElementById("dot44").style.opacity = "0.2";
-	document.getElementById("dot8").style.opacity = "0.2";
-    document.getElementById("dot88").style.opacity = "0.2";
+				document.getElementById("dot3").style.opacity = "1";
+				document.getElementById("dot33").style.opacity = "1";
+				document.getElementById("dot4").style.opacity = "1";
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot5").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+			} else if (el.scrollLeft > 370 && el.scrollLeft < 520) {
+				document.getElementById("dot3").style.opacity = "0.2";
+				document.getElementById("dot33").style.opacity = "0.2";
+				document.getElementById("dot7").style.opacity = "0.2";
+				document.getElementById("dot77").style.opacity = "0.2";
 
 
-	document.getElementById("dot6").style.opacity = "1";
-	document.getElementById("dot66").style.opacity = "1";
-	document.getElementById("dot7").style.opacity = "1";
-    document.getElementById("dot77").style.opacity = "1";
-    document.getElementById("dot5").style.opacity = "1";
-    document.getElementById("dot55").style.opacity = "1";
-  } else if (el.scrollLeft > 660 && el.scrollLeft < 780) {
-    document.getElementById("dot5").style.opacity = "0.2";
-	document.getElementById("dot55").style.opacity = "0.2";
+				document.getElementById("dot6").style.opacity = "1";
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot4").style.opacity = "1";
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot5").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+			} else if (el.scrollLeft > 520 && el.scrollLeft < 660) {
+				document.getElementById("dot4").style.opacity = "0.2";
+				document.getElementById("dot44").style.opacity = "0.2";
+				document.getElementById("dot8").style.opacity = "0.2";
+				document.getElementById("dot88").style.opacity = "0.2";
 
 
-	document.getElementById("dot6").style.opacity = "1";
-	document.getElementById("dot66").style.opacity = "1";
-	document.getElementById("dot7").style.opacity = "1";
-    document.getElementById("dot77").style.opacity = "1";
-    document.getElementById("dot8").style.opacity = "1";
-    document.getElementById("dot88").style.opacity = "1";
-  } 
-}
-
-function editItem() {
-
-    var editButton = document.getElementById("editButton");
-    var doneButton = document.getElementById("doneButton");
-    var noteBody = document.getElementById("noteBody");
-
-    editButton.textContent = doneButton.textContent;
-
-    var doneBtnImg = document.createElement("img");
-    doneBtnImg.setAttribute("src", "images/icons8-approved-delivery-24.png");
-    doneButton.textContent = "";
-    doneButton.appendChild(doneBtnImg);
-
-    editButton.style.display = "none";
-    doneButton.style.display = "inline-block";
-
-    noteBody.removeAttribute("disabled");
-    noteBody.select();
+				document.getElementById("dot6").style.opacity = "1";
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot7").style.opacity = "1";
+				document.getElementById("dot77").style.opacity = "1";
+				document.getElementById("dot5").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+			} else if (el.scrollLeft > 660 && el.scrollLeft < 780) {
+				document.getElementById("dot5").style.opacity = "0.2";
+				document.getElementById("dot55").style.opacity = "0.2";
 
 
-    
-    var scroller = document.getElementsByClassName("dR4P");
-    for (let i = 0; i < 6; i++) {
-      scroller[i].onclick = "#";
-    }
+				document.getElementById("dot6").style.opacity = "1";
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot7").style.opacity = "1";
+				document.getElementById("dot77").style.opacity = "1";
+				document.getElementById("dot8").style.opacity = "1";
+				document.getElementById("dot88").style.opacity = "1";
+			}
+		} else {
+			var el = document.getElementById("scroller2")
 
-}
+			if (el.scrollLeft < 80) {
+				document.getElementById("dot44").style.opacity = "0.2";
+				document.getElementById("dot444").style.opacity = "0.2";
+				document.getElementById("dot55").style.opacity = "0.2";
+				document.getElementById("dot555").style.opacity = "0.2";
+				document.getElementById("dot66").style.opacity = "0.2";
+				document.getElementById("dot666").style.opacity = "0.2";
+				document.getElementById("dot77").style.opacity = "0.2";
+				document.getElementById("dot777").style.opacity = "0.2";
+				document.getElementById("dot88").style.opacity = "0.2";
+				document.getElementById("dot888").style.opacity = "0.2";
 
-//Global:
-var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
+				document.getElementById("dot11").style.opacity = "1";
+				document.getElementById("dot111").style.opacity = "1";
+				document.getElementById("dot22").style.opacity = "1";
+				document.getElementById("dot222").style.opacity = "1";
+				document.getElementById("dot33").style.opacity = "1";
+				document.getElementById("dot333").style.opacity = "1";
+			} else if (el.scrollLeft > 80 && el.scrollLeft < 190) {
+				document.getElementById("dot11").style.opacity = "0.2";
+				document.getElementById("dot111").style.opacity = "0.2";
+				document.getElementById("dot55").style.opacity = "0.2";
+				document.getElementById("dot555").style.opacity = "0.2";
 
-//Switcher function:
-$(".rb-tab").click(function(){
-  //Spot switcher:
-  $(this).parent().find(".rb-tab").removeClass("rb-tab-active");
-  $(this).addClass("rb-tab-active");
-});
 
-//Save data:
-$(".trigger").click(function(){
-  //Empty array:
-  survey = [];
-  //Push data:
-  for (i=1; i<=$(".rb").length; i++) {
-    var rb = "rb" + i;
-    var rbValue = parseInt($("#rb-"+i).find(".rb-tab-active").attr("data-value"));
-    //Bidimensional array push:
-    survey.push([i, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
-  };
-  //Debug:
-  debug();
-});
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot444").style.opacity = "1";
+				document.getElementById("dot33").style.opacity = "1";
+				document.getElementById("dot333").style.opacity = "1";
+				document.getElementById("dot22").style.opacity = "1";
+				document.getElementById("dot222").style.opacity = "1";
+			} else if (el.scrollLeft > 190 && el.scrollLeft < 370) {
+				document.getElementById("dot22").style.opacity = "0.2";
+				document.getElementById("dot222").style.opacity = "0.2";
+				document.getElementById("dot66").style.opacity = "0.2";
+				document.getElementById("dot666").style.opacity = "0.2";
 
-//Debug:
-function debug(){
-  var debug = "";
-  for (i=0; i<survey.length; i++) {
-    debug += "Nº " + survey[i][0] + " = " + survey[i][1] + "\n";
-  };
-  alert(debug);
-};
+
+				document.getElementById("dot33").style.opacity = "1";
+				document.getElementById("dot333").style.opacity = "1";
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot444").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+				document.getElementById("dot555").style.opacity = "1";
+			} else if (el.scrollLeft > 370 && el.scrollLeft < 520) {
+				document.getElementById("dot33").style.opacity = "0.2";
+				document.getElementById("dot333").style.opacity = "0.2";
+				document.getElementById("dot77").style.opacity = "0.2";
+				document.getElementById("dot777").style.opacity = "0.2";
+
+
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot666").style.opacity = "1";
+				document.getElementById("dot44").style.opacity = "1";
+				document.getElementById("dot444").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+				document.getElementById("dot555").style.opacity = "1";
+			} else if (el.scrollLeft > 520 && el.scrollLeft < 660) {
+				document.getElementById("dot44").style.opacity = "0.2";
+				document.getElementById("dot444").style.opacity = "0.2";
+				document.getElementById("dot88").style.opacity = "0.2";
+				document.getElementById("dot888").style.opacity = "0.2";
+
+
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot666").style.opacity = "1";
+				document.getElementById("dot77").style.opacity = "1";
+				document.getElementById("dot777").style.opacity = "1";
+				document.getElementById("dot55").style.opacity = "1";
+				document.getElementById("dot555").style.opacity = "1";
+			} else if (el.scrollLeft > 660 && el.scrollLeft < 780) {
+				document.getElementById("dot55").style.opacity = "0.2";
+				document.getElementById("dot555").style.opacity = "0.2";
+
+
+				document.getElementById("dot66").style.opacity = "1";
+				document.getElementById("dot666").style.opacity = "1";
+				document.getElementById("dot77").style.opacity = "1";
+				document.getElementById("dot777").style.opacity = "1";
+				document.getElementById("dot88").style.opacity = "1";
+				document.getElementById("dot888").style.opacity = "1";
+			}
+		}
+	}
+
+	function editItem() {
+
+		var editButton = document.getElementById("editButton");
+		var doneButton = document.getElementById("doneButton");
+		var noteBody = document.getElementById("noteBody");
+
+		editButton.textContent = doneButton.textContent;
+
+		var doneBtnImg = document.createElement("img");
+		doneBtnImg.setAttribute("src", "images/icons8-approved-delivery-24.png");
+		doneButton.textContent = "";
+		doneButton.appendChild(doneBtnImg);
+
+		editButton.style.display = "none";
+		doneButton.style.display = "inline-block";
+
+		noteBody.removeAttribute("disabled");
+		noteBody.select();
+
+
+
+		var scroller = document.getElementsByClassName("dR4P");
+		for (let i = 0; i < 6; i++) {
+			scroller[i].onclick = "#";
+		}
+
+	}
+
+	//Global:
+	var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
+
+	//Switcher function:
+	$(".rb-tab").click(function () {
+		//Spot switcher:
+		$(this).parent().find(".rb-tab").removeClass("rb-tab-active");
+		$(this).addClass("rb-tab-active");
+	});
+
+	//Save data:
+	$(".trigger").click(function () {
+		//Empty array:
+		survey = [];
+		//Push data:
+		for (i = 1; i <= $(".rb").length; i++) {
+			var rb = "rb" + i;
+			var rbValue = parseInt($("#rb-" + i).find(".rb-tab-active").attr("data-value"));
+			//Bidimensional array push:
+			survey.push([i, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
+		};
+		//Debug:
+		debug();
+	});
+
+	//Debug:
+	function debug() {
+		var debug = "";
+		for (i = 0; i < survey.length; i++) {
+			debug += "Nº " + survey[i][0] + " = " + survey[i][1] + "\n";
+		};
+		alert(debug);
+	};
 
 </script>
