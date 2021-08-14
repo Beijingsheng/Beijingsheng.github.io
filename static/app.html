@@ -2569,7 +2569,7 @@
 				document.getElementById("a8").style.paddingRight = "0px"
 			}
 
-			if ( !switch2 && !type ||tI  ) {
+			if ( !switch2 && (!type ||tI  )) {
 				document.getElementById("a11").style.visibility = 'visible'
 				document.getElementById("a11").style.width = "132px"
 				document.getElementById("a11").style.paddingRight = "36px"
@@ -2579,7 +2579,7 @@
 				document.getElementById("a11").style.paddingRight = "0px"
 			}
 
-			if ( !switch2 && !type ||tS  ) {
+			if ( !switch2 && (!type ||tS  )) {
 				document.getElementById("a22").style.visibility = 'visible'
 				document.getElementById("a22").style.width = "132px"
 				document.getElementById("a22").style.paddingRight = "36px"
@@ -2648,6 +2648,13 @@
 				document.getElementById("a88").style.width = "0px"
 				document.getElementById("a88").style.paddingRight = "0px"
 			}
+
+			if (switch2) {
+				var all = document.getElementsByClassName("dR4PP");
+				for (var i = 0; i < all.length; i++) {
+					all[i].style.visibility = "hidden"
+				}
+			}
 		}
 	}
 
@@ -2714,6 +2721,7 @@
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "block";
 			}
+
 		} else {
 			switch1 = 0
 			sf = 1
