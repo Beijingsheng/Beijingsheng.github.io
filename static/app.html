@@ -2076,17 +2076,21 @@
 				<div id="emojiFilter" style="display:none; margin-top: 0px;">
 					<p style="text-align: center;">
 							<span id="e1" data-tooltip="Boredom"
-							style="margin: 0px 10px 0px 10px; font-size: 24px; background:white; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="
+							box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);margin: 0px 10px 0px 10px; font-size: 24px; background:#0000002a; border-radius: 20px; padding: 5px;  "
 							onclick="showB()">😐</span><span style="margin-right: 60px;">Boredom</span><span id="e2" data-tooltip="Delight"
-							style="margin: 0px 10px 0px 15px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="
+							box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);margin: 0px 10px 0px 15px; font-size: 24px; background: #0000002a; border-radius: 20px; padding: 5px;  "
 							onclick="showD()">😃</span><span>Delight</span>
 							
 							<br></br>
 
 							<span id="e3" data-tooltip="Fresh Research"
-							style="margin: 0px 10px 0px 10px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="
+							box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);margin: 0px 10px 0px 10px; font-size: 24px; background: #0000002a; border-radius: 20px; padding: 5px;  "
 							onclick="showF()">😲</span><span>Fresh Research</span><span id="e4" data-tooltip="Confusion"
-							style="margin: 0px 10px 0px 30px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="
+							box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);margin: 0px 10px 0px 30px; font-size: 24px; background: #0000002a; border-radius: 20px; padding: 5px;  "
 							onclick="showC()">😕</span><span>Confusion</span></p>
 				</div>
 
@@ -2372,6 +2376,7 @@
 </html>
 
 <script>
+	
 
 	var emotion = 0
 	var type = 0
@@ -2387,7 +2392,7 @@
 
 	function showB() {
 		if (sb) {
-			document.getElementById("e1").style.background = "white"
+			document.getElementById("e1").style.background = "#0000002a"
 			sb = 0
 			emotion = emotion - 1
 		} else {
@@ -2402,7 +2407,7 @@
 	function showC() {
 		if (sc) {
 			sc = 0
-			document.getElementById("e4").style.background = "white"
+			document.getElementById("e4").style.background = "#0000002a"
 			emotion = emotion - 1
 		} else {
 			sc = 1
@@ -2415,7 +2420,7 @@
 
 	function showD() {
 		if (sd) {
-			document.getElementById("e2").style.background = "white"
+			document.getElementById("e2").style.background = "#0000002a"
 			sd = 0
 			emotion = emotion - 1
 		} else {
@@ -2430,7 +2435,7 @@
 	function showF() {
 		if (sf) {
 			sf = 0
-			document.getElementById("e3").style.background = "white"
+			document.getElementById("e3").style.background = "#0000002a"
 			emotion = emotion - 1
 		} else {
 			sf = 1
@@ -2564,7 +2569,7 @@
 				document.getElementById("a8").style.paddingRight = "0px"
 			}
 
-			if (!type ||tI  ) {
+			if ( !switch2 && !type ||tI  ) {
 				document.getElementById("a11").style.visibility = 'visible'
 				document.getElementById("a11").style.width = "132px"
 				document.getElementById("a11").style.paddingRight = "36px"
@@ -2574,7 +2579,7 @@
 				document.getElementById("a11").style.paddingRight = "0px"
 			}
 
-			if (!type ||tS  ) {
+			if ( !switch2 && !type ||tS  ) {
 				document.getElementById("a22").style.visibility = 'visible'
 				document.getElementById("a22").style.width = "132px"
 				document.getElementById("a22").style.paddingRight = "36px"
@@ -2584,7 +2589,7 @@
 				document.getElementById("a22").style.paddingRight = "0px"
 			}
 
-			if (!type ||tD  ) {
+			if ( !switch2 && !type ||tD  ) {
 				document.getElementById("a33").style.visibility = 'visible'
 				document.getElementById("a33").style.width = "132px"
 				document.getElementById("a33").style.paddingRight = "36px"
@@ -2594,7 +2599,7 @@
 				document.getElementById("a33").style.paddingRight = "0px"
 			}
 
-			if (!type ||tS  ) {
+			if ( !switch2 && !type ||tS  ) {
 				document.getElementById("a44").style.visibility = 'visible'
 				document.getElementById("a44").style.width = "132px"
 				document.getElementById("a44").style.paddingRight = "36px"
@@ -2604,7 +2609,7 @@
 				document.getElementById("a44").style.paddingRight = "0px"
 			}
 
-			if (!type ||tD  ) {
+			if ( !switch2 && !type ||tD  ) {
 				document.getElementById("a55").style.visibility = 'visible'
 				document.getElementById("a55").style.width = "132px"
 				document.getElementById("a55").style.paddingRight = "36px"
@@ -2614,7 +2619,7 @@
 				document.getElementById("a55").style.paddingRight = "0px"
 			}
 
-			if (!type ||tD  ) {
+			if ( !switch2 && !type ||tD  ) {
 				document.getElementById("a66").style.visibility = 'visible'
 				document.getElementById("a66").style.width = "132px"
 				document.getElementById("a66").style.paddingRight = "36px"
@@ -2624,7 +2629,7 @@
 				document.getElementById("a66").style.paddingRight = "0px"
 			}
 
-			if (!type ||tI  ) {
+			if ( !switch2 && !type ||tI  ) {
 				document.getElementById("a77").style.visibility = 'visible'
 				document.getElementById("a77").style.width = "132px"
 				document.getElementById("a77").style.paddingRight = "36px"
@@ -2634,7 +2639,7 @@
 				document.getElementById("a77").style.paddingRight = "0px"
 			}
 
-			if (!type ||tD  ) {
+			if ( !switch2 && !type ||tD  ) {
 				document.getElementById("a88").style.visibility = 'visible'
 				document.getElementById("a88").style.width = "132px"
 				document.getElementById("a88").style.paddingRight = "36px"
@@ -2747,10 +2752,10 @@
 			showC()
 			showD()
 			showF()*/
-			document.getElementById("e1").style.background = "white"
-			document.getElementById("e2").style.background = "white"
-			document.getElementById("e3").style.background = "white"
-			document.getElementById("e4").style.background = "white"
+			document.getElementById("e1").style.background = "#0000002a"
+			document.getElementById("e2").style.background = "#0000002a"
+			document.getElementById("e3").style.background = "#0000002a"
+			document.getElementById("e4").style.background = "#0000002a"
 
 			document.getElementById("emojiFilter").style.display = "block"
 			var all = document.getElementsByClassName('emoji');
@@ -2843,8 +2848,6 @@
 					all2[i].style.visibility = "hidden"
 				}
 
-				st1()
-				st1()
 			}
 		} else {
 
@@ -3134,5 +3137,8 @@
 		};
 		alert(debug);
 	};
+
+	st1()
+	st1()
 
 </script>
