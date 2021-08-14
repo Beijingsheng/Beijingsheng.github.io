@@ -977,6 +977,7 @@
 		overflow: hidden;
 		line-height: 21px;
 		color: #3c4043;
+		min-height: 234px;
 		max-height: 234px;
 		font-family: Roboto, arial, sans-serif-medium, sans-serif;
 		font-size: 16px;
@@ -993,6 +994,7 @@
 		overflow: hidden;
 		line-height: 21px;
 		color: #3c4043;
+		min-height: 234px;
 		max-height: 234px;
 		font-family: Roboto, arial, sans-serif-medium, sans-serif;
 		font-size: 16px;
@@ -1486,7 +1488,7 @@
 	.tg2 {
 		color: white;
 		border-radius: 5px;
-		padding: 2px 8px;
+		padding: 0.5px 2px
 		margin: 1px;
 		margin-bottom: 8px;
 		margin-top: 4px;
@@ -2052,11 +2054,11 @@
 			</div>
 
 			<div style="margin-top: 35px;">
-				<div class="container">
+				<!--div class="container">
 					<label class="button">
 						<input type="checkbox" class="switch ios" id="s0" onclick="st0()"> Hide Text</input>
 					</label>
-				</div>
+				</div-->
 
 				<div class="container" id="ss1">
 					<label class="button">
@@ -2066,7 +2068,7 @@
 
 				<div class="container" id="ss2">
 					<label class="button">
-						<input type="checkbox" class="switch ios" id="s2" onclick="st2()"> Emoji</input>
+						<input type="checkbox" class="switch ios" id="s2" onclick="st2()"> Emotions</input>
 					</label>
 				</div>
 
@@ -2074,17 +2076,17 @@
 				<div id="emojiFilter" style="display:none; margin-top: 0px;">
 					<p style="text-align: center;">
 							<span id="e1" data-tooltip="Boredom"
-							style="margin: 0px 10px 0px 10px; font-size: 24px; background:#1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background:white; border-radius: 20px; padding: 5px; border: solid white 1px;"
 							onclick="showB()">😐</span><span style="margin-right: 60px;">Boredom</span><span id="e2" data-tooltip="Delight"
-							style="margin: 0px 10px 0px 15px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="margin: 0px 10px 0px 15px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
 							onclick="showD()">😃</span><span>Delight</span>
 							
 							<br></br>
 
 							<span id="e3" data-tooltip="Fresh Research"
-							style="margin: 0px 10px 0px 10px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="margin: 0px 10px 0px 10px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
 							onclick="showF()">😲</span><span>Fresh Research</span><span id="e4" data-tooltip="Confusion"
-							style="margin: 0px 10px 0px 30px; font-size: 24px; background: #1967D225; border-radius: 20px; padding: 5px; border: solid white 1px;"
+							style="margin: 0px 10px 0px 30px; font-size: 24px; background: white; border-radius: 20px; padding: 5px; border: solid white 1px;"
 							onclick="showC()">😕</span><span>Confusion</span></p>
 				</div>
 
@@ -2371,57 +2373,72 @@
 
 <script>
 
-	var tS = 1
-	var tD = 1
-	var tI = 1
+	var emotion = 0
+	var type = 0
 
-	var sb = 1
-	var sd = 1
-	var sf = 1
-	var sc = 1
+	var tS = 0
+	var tD = 0
+	var tI = 0
+
+	var sb = 0
+	var sd = 0
+	var sf = 0
+	var sc = 0
 
 	function showB() {
 		if (sb) {
 			document.getElementById("e1").style.background = "white"
 			sb = 0
+			emotion = emotion - 1
 		} else {
 			document.getElementById("e1").style.background = "#1967D225"
 			sb = 1
+			emotion = emotion + 1
 		}
 		console.log("boredom change")
+		console.log(emotion)
 	}
 
 	function showC() {
 		if (sc) {
 			sc = 0
 			document.getElementById("e4").style.background = "white"
+			emotion = emotion - 1
 		} else {
 			sc = 1
 			document.getElementById("e4").style.background = "#1967D225"
+			emotion = emotion + 1
 		}
 		console.log("confusion change")
+		console.log(emotion)
 	}
 
 	function showD() {
 		if (sd) {
 			document.getElementById("e2").style.background = "white"
 			sd = 0
+			emotion = emotion - 1
 		} else {
 			document.getElementById("e2").style.background = "#1967D225"
 			sd = 1
+			emotion = emotion + 1
 		}
 		console.log("delightt change")
+		console.log(emotion)
 	}
 
 	function showF() {
 		if (sf) {
 			sf = 0
 			document.getElementById("e3").style.background = "white"
+			emotion = emotion - 1
 		} else {
 			sf = 1
 			document.getElementById("e3").style.background = "#1967D225"
+			emotion = emotion + 1
 		}
 		console.log("fresh research change")
+		console.log(emotion)
 	}
 
 
@@ -2429,9 +2446,11 @@
 		if (tS) {
 			tS = 0
 			document.getElementById("t1").style.padding = "0.5px 2px"
+			type = type - 1
 		} else {
 			tS = 1
 			document.getElementById("t1").style.padding = "2px 8px"
+			type = type + 1
 		}
 		console.log("STRUCTURAL change")
 	}
@@ -2440,9 +2459,11 @@
 		if (tD) {
 			document.getElementById("t2").style.padding = "0.5px 2px"
 			tD = 0
+			type = type - 1
 		} else {
 			tD = 1
 			document.getElementById("t2").style.padding = "2px 8px"
+			type = type + 1
 		}
 		console.log("DETAIL change")
 	}
@@ -2451,8 +2472,10 @@
 		if (tI) {
 			document.getElementById("t3").style.padding = "0.5px 2px"
 			tI = 0
+			type = type - 1
 		} else {
 			tI = 1
+			type = type + 1
 			document.getElementById("t3").style.padding = "2px 8px"
 		}
 		console.log("INTERPRETATION change")
@@ -2461,7 +2484,7 @@
 	function filter() {
 		if (1) {
 
-			if (tS && sb) {
+			if ((!type ||tS) && (!emotion || sb)) {
 				document.getElementById("a1").style.visibility = 'visible'
 				document.getElementById("a1").style.width = "132px"
 				document.getElementById("a1").style.paddingRight = "36px"
@@ -2471,7 +2494,7 @@
 				document.getElementById("a1").style.paddingRight = "0px"
 			}
 
-			if (tD && sd) {
+			if ((!type ||tD) && (!emotion || sd)) {
 				document.getElementById("a2").style.visibility = 'visible'
 				document.getElementById("a2").style.width = "132px"
 				document.getElementById("a2").style.paddingRight = "36px"
@@ -2481,7 +2504,7 @@
 				document.getElementById("a2").style.paddingRight = "0px"
 			}
 
-			if (tS && sf) {
+			if ((!type ||tS) && (!emotion || sf)) {
 				document.getElementById("a3").style.visibility = 'visible'
 				document.getElementById("a3").style.width = "132px"
 				document.getElementById("a3").style.paddingRight = "36px"
@@ -2491,7 +2514,7 @@
 				document.getElementById("a3").style.paddingRight = "0px"
 			}
 
-			if (tD && sc) {
+			if ((!type ||tD) && (!emotion || sc)) {
 				document.getElementById("a4").style.visibility = 'visible'
 				document.getElementById("a4").style.width = "132px"
 				document.getElementById("a4").style.paddingRight = "36px"
@@ -2501,7 +2524,7 @@
 				document.getElementById("a4").style.paddingRight = "0px"
 			}
 
-			if (tI && sd) {
+			if ((!type ||tI) && (!emotion || sd)) {
 				document.getElementById("a5").style.visibility = 'visible'
 				document.getElementById("a5").style.width = "132px"
 				document.getElementById("a5").style.paddingRight = "36px"
@@ -2511,7 +2534,7 @@
 				document.getElementById("a5").style.paddingRight = "0px"
 			}
 
-			if (tD && sf) {
+			if ((!type ||tD) && (!emotion || sf)) {
 				document.getElementById("a6").style.visibility = 'visible'
 				document.getElementById("a6").style.width = "132px"
 				document.getElementById("a6").style.paddingRight = "36px"
@@ -2521,7 +2544,7 @@
 				document.getElementById("a6").style.paddingRight = "0px"
 			}
 
-			if (tD && sb) {
+			if ((!type ||tD) && (!emotion || sb)) {
 				document.getElementById("a7").style.visibility = 'visible'
 				document.getElementById("a7").style.width = "132px"
 				document.getElementById("a7").style.paddingRight = "36px"
@@ -2531,7 +2554,7 @@
 				document.getElementById("a7").style.paddingRight = "0px"
 			}
 
-			if (tS && sc) {
+			if ((!type ||tS) && (!emotion || sc)) {
 				document.getElementById("a8").style.visibility = 'visible'
 				document.getElementById("a8").style.width = "132px"
 				document.getElementById("a8").style.paddingRight = "36px"
@@ -2541,7 +2564,7 @@
 				document.getElementById("a8").style.paddingRight = "0px"
 			}
 
-			if (tI && !hidingText) {
+			if (!type ||tI  ) {
 				document.getElementById("a11").style.visibility = 'visible'
 				document.getElementById("a11").style.width = "132px"
 				document.getElementById("a11").style.paddingRight = "36px"
@@ -2551,7 +2574,7 @@
 				document.getElementById("a11").style.paddingRight = "0px"
 			}
 
-			if (tS && !hidingText) {
+			if (!type ||tS  ) {
 				document.getElementById("a22").style.visibility = 'visible'
 				document.getElementById("a22").style.width = "132px"
 				document.getElementById("a22").style.paddingRight = "36px"
@@ -2561,7 +2584,7 @@
 				document.getElementById("a22").style.paddingRight = "0px"
 			}
 
-			if (tD && !hidingText) {
+			if (!type ||tD  ) {
 				document.getElementById("a33").style.visibility = 'visible'
 				document.getElementById("a33").style.width = "132px"
 				document.getElementById("a33").style.paddingRight = "36px"
@@ -2571,7 +2594,7 @@
 				document.getElementById("a33").style.paddingRight = "0px"
 			}
 
-			if (tS && !hidingText) {
+			if (!type ||tS  ) {
 				document.getElementById("a44").style.visibility = 'visible'
 				document.getElementById("a44").style.width = "132px"
 				document.getElementById("a44").style.paddingRight = "36px"
@@ -2581,7 +2604,7 @@
 				document.getElementById("a44").style.paddingRight = "0px"
 			}
 
-			if (tD && !hidingText) {
+			if (!type ||tD  ) {
 				document.getElementById("a55").style.visibility = 'visible'
 				document.getElementById("a55").style.width = "132px"
 				document.getElementById("a55").style.paddingRight = "36px"
@@ -2591,7 +2614,7 @@
 				document.getElementById("a55").style.paddingRight = "0px"
 			}
 
-			if (tD && !hidingText) {
+			if (!type ||tD  ) {
 				document.getElementById("a66").style.visibility = 'visible'
 				document.getElementById("a66").style.width = "132px"
 				document.getElementById("a66").style.paddingRight = "36px"
@@ -2601,7 +2624,7 @@
 				document.getElementById("a66").style.paddingRight = "0px"
 			}
 
-			if (tI && !hidingText) {
+			if (!type ||tI  ) {
 				document.getElementById("a77").style.visibility = 'visible'
 				document.getElementById("a77").style.width = "132px"
 				document.getElementById("a77").style.paddingRight = "36px"
@@ -2611,7 +2634,7 @@
 				document.getElementById("a77").style.paddingRight = "0px"
 			}
 
-			if (tD && !hidingText) {
+			if (!type ||tD  ) {
 				document.getElementById("a88").style.visibility = 'visible'
 				document.getElementById("a88").style.width = "132px"
 				document.getElementById("a88").style.paddingRight = "36px"
@@ -2678,10 +2701,10 @@
 			tD = 1
 			tI = 1
 			tS = 1
-			var all = document.getElementsByClassName('audioPlayButton');
+			/*var all = document.getElementsByClassName('audioPlayButton');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "none";
-			}
+			}*/
 			var all = document.getElementsByClassName('B58ezc');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "block";
@@ -2695,10 +2718,12 @@
 			tD = 1
 			tI = 1
 			tS = 1
+			/*
 			var all = document.getElementsByClassName('audioPlayButton');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "block";
 			}
+			*/
 			var all = document.getElementsByClassName('B58ezc');
 			for (var i = 0; i < all.length; i++) {
 				all[i].style.display = "none";
@@ -2710,22 +2735,22 @@
 		if (switch2 == 0) {
 			//document.getElementById('emojiTypes').style.display = "block"
 			switch2 = 1
-			sf = 1
-			sd = 1
-			sc = 1
-			sb = 1
-			tD = 1
-			tI = 1
-			tS = 1
+			sf = 0
+			sd = 0
+			sc = 0
+			sb = 0
+			tD = 0
+			tI = 0
+			tS = 0
 
 			/*showB()
 			showC()
 			showD()
 			showF()*/
-			document.getElementById("e1").style.background = "#1967D225"
-			document.getElementById("e2").style.background = "#1967D225"
-			document.getElementById("e3").style.background = "#1967D225"
-			document.getElementById("e4").style.background = "#1967D225"
+			document.getElementById("e1").style.background = "white"
+			document.getElementById("e2").style.background = "white"
+			document.getElementById("e3").style.background = "white"
+			document.getElementById("e4").style.background = "white"
 
 			document.getElementById("emojiFilter").style.display = "block"
 			var all = document.getElementsByClassName('emoji');
@@ -2737,13 +2762,13 @@
 		} else {
 			//document.getElementById('emojiTypes').style.display = "none"
 			switch2 = 0
-			sf = 1
-			sd = 1
-			sc = 1
-			sb = 1
-			tD = 1
-			tI = 1
-			tS = 1
+			sf = 0
+			sd = 0
+			sc = 0
+			sb = 0
+			tD = 0
+			tI = 0
+			tS = 0
 
 			/*showB()
 			showC()
@@ -2767,23 +2792,23 @@
 			if (switch3 == 0) {
 				//document.getElementById('noteTypes').style.display = "block"
 				switch3 = 1
-				sf = 1
-				sd = 1
-				sc = 1
-				sb = 1
-				tD = 1
-				tI = 1
-				tS = 1
+				sf = 0
+				sd = 0
+				sc = 0
+				sb = 0
+				tD = 0
+				tI = 0
+				tS = 0
 
 				//sD()
 				//sI()
 				//sS()
 
-				document.getElementById("t1").style.padding = "2px 8px"
+				//document.getElementById("t1").style.padding = "2px 8px"
 
-				document.getElementById("t2").style.padding = "2px 8px"
+				//document.getElementById("t2").style.padding = "2px 8px"
 
-				document.getElementById("t1").style.padding = "2px 8px"
+				//document.getElementById("t3").style.padding = "2px 8px"
 
 				document.getElementById("typeFilter").style.display = "block"
 				var all = document.getElementsByClassName('tag-1');
@@ -2797,13 +2822,13 @@
 
 				//document.getElementById('noteTypes').style.display = "none"
 				switch3 = 0
-				sf = 1
-				sd = 1
-				sc = 1
-				sb = 1
-				tD = 1
-				tI = 1
-				tS = 1
+				sf = 0
+				sd = 0
+				sc = 0
+				sb = 0
+				tD = 0
+				tI = 0
+				tS = 0
 
 				//sD()
 				//sI()
