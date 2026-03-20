@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rish Lu | Backend Engineer</title>
+    <meta
+      name="description"
+      content="Digital resume of Rish Lu, backend engineer at AWS with experience in distributed systems, API design, reliability, and multi-region production services."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <header class="site-header">
+      <a href="#top" class="brand">Rish LU</a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#summary">Summary</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section reveal">
+        <p class="eyebrow">Backend Engineering | Distributed Systems | Reliability</p>
+        <h1>
+          Rish Lu
+          <span>Backend engineer building production systems at global scale</span>
+        </h1>
+        <p class="hero-copy">
+          Software engineer with 3.5+ years at AWS building distributed systems, customer-facing
+          APIs, and production infrastructure serving [X]+ customers and processing [X] API
+          requests/month, with ownership spanning system design, service launches, monitoring,
+          and on-call operations across globally deployed services.
+        </p>
+        <div class="hero-meta">
+          <span>Amazon Web Services</span>
+          <span>New York, NY</span>
+          <span>July 2022 - Present</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#experience" class="btn btn-primary">View Experience</a>
+          <a href="#contact" class="btn btn-outline">Contact</a>
+        </div>
+      </section>
+
+      <section id="summary" class="section resume-layout reveal">
+        <article class="panel panel-main">
+          <h2>Professional Summary</h2>
+          <p>
+            Backend engineer with experience designing services, authoring technical designs, and
+            shipping production systems across 8 microservices deployed in 12 AWS regions and 20+
+            availability cells. My work has covered API development, infrastructure launches,
+            reliability engineering, and operational readiness for enterprise workloads at [X]
+            scale.
+          </p>
+        </article>
+        <aside class="panel panel-side">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li>Shipped across 8 microservices in 12 AWS regions</li>
+            <li>500+ code changes and 224+ engineering tasks delivered</li>
+            <li>Experience across system design, launches, and reliability</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="experience" class="section reveal">
+        <div class="section-head">
+          <h2>Experience</h2>
+        </div>
+
+        <article class="timeline-card">
+          <div class="timeline-head">
+            <h3>Software Development Engineer II</h3>
+            <p>Amazon Web Services - Amazon Connect</p>
+            <span>July 2022 - Present | New York, NY</span>
+          </div>
+
+          <div class="experience-group">
+            <h4>System Design and Product Delivery</h4>
+            <ul>
+              <li>
+                Designed and built a new MCP proxy service that enables AI agents to securely
+                discover and invoke tools from first-party and third-party servers as part of
+                Amazon Connect's agentic AI platform, handling [X] requests/day.
+              </li>
+              <li>
+                Authored technical design documentation, onboarding guidance, and API
+                specifications reviewed by senior engineers, then launched the service across all
+                9 commercial AWS regions with p99 latency of [X]ms.
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-group">
+            <h4>Distributed Systems and Reliability</h4>
+            <ul>
+              <li>
+                Led the expansion of 8 microservices into a new AWS region and 6 new
+                availability cells, coordinating operational readiness across 50+ service teams.
+              </li>
+              <li>
+                Migrated production throttling controls to API Gateway-based infrastructure,
+                executing a phased rollout from 25% to 100% traffic, reducing unauthorized API
+                abuse by [X]% while maintaining [X]% availability for legitimate traffic.
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-group">
+            <h4>Execution, Operations, and Cross-Functional Impact</h4>
+            <ul>
+              <li>
+                Shipped 500+ code changes and resolved 224+ engineering tasks across feature
+                development, infrastructure, security, and operational readiness work.
+              </li>
+              <li>
+                Managed 20+ deployment pipelines with canary testing, integration coverage, and
+                rollback monitoring across [X]+ AWS accounts.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <div class="section-head">
+          <h2>Technical Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Languages</h3>
+            <p>Java, TypeScript, Python</p>
+          </article>
+          <article class="skill-card">
+            <h3>AWS Services</h3>
+            <p>
+              Lambda, ECS, API Gateway, DynamoDB, S3, SQS, Glue, CloudFormation, CloudWatch,
+              Secrets Manager, STS, EventBridge, AppConfig, Route 53, ACM
+            </p>
+          </article>
+          <article class="skill-card">
+            <h3>Infrastructure</h3>
+            <p>AWS CDK, Infrastructure as Code, CI/CD pipelines, multi-region deployments</p>
+          </article>
+          <article class="skill-card">
+            <h3>Systems and Practices</h3>
+            <p>
+              Microservices, event-driven systems, multi-region and multi-cell architecture,
+              system design, canary testing, load testing, phased rollouts, operational reviews
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact reveal">
+        <h2>Contact</h2>
+        <p>Open to backend and infrastructure engineering opportunities.</p>
+        <div class="contact-stack">
+          <a
+            class="contact-link contact-link-secondary"
+            href="https://www.linkedin.com/in/risheng-lu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn Profile</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Rish Lu</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
